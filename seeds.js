@@ -3,7 +3,10 @@
 var mongoose = require('mongoose');
 var Article = require('./models/Article.js');
 var User = require('./models/User.js');
-mongoose.connection.db.dropDatabase();
+mongoose.connection.dropDatabase(error => {
+  console.log('Error', error);
+  process.exit(0);
+});
 
 var user = {
     email: 'abc@def.com',
