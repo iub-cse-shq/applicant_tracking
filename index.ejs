@@ -12,7 +12,17 @@
   </head>
   <body>
     <h2>Hello!</h2>
+    <button id="test">Show all articles</button>
+    <div id="list"></div>
   </body>
   <script src="lib/jquery/dist/jquery.min.js"></script>
   <script src="vendor/ejs_production.js"></script>
+  <script>
+  $("#test").click(function(){
+    $.get("/api/articles", function(data, status){
+      var html = new EJS({url: 'views/article/list.ejs'}).render({articles:data});
+    $("#list").html(html);
+    });
+  });
+  </script>
 </html>
