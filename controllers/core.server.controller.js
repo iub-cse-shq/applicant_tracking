@@ -9,3 +9,10 @@ exports.index = function(req, res) {
 		request: req
 	});
 };
+
+exports.about = function(req, res) {
+	res.render('./../about.ejs', {
+		user: req.user || null,
+		request: req
+	});
+};
