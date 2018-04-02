@@ -26,24 +26,12 @@ var validateLocalStrategyPassword = function(password) {
  */
 var UserSchema = new Schema({
 
-    firstName: {
+    name: {
         type: String,
         trim: true,
         default: '',
-        required: 'First Name required'
+        required: 'Name required'
       },
-
-    lastName: {
-        type: String,
-        trim: true,
-        default: '',
-        required: 'Last Name required'
-      },
-
-    displayName: {
-        type: String,
-        trim: true
-    },
     email: {
         type: String,
         trim: true,
@@ -51,10 +39,29 @@ var UserSchema = new Schema({
         match: [/.+\@.+\..+/, 'Please fill a valid email address'],
         required: 'Email required'
     },
+    password: {
+        type: String,
+        default: '',
+        validate: [validateLocalStrategyPassword, 'Password should be longer'],
+        required: 'Password required'
+    },
+
+    lastName: {
+        type: String,
+        trim: true,
+        default: '',
+        // required: 'Last Name required'
+      },
+
+    displayName: {
+        type: String,
+        trim: true
+    },
+
     username: {
         type: String,
         trim: true,
-        required: 'User Name required'
+        // required: 'User Name required'
     },
     photo: {
         type: String,
@@ -76,27 +83,22 @@ var UserSchema = new Schema({
         default: '',
         trim: true
     },
-    password: {
-        type: String,
-        default: '',
-        validate: [validateLocalStrategyPassword, 'Password should be longer'],
-        required: 'Password required'
-    },
+
     salt: {
         type: String
     },
     provider: {
         type: String,
-        required: 'Provider is required'
+        // required: 'Provider is required'
     },
     providerData: {},
     additionalProvidersData: {},
     roles: {
         type: [{
             type: String,
-            enum: ['user', 'admin']
+            enum: ['applicant', 'manager']
         }],
-        default: ['user']
+        default: ['applicant']     // fix this  
     },
     updated: {
         type: Date

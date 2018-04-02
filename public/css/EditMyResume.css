@@ -1,0 +1,211 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #F0F1F6;
+    transition: background-color .9s;
+    margin:0;
+}
+/*//////////////  NAVBAR /////////////*/
+.navbar{
+  height: 70px;
+  min-width: 100%;
+}
+.nav{
+   padding-bottom: 10px; 
+}
+.logo{
+   /* width: 120px; */
+   max-width: 25%;
+   height: auto;
+   padding-left: 10px;
+   padding-bottom: 10px;
+   cursor: pointer;
+}
+.closebtn:hover,.openbtn:hover,.logo:hover{
+   opacity: .8;
+}
+.navitems a {
+  text-decoration: none;
+  color: white;
+}
+.navitems a:hover {
+    /* text-decoration: none;
+    color: #3DADC3; */
+    /* background: #fff; */
+}
+/*////////////// SIDEBAR /////////////*/
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #32323A;
+    overflow-x: hidden;
+    transition: 0.5s;
+    opacity: 0.93;
+}
+
+.sidenav a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+    border-bottom: 1px solid #393941;
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+
+.sidenav .Sideitems a:hover{
+    text-decoration: none;
+    transition: all 0.3s;
+    color: #3DADC3;
+    background: #fff;
+}
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+.closebtn{
+  margin-top: 10px;
+  color: white;
+  cursor: pointer;
+}
+.openbtn{
+  margin: 0;
+  padding: 0;
+  font-size:30px;
+  cursor:pointer;
+  color: white;
+}
+.CompanyName  {
+  padding-top:  4px;
+  background-color: #3DADC3;
+  font-size: 30px;
+}
+.cName{
+  cursor: default;
+}
+.logoutb {
+    cursor: pointer;
+}
+/* //////////////CONTAINER START///////////////// */
+
+.container{
+  padding: 0;
+}
+.title{
+  padding-top: 20px;
+  margin-bottom: 0;
+  padding-bottom: 10px;
+}
+.sub{
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.title2{
+  margin-top: 0;
+  font-size: 24px;
+}
+.cell{
+  font-size: 2px;
+}
+.save{
+  /* width: 2000px; */
+  width: 100%;
+}
+/* .Savebtn{
+  margin: 0;
+  font-size: 10px;
+} */
+.saveb:hover{
+  border:1px solid white;
+  /* opacity: .8; */
+}
+.cancelb:hover{
+  opacity: .8;
+}
+.saveb{
+  color: white;
+  background-color: #3DADC3;
+}
+.btn {
+  font-size: 15px;
+}
+/* .main {
+    margin: 0;
+    transition: margin-left .5s;
+} */
+.checkbox1 {
+	width: 25px;
+  margin-left:17px;
+  margin-top:10px;
+	position: relative;
+}
+.checkbox1 label {
+	cursor: pointer;
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	top: 0;
+  left: 0;
+	background: #eee;
+	border:2px solid #bbb;
+}
+.checkbox1 label:hover {
+  border:2px solid #3DADC3;
+}
+.checkbox1 label:after {
+	opacity: .2;
+	content: '';
+	position: absolute;
+	width: 15px;
+	height: 7px;
+	background: transparent;
+	top: 4px;
+	left: 4px;
+	border: 3px solid #3DADC3;
+	border-top: none;
+	border-right: none;
+	transform: rotate(-45deg);
+}
+.checkbox1 label:hover::after {
+	opacity: 0.5;
+}
+.checkbox1 input[type=checkbox]:checked + label:after {
+	opacity: 1;
+}
+.labelTo{
+  margin-left:12px;
+  margin-top:17px;
+  font-size:17px;
+}
+.label1{
+  margin-left:12px;
+  margin-top:10px;
+  font-size:17px;
+  cursor:pointer;
+}
+.labelduration{
+  margin-left:12px;
+  margin-top:17px;
+  font-size:17px;
+}
+.lableAttachment{
+  margin-left:12px;
+  margin-top:15px;
+  font-size:17px;
+}
+
+@media (max-width:380px) {
+  .btn{
+    display: none;
+    width: 100%;
+  }
+
+}

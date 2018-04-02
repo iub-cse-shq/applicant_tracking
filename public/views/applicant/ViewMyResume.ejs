@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <link rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/vendor/css/style.css">
+    <link rel="stylesheet" href="/vendor/css/glyphicons.css">
+    <link rel="stylesheet" href="/css/ViewMyResume.css" crossorigin="anonymous">
+    <title>My Resume</title>
+</head>
+
+<body>
+  <header>
+        <nav class="navbar navbar-expand-xs   navbar-dark bg-dark">
+               <span class="open-slide">
+                    <span class="openbtn" onclick="openNav()">&#9776;</span>
+                    <img class="logo" src="/css/hr.png" onclick="location.href='/ApplicantDashboard';">
+                </span>
+
+              <ul class="navitems nav ml-auto">
+              <li> <a href="/MyProfile">MyProfile</a> </li>
+              <li> <a href="/ApplicantEmail">Emails</a> </li>
+              <li> <a href="/ApplicantTest">Tests</a> </li>
+              <li> <a href="/ApplicantCareerTips">CareerTips</a> </li>
+              <li> <a href="#"><span class="logoutb glyphicon glyphicon-log-out"> Logout</span></a> </li>
+            </ul>
+          </nav>
+          <div id="sidebar" class="sidenav">
+            <p href="#" class="closebtn" onclick="closeNav()">&times;</p>
+            <div class="CompanyName">
+              <a class="cName" href="#">ATS</a>
+            </div>
+            <div class="Sideitems">
+              <a href="/ApplicantDashboard">Home</a> 
+              <a href="/MyProfile">MyProfile</a>
+              <a href="/ApplicantEmail">Emails</a>
+              <a href="/ApplicantTest">Tests</a>
+              <a href="/ApplicantCareerTips">CareerTips</a>
+            </div>
+          </div>
+    </header>
+    <!-- /* CONTAINER START */ -->
+    <div class="main" id="main">
+        <div class="container" id="container">
+
+            <div class="title jumbotron" id="jumbotron">
+                <!-- used title to reduce extra padding on top of  CREATE NEW CANDIDATE -->
+                <div class="title jumbotron p-2 bg-secondary">
+                    <h3 class="title display-5 py-2 text-white">Resume of <span id="AppName"> Mohammad Zabid Akhter</span></h3>
+                </div>
+                <hr>
+                    <h1> First NAME:  <%= request.resume.fname%> </h1>
+                    <h1> Last NAME:  <%= request.resume.lname%> </h1>
+                    <h3> mobile: <%= request.resume.mobile%> </h3>
+                    <h3> city: <%= request.resume.city%> </h3>
+                    <h3> TIME CREATED: <%= request.resume.created%> </h3>
+                <hr>
+                <div class="form-row" id="basicinfo">
+                    <div class="sub col-sm-12  mt-4">
+                        <h2 class="sub title2 display-5">Basic info</h2>
+                    </div>
+                    <div class="col-sm-3" >
+                      <label for="n">First Name: </label> <br>
+                      <label for="n">Email: </label> <br>
+                      <label for="n">Skype ID: </label>
+                    </div>
+                    <div class="col-sm-3" >
+                      <label for="n">zabid</label> <br>
+                      <label for="n">zabid.antor@gmail.com </label> <br>
+                      <label for="n">zabid01: </label>
+                    </div>
+                    <div class="col-sm-3" >
+                      <label for="n">Last Name:</label> <br>
+                      <label for="n">Mobile: </label> <br>
+                      <label for="n">Twitter ID: </label>
+                    </div>
+                    <div class="col-sm-3" >
+                      <label for="n">akhter</label> <br>
+                      <label for="n">098765456 </label> <br>
+                      <label for="n">@zabid01 </label>
+                    </div>
+                </div>
+                <div class="form-row" id="address">
+                    <div class=" col-sm-12  mt-4">
+                        <h2 class="title2 display-5 ">Address info</h2>
+                    </div>
+                    <div class="col-sm-6 ">
+                        <input type="email" class="form-control mt-2 textbox" placeholder="City">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Country">
+                        <textarea class="form-control mt-2" type="text" rows="1" cols="75" placeholder="Full Address"></textarea>
+                    </div>
+                    <div class=" col-sm-6">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="District">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Zip Code">
+                    </div>
+                </div>
+                <div class="form-row" id="profession">
+
+                    <div class=" col-sm-12 mt-4">
+                        <!-- <button id="bt3" class="btn btn-info btn-sm float-right" >Add+ <span class="glyphicon glyphicon-plus"></span> </button> -->
+                        <h2 class="title2 display-6">Professional Details</h2>
+                    </div>
+                    <div class="col-sm-6 ">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Experience in Years">
+                        <input type="email" class="form-control mt-2 textbox" placeholder="Current Job Title">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Expected Salary">
+                        <textarea class="form-control mt-2" type="text" rows="1" cols="75" placeholder="Skill Set"></textarea>
+
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Highest Qualification Held">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Current Employer">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Current Salary">
+                        <textarea class="form-control mt-2" type="text" rows="1" cols="75" placeholder="Additional Info"></textarea>
+                    </div>
+
+                </div>
+                <div class="form-row" id="education">
+                    <div class=" col-sm-12 mt-4">
+                        <h2 class="title2 display-6">Educational Details</h2>
+                        <!-- <button id="bt3" class="btn btn-info btn-sm float-right" >Add+ <span class="glyphicon glyphicon-plus"></span> </button> -->
+                    </div>
+                    <div class="col-sm-12 ">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Institute/School">
+                        <input type="email" class="form-control mt-2 textbox" placeholder="Major/Department">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Degree">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="GPA/CGPA">
+
+                    </div>
+                    <div class="col-sm-3">
+                      <label class="labelduration"> Duration  </label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="month" class="form-control mt-2 textbox" placeholder="begin" >
+                    </div>
+                    <div class="col-sm-1">
+                        <label class="labelTo"> TO </label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="month" id="endDu1" class="form-control mt-2 textbox endDu1" placeholder="end">
+                    </div>
+                    <div class="checkbox1">
+                      <input type="checkbox" value="1" id="b">
+                      <label for="b"></label>
+                    </div>
+                    <label class="label1" for="b">Currently Pursuing</label>
+                </div>
+                <div class="form-row" id="Experience">
+                    <div class=" col-sm-12 mt-4">
+                        <h2 class="title2 display-6">Experience Details</h2>
+                        <!-- <button id="bt3" class="btn btn-info btn-sm float-right" >Add+ <span class="glyphicon glyphicon-plus"></span> </button> -->
+                    </div>
+                    <div class="col-sm-12 ">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Occupation/Title">
+                        <input type="email" class="form-control mt-2 textbox" placeholder="Company">
+                        <textarea class="form-control mt-2" type="text" rows="2" cols="75" placeholder="Summary"></textarea>
+                    </div>
+                    <div class="col-sm-3">
+                      <label class="labelduration">Work Duration</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="month" class="form-control mt-2 textbox" placeholder="begin" >
+                    </div>
+                    <div class="col-sm-1">
+                        <label class="labelTo"> TO </label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="month" id="endDu2" class="form-control mt-2 textbox" placeholder="end">
+                    </div>
+                    <div class="checkbox1">
+                      <input type="checkbox" value="1" id="c">
+                      <label for="c"></label>
+                    </div>
+                    <label class="label1" for="c" >I Currently Work Here</label>
+                </div>
+                <div class="form-row" id="Attachment">
+                    <div class=" col-sm-12 mt-4">
+                        <h2 class="title2 display-6">Attachment Information</h2>
+                    </div>
+
+                        <label  class="lableAttachment">Resume</label>
+                        <input type="file" class="form-control mt-2 textbox">
+                        <label   class="lableAttachment">Photo</label>
+                        <input type="file" class="form-control mt-2 textbox">
+                        <label   class="lableAttachment" >Others</label>
+                        <input type="file" class="form-control mt-2 textbox">
+
+                </div>
+
+                <div class="row mt-4">
+                    <div class=" save col-sm-12 bg-secondary ">
+                        <form class="Savebtn form-inline my-2 my-lg-0 float-right ">
+                            <button class="saveb btn btn-primary-success m-1 m-sm-2 button" type="submit">Edit</button>
+                            <!-- <button class="btn btn-primary-success m-1 m-sm-2 button" type="submit"></button> -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+    // var sidebar=0;
+    var chk1=0;
+        function openNav() {
+            // sidebar =1;
+            document.getElementById("sidebar").style.width = "210px";
+            document.getElementById("main").style.marginLeft = "0";
+            document.body.style.backgroundColor = "rgba(0,0,0,0.3)";
+            document.getElementById("container").style.backgroundColor = "#B2B2B2";
+        }
+        function closeNav() {
+          // sidebar =0;
+            document.getElementById("sidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            document.body.style.backgroundColor = "#F0F1F6";
+            document.getElementById("container").style.backgroundColor = "#F0F1F6";
+        }
+        $(document.getElementById("main")).click( function() {
+          closeNav();
+        });
+        $(document.getElementById("b")).click( function() {
+              console.log('asd');
+              if (chk1==0) {
+                $('.endDu1').attr('disabled', true);
+              }
+              else $('.endDu1').attr('enabled', true);
+        });
+
+        // $(document.getElementById("b")).click( function() {
+        //       console.log('asd');
+        //        $('.endDu1').attr('enabled', true);
+        // });
+
+        // $(document.getElementById("nav")).click( function() {
+        //       closeNav();
+        //   });
+
+    </script>
+
+</body>
+
+</html>

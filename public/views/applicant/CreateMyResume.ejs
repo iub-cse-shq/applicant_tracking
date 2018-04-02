@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <link rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/vendor/css/style.css">
+    <link rel="stylesheet" href="/vendor/css/glyphicons.css">
+    <link rel="stylesheet" href="/css/CreateMyResume.css" crossorigin="anonymous">
+    <title>Create Resume</title>
+</head>
+
+<body>
+  <header>
+        <nav class="navbar navbar-expand-xs   navbar-dark bg-dark">
+               <span class="open-slide">
+                    <span class="openbtn" onclick="openNav()">&#9776;</span>    
+                    <img class="logo" src="/css/hr.png" onclick="location.href='/ApplicantDashboard';">
+                </span>
+
+              <ul class="navitems nav ml-auto">
+              <li> <a href="/MyProfile">MyProfile</a> </li>
+              <li> <a href="/ApplicantEmail">Emails</a> </li>
+              <li> <a href="/ApplicantTest">Tests</a> </li>
+              <li> <a href="/ApplicantCareerTips">CareerTips</a> </li>
+              <li> <a href="#"><span class="logoutb glyphicon glyphicon-log-out"> Logout</span></a> </li>
+            </ul>
+          </nav>
+          <div id="sidebar" class="sidenav">
+            <p href="#" class="closebtn" onclick="closeNav()">&times;</p>
+            <div class="CompanyName">
+              <a class="cName" href="#">ATS</a>
+            </div>
+            <div class="Sideitems">
+              <a href="/ApplicantDashboard">Home</a> 
+              <a href="/MyProfile">MyProfile</a>
+              <a href="/ApplicantEmail">Emails</a>
+              <a href="/ApplicantTest">Tests</a>
+              <a href="/ApplicantCareerTips">CareerTips</a>
+            </div>
+          </div>
+    </header>
+    <!-- /* CONTAINER START */ -->
+    <div class="main" id="main">
+        <div class="container" id="container">
+
+            <div class="title jumbotron" id="jumbotron">
+                <!-- used title to reduce extra padding on top of  CREATE NEW CANDIDATE -->
+                <div class="title jumbotron p-2 bg-secondary">
+                    <h3 class="title display-5 py-2 text-white">Create My Resume</h3>
+                </div>
+                <div class="form-row" id="basicinfo">
+                    <div class="sub col-sm-12  mt-4">
+                        <h2 class="sub title2 display-5">Personal Info</h2>
+                    </div>
+                    <div class="col-sm-6" >
+                        <input type="text" class="b form-control mt-2 textbox" placeholder="First name" id="fname">
+                        <input type="email" class="b form-control mt-2 textbox" placeholder="Email" id="email">
+                        <input type="text" class="b form-control mt-2 textbox" placeholder="LinkedIn ID/Link" id="linkedIn">
+                        <input type="text" class="b form-control mt-2 textbox" placeholder="Facebook ID/Link" id="facebook">
+                    </div>
+                    <div class="col-sm-6 textbox">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Last name" id="lname">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Mobile" id="mobile">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Skype ID" id="skype">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Twitter ID" id="twitter">
+
+                    </div>
+                </div>
+                <div class="form-row" id="address">
+                    <div class=" col-sm-12  mt-4">
+                        <h2 class="title2 display-5 ">Address Info</h2>
+                    </div>
+                    <div class="col-sm-6 ">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="City" id="city">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Country" id="country">
+                        <textarea class="form-control mt-2" type="text" rows="1" cols="75" placeholder="Current Address" id="currentAddress"></textarea>
+                    </div>
+                    <div class=" col-sm-6">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="District" id="district">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Zip Code" id="zipCode">
+                    </div>
+                </div>
+                <div class="form-row" id="education">
+                    <div class=" col-sm-12 mt-4">
+                        <h2 class="title2 display-6">Educational Details</h2>
+                        <!-- <button id="bt3" class="btn btn-info btn-sm float-right" >Add+ <span class="glyphicon glyphicon-plus"></span> </button> -->
+                    </div>
+                    <div class="col-sm-12 ">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Institute/School" id="institute">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Degree" id="degree">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Field of Study" id="fieldOfStudy">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Grade" id="grade">
+
+                    </div>
+                    <div class="col-sm-12 col-md-2">
+                      <label class="labelduration"> FROM  </label>
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                        <input type="month" class="form-control mt-2 textbox" placeholder="Start Month-Year" id="startEdu">
+                    </div>
+                    <div class="col-sm-12 col-md-2">
+                        <label class="labelTo" id="to1"> TO (or expected) </label>
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                        <input type="month" class="form-control mt-2 textbox endDu1" placeholder="End Month-Year" id="endEdu">
+                    </div>
+
+                </div>
+                <div class="form-row" id="Experience">
+                    <div class=" col-sm-12 mt-4">
+                        <h2 class="title2 display-6">Experience</h2>
+                        <!-- <button id="bt3" class="btn btn-info btn-sm float-right" >Add+ <span class="glyphicon glyphicon-plus"></span> </button> -->
+                    </div>
+                    <div class="col-sm-12 ">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Title (Ex:Manager)" id="title">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Company (Ex: Unilever)" id="company">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Location (Ex: Dhaka, Bangladesh)" id="location">
+                        <textarea class="form-control mt-2" type="text" rows="3" cols="75" placeholder="Description (Ex: Responsibilitites/Achievements)" id="des"></textarea>
+                    </div>
+                    <div class="col-sm-12 col-md-2">
+                      <label class="labelduration">FROM</label>
+                    </div>
+                      <div class="col-sm-12 col-md-4">
+                        <input type="month" class="form-control mt-2 textbox" placeholder="Start Month-Year" id="startExp">
+                    </div>
+                    <div class="col-sm-12 col-md-2">
+                        <label class="labelTo" id="to2"> TO </label>
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                        <!-- <input type="month" id="endDu1" class="form-control mt-2 textbox endDu1" placeholder="end"> -->
+                        <input type="month" class="form-control mt-2 textbox endDu2" placeholder="End Month-Year" id="endExp">
+                    </div>
+                    <div class="checkbox1">
+                      <input type="checkbox" value="1" id="c">
+                      <label for="c"></label>
+                    </div>
+                    <label class="label1" for="c" >I Currently Work Here</label>
+                </div>
+                <div class="">
+                  <textarea class="form-control mt-2" type="text" rows="1" cols="75" placeholder="Skill Set (Ex: Microsoft Office Skills, C++)" id="skillSet"></textarea>
+                  <!-- <textarea class="form-control mt-2" type="text" rows="3" cols="75" placeholder="Summary"></textarea> -->
+
+                </div>
+
+                <div class="form-row" id="Attachment">
+                    <div class=" col-sm-12 mt-4">
+                        <h2 class="title2 display-6">Attachment Information</h2>
+                    </div>
+
+                  <div class="row">
+                    <div class="col-sm-12 col-md-4">
+                        <label  class="lableAttachment">Resume:</label>
+                    </div>
+                    <div class="col-sm-12 col-md-8">
+                          <input type="file" class="form-control mt-2 textbox" id="resumeAtt">
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                        <label  class="lableAttachment">Photo:</label>
+                    </div>
+                    <div class="col-sm-12 col-md-8">
+                          <input type="file" class="form-control mt-2 textbox" id="photoAtt">
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                        <label  class="lableAttachment">Others:</label>
+                    </div>
+                    <div class="col-sm-12 col-md-8">
+                          <input type="file" class="form-control mt-2 textbox" id="othersAtt">
+                  </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class=" save col-sm-12 bg-secondary ">
+                        <form class="Savebtn form-inline my-2 my-lg-0 float-right ">
+                            <button class="saveb btn btn-primary-success m-1 m-sm-2 button" type="submit" id="submit">Submit</button>
+                            <button class="cancelb btn btn-primary-success m-1 m-sm-2 button" type="submit">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="/vendor/js/jquery-3.3.1.js"></script>
+    <script type="/vendor/text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script src="/vendor/js/script.js"></script>
+    <script src="/vendor/js/bootstrap.min.js"></script>
+    <script>
+
+    // var sidebar=0;
+    var chk1=0;
+        function openNav() {
+            // sidebar =1;
+            document.getElementById("sidebar").style.width = "210px";
+            document.getElementById("main").style.marginLeft = "0";
+            document.body.style.backgroundColor = "rgba(0,0,0,0.3)";
+            document.getElementById("container").style.backgroundColor = "#B2B2B2";
+        }
+        function closeNav() {
+          // sidebar =0;
+            document.getElementById("sidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            document.body.style.backgroundColor = "#F0F1F6";
+            document.getElementById("container").style.backgroundColor = "#F0F1F6";
+        }
+        $(document.getElementById("main")).click( function() {
+          closeNav();
+        });
+
+        $(document.getElementById("c")).click( function() {
+              if ($('#c').is(':checked')) {
+                $('#endExp').attr('disabled', true);
+                document.getElementById("to2").innerText="TO: PRESENT";
+            }
+            else {
+              $('#endExp').attr('disabled', false);
+              document.getElementById("to2").innerText="TO";
+
+            }
+        });
+        // $(document.getElementById("nav")).click( function() {
+        //       closeNav();
+        //   });
+        
+        var newResume = {fname:"", lname:"", email:"", mobile:"", linkedIn:"", facebook:"", skype:"", twitter:"", city:"", country:"",
+                         currentAddress:"",district:"",zipCode:"",institute:"",degree:"",fieldOfStudy:"",grade:"",startEdu:"",endEdu:"",
+                         title:"",company:"",location:"",des:"",startExp:"",endExp:"",skillSet:"",resumeAtt:"",photoAtt:"",othersAtt:"" };
+          $('#submit').click(function(){
+              console.log('working!');
+            newResume.fname=$('#fname').val();
+            newResume.lname=$('#lname').val();
+            newResume.email=$('#email').val();
+            newResume.mobile=$('#mobile').val();
+            newResume.linkedIn=$('#linkedIn').val();
+            newResume.facebook=$('#facebook').val();
+            newResume.skype=$('#skype').val();
+            newResume.twitter=$('#twitter').val();
+            newResume.city=$('#city').val();
+            newResume.country=$('#country').val();
+            newResume.currentAddress=$('#currentAddress').val();
+            newResume.district=$('#district').val();
+            newResume.zipCode=$('#zipCode').val();
+            newResume.institute=$('#institute').val();
+            newResume.degree=$('#degree').val();
+            newResume.fieldOfStudy=$('#fieldOfStsudy').val();
+            newResume.grade=$('#grade').val();
+            newResume.startEdu=$('#startEdu').val();
+            newResume.endEdu=$('#endEdu').val();
+            newResume.title=$('#title').val();
+            newResume.company=$('#company').val();
+            newResume.location=$('#location').val();
+            newResume.des=$('#des').val();
+            newResume.startExp=$('#startExp').val();
+            newResume.endExp=$('#endExp').val();
+            newResume.skillSet=$('#skillSet').val();
+            newResume.resumeAtt=$('#resumeAtt').val();
+            newResume.photoAtt=$('#photoAtt').val();
+            newResume.othersAtt=$('#othersAtt').val();
+           $.ajax({
+               method:"POST",
+               url: "/api/resumes",
+               data: newResume
+           }).done(function(response){
+            //   $('#success').text("Resume Added!");
+               console.log(response);
+               console.log($('#email').val());
+               console.log(newResume.email);
+            //   window.location.replace('/resume/'+response._id);
+           }).fail(function(response){
+            //   $('#error').text(JSON.parse(response.responseText).message);
+               console.log(response.responseText);
+           });
+                 return false; 
+          });
+
+    </script>
+
+</body>
+
+</html>
