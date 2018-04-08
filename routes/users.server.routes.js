@@ -23,11 +23,14 @@ module.exports = function(app) {
 
 	// Setting up the users authentication api
 	app.route('/auth/signup').post(users.signup);
+	// app.route('/auth/signup').get(users.signup);
 	app.route('/auth/signin').post(users.signin);
 	app.route('/auth/signout').get(users.signout);
 
 	// Routes to user views
-	app.route('/signin').get(users.signinView);
+	app.route('/signin').get(users.signinView);    //signin
+	app.route('/signup').get(users.signupView);    //signin
+	
 	// Finish by binding the user middleware
 	app.param('userId', users.userByID);
 };

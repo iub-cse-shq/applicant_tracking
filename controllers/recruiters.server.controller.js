@@ -105,84 +105,138 @@ module.exports.listView = function(req, res) {
   });
 };
 
-module.exports.ApplicantDashboard = function(req, res) {
+module.exports.Dashboard = function(req, res) {
      
-    res.render('./../public/views/applicant/ApplicantDashboard.ejs', {
-    // res.render('./../public/views/recruiter/dashboard.ejs', {
+    res.render('./../public/views/recruiter/dashboard.ejs', {
 		user: req.user || null, 
 		request: req
 	});
 };
-module.exports.MyProfile = function(req, res) {
+module.exports.TrackApplicants = function(req, res) {
      
-    res.render('./../public/views/applicant/MyProfile.ejs', {
+    res.render('./../public/views/recruiter/TrackApplicants.ejs', {
 		user: req.user || null, 
 		request: req
 	});
 };
-module.exports.ApplicantEmail = function(req, res) {
+module.exports.Applicants = function(req, res) {
      
-    res.render('./../public/views/applicant/ApplicantEmail.ejs', {
+    res.render('./../public/views/recruiter/Applicants.ejs', {
 		user: req.user || null, 
 		request: req
 	});
 };
-module.exports.ApplicantTest = function(req, res) {
+module.exports.CreateApplicant = function(req, res) {
      
-    res.render('./../public/views/applicant/ApplicantTest.ejs', {
+    res.render('./../public/views/recruiter/CreateApplicant.ejs', {
 		user: req.user || null, 
 		request: req
 	});
 };
-module.exports.ApplicantCareerTips = function(req, res) {
+module.exports.ViewApplicant = function(req, res) {
      
-    res.render('./../public/views/applicant/ApplicantCareerTips.ejs', {
+    res.render('./../public/views/recruiter/ViewApplicant.ejs', {
 		user: req.user || null, 
 		request: req
 	});
 };
-module.exports.ViewMyResume = function(req, res) {
-	//console.log(req.user);
-	var ObjectId = require('mongoose').Types.ObjectId; // load the Mongoose ObjectId function 
-	 // Mongoose query find and return one object.
-	// Resumee.findOne({title: ObjectId(searchData)}).exec(function(err, resumee) {
-	Resumee.findOne({user: ObjectId(req.user._id)}).exec(function(err, resumee) {
-		if (err) console.error(err);
-		if (!resumee) return console.error(new Error('Failed to load resumee of user' + req.user._id));
-		req.resumee = resumee;
-		console.log(resumee);
-		
-		res.render('./../public/views/applicant/ViewMyResume.ejs', {
-			user: req.user || null, 
-			request: req
-		});
-	});
-	
-    
-};
-module.exports.CreateMyResume = function(req, res) {
+module.exports.EditApplicant = function(req, res) {
      
-    res.render('./../public/views/applicant/CreateMyResume.ejs', {
+    res.render('./../public/views/recruiter/EditApplicant.ejs', {
 		user: req.user || null, 
 		request: req
 	});
 };
-module.exports.EditMyResume = function(req, res) {
-	// 	//console.log(req.user);
-	// var ObjectId = require('mongoose').Types.ObjectId; // load the Mongoose ObjectId function 
-	//  // Mongoose query find and return one object.
-	// // Resumee.findOne({title: ObjectId(searchData)}).exec(function(err, resumee) {
-	// Resumee.findOne({user: ObjectId(req.user._id)}).exec(function(err, resumee) {
-	// 	if (err) console.error(err);
-	// 	if (!resumee) return console.error(new Error('Failed to load resumee of user' + req.user._id));
-	// 	req.resumee = resumee;
-	// 	console.log(resumee);
+module.exports.Clients = function(req, res) {
      
-    res.render('./../public/views/applicant/EditMyResume.ejs', {
+    res.render('./../public/views/recruiter/Clients.ejs', {
 		user: req.user || null, 
 		request: req
-	 });
-	// });
+	});
+};
+module.exports.CreateClients = function(req, res) {
+     
+    res.render('./../public/views/recruiter/CreateClients.ejs', {
+		user: req.user || null, 
+		request: req
+	});
+};
+module.exports.ViewClient = function(req, res) {
+     
+    res.render('./../public/views/recruiter/ViewClient.ejs', {
+		user: req.user || null, 
+		request: req
+	});
+};
+module.exports.EditClient = function(req, res) {
+     
+    res.render('./../public/views/recruiter/EditClient.ejs', {
+		user: req.user || null, 
+		request: req
+	});
+};
+module.exports.JobOpenings = function(req, res) {
+     
+    res.render('./../public/views/recruiter/JobOpenings.ejs', {
+		user: req.user || null, 
+		request: req
+	});
+};
+module.exports.CreateJobOpenings = function(req, res) {
+     
+    res.render('./../public/views/recruiter/CreateJobOpenings.ejs', {
+		user: req.user || null, 
+		request: req
+	});
+};
+module.exports.ViewJobOpenings = function(req, res) {
+     
+    res.render('./../public/views/recruiter/ViewJobOpenings.ejs', {
+		user: req.user || null, 
+		request: req
+	});
+};
+module.exports.EditJobOpenings = function(req, res) {
+     
+    res.render('./../public/views/recruiter/EditJobOpenings.ejs', {
+		user: req.user || null, 
+		request: req
+	});
+};
+module.exports.CareerTips = function(req, res) {
+     
+    res.render('./../public/views/recruiter/CareerTips.ejs', {
+		user: req.user || null, 
+		request: req
+	});
+};
+module.exports.Emails = function(req, res) {
+     
+    res.render('./../public/views/recruiter/Emails.ejs', {
+		user: req.user || null, 
+		request: req
+	});
+};
+module.exports.Tests = function(req, res) {
+     
+    res.render('./../public/views/recruiter/Tests.ejs', {
+		user: req.user || null, 
+		request: req
+	});
+};
+module.exports.UserAdministration = function(req, res) {
+     
+    res.render('./../public/views/recruiter/UserAdministration.ejs', {
+		user: req.user || null, 
+		request: req
+	});
+};
+module.exports.CreateNewUser = function(req, res) {
+     
+    res.render('./../public/views/recruiter/CreateNewUser.ejs', {
+		user: req.user || null, 
+		request: req
+	});
 };
 
 exports.applicantByID = function(req, res, next, id) {

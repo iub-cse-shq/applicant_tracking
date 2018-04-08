@@ -32,6 +32,11 @@ var UserSchema = new Schema({
         default: '',
         required: 'Name required'
       },
+    type: {
+        type: String,
+        trim: true,
+        default: 'Applicant',
+      },
     email: {
         type: String,
         trim: true,
@@ -45,7 +50,12 @@ var UserSchema = new Schema({
         validate: [validateLocalStrategyPassword, 'Password should be longer'],
         required: 'Password required'
     },
-
+    roles: {
+        type: String,
+        default: 'Applicant',
+        enum: ['Applicant' , 'Recruiter']
+    },
+    
     lastName: {
         type: String,
         trim: true,
@@ -93,13 +103,14 @@ var UserSchema = new Schema({
     },
     providerData: {},
     additionalProvidersData: {},
-    roles: {
-        type: [{
-            type: String,
-            enum: ['applicant', 'manager']
-        }],
-        default: ['applicant']     // fix this  
-    },
+    // roles: {
+    //     type: [{
+    //         type: String,
+    //         enum: ['applicant', 'manager']
+    //     }],
+    //     default: ['applicant']     // fix this  
+    // },
+
     updated: {
         type: Date
     },

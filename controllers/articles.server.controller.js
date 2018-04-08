@@ -105,6 +105,7 @@ module.exports.listView = function(req, res) {
   	
 };
 
+
 exports.articleByID = function(req, res, next, id) {
 	Article.findById(id).populate('user', 'email').exec(function(err, article) {
 		if (err) return next(err);

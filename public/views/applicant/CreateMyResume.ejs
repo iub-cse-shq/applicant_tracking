@@ -12,35 +12,7 @@
 </head>
 
 <body>
-  <header>
-        <nav class="navbar navbar-expand-xs   navbar-dark bg-dark">
-               <span class="open-slide">
-                    <span class="openbtn" onclick="openNav()">&#9776;</span>    
-                    <img class="logo" src="/css/hr.png" onclick="location.href='/ApplicantDashboard';">
-                </span>
-
-              <ul class="navitems nav ml-auto">
-              <li> <a href="/MyProfile">MyProfile</a> </li>
-              <li> <a href="/ApplicantEmail">Emails</a> </li>
-              <li> <a href="/ApplicantTest">Tests</a> </li>
-              <li> <a href="/ApplicantCareerTips">CareerTips</a> </li>
-              <li> <a href="#"><span class="logoutb glyphicon glyphicon-log-out"> Logout</span></a> </li>
-            </ul>
-          </nav>
-          <div id="sidebar" class="sidenav">
-            <p href="#" class="closebtn" onclick="closeNav()">&times;</p>
-            <div class="CompanyName">
-              <a class="cName" href="#">ATS</a>
-            </div>
-            <div class="Sideitems">
-              <a href="/ApplicantDashboard">Home</a> 
-              <a href="/MyProfile">MyProfile</a>
-              <a href="/ApplicantEmail">Emails</a>
-              <a href="/ApplicantTest">Tests</a>
-              <a href="/ApplicantCareerTips">CareerTips</a>
-            </div>
-          </div>
-    </header>
+    <% include include/header %>
     <!-- /* CONTAINER START */ -->
     <div class="main" id="main">
         <div class="container" id="container">
@@ -56,7 +28,7 @@
                     </div>
                     <div class="col-sm-6" >
                         <input type="text" class="b form-control mt-2 textbox" placeholder="First name" id="fname">
-                        <input type="email" class="b form-control mt-2 textbox" placeholder="Email" id="email">
+                        <input type="email" class="b form-control mt-2 textbox" placeholder="Email" id="email" value="<%= request.user.email%>">
                         <input type="text" class="b form-control mt-2 textbox" placeholder="LinkedIn ID/Link" id="linkedIn">
                         <input type="text" class="b form-control mt-2 textbox" placeholder="Facebook ID/Link" id="facebook">
                     </div>
@@ -73,7 +45,7 @@
                         <h2 class="title2 display-5 ">Address Info</h2>
                     </div>
                     <div class="col-sm-6 ">
-                        <input type="text" class="form-control mt-2 textbox" placeholder="City" id="city">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="City"  id="city">
                         <input type="text" class="form-control mt-2 textbox" placeholder="Country" id="country">
                         <textarea class="form-control mt-2" type="text" rows="1" cols="75" placeholder="Current Address" id="currentAddress"></textarea>
                     </div>
@@ -85,7 +57,7 @@
                 <div class="form-row" id="education">
                     <div class=" col-sm-12 mt-4">
                         <h2 class="title2 display-6">Educational Details</h2>
-                        <!-- <button id="bt3" class="btn btn-info btn-sm float-right" >Add+ <span class="glyphicon glyphicon-plus"></span> </button> -->
+                         <button id="bt3" class="btn btn-info btn-sm float-right" >Add+ <span class="glyphicon glyphicon-plus"></span> </button> 
                     </div>
                     <div class="col-sm-12 ">
                         <input type="text" class="form-control mt-2 textbox" placeholder="Institute/School" id="institute">
@@ -174,7 +146,7 @@
                     <div class=" save col-sm-12 bg-secondary ">
                         <form class="Savebtn form-inline my-2 my-lg-0 float-right ">
                             <button class="saveb btn btn-primary-success m-1 m-sm-2 button" type="submit" id="submit">Submit</button>
-                            <button class="cancelb btn btn-primary-success m-1 m-sm-2 button" type="submit">Cancel</button>
+                            <button class="cancelb btn btn-primary-success m-1 m-sm-2 button" type="submit" id="cancel">Cancel</button>
                         </form>
                     </div>
                 </div>
@@ -188,18 +160,14 @@
     <script src="/vendor/js/script.js"></script>
     <script src="/vendor/js/bootstrap.min.js"></script>
     <script>
-
-    // var sidebar=0;
-    var chk1=0;
+   var chk1=0;
         function openNav() {
-            // sidebar =1;
             document.getElementById("sidebar").style.width = "210px";
             document.getElementById("main").style.marginLeft = "0";
             document.body.style.backgroundColor = "rgba(0,0,0,0.3)";
             document.getElementById("container").style.backgroundColor = "#B2B2B2";
         }
         function closeNav() {
-          // sidebar =0;
             document.getElementById("sidebar").style.width = "0";
             document.getElementById("main").style.marginLeft = "0";
             document.body.style.backgroundColor = "#F0F1F6";
@@ -220,15 +188,11 @@
 
             }
         });
-        // $(document.getElementById("nav")).click( function() {
-        //       closeNav();
-        //   });
-        
         var newResume = {fname:"", lname:"", email:"", mobile:"", linkedIn:"", facebook:"", skype:"", twitter:"", city:"", country:"",
                          currentAddress:"",district:"",zipCode:"",institute:"",degree:"",fieldOfStudy:"",grade:"",startEdu:"",endEdu:"",
                          title:"",company:"",location:"",des:"",startExp:"",endExp:"",skillSet:"",resumeAtt:"",photoAtt:"",othersAtt:"" };
+      
           $('#submit').click(function(){
-              console.log('working!');
             newResume.fname=$('#fname').val();
             newResume.lname=$('#lname').val();
             newResume.email=$('#email').val();
@@ -265,15 +229,19 @@
            }).done(function(response){
             //   $('#success').text("Resume Added!");
                console.log(response);
-               console.log($('#email').val());
-               console.log(newResume.email);
-            //   window.location.replace('/resume/'+response._id);
+               alert("Resume Submitted Successfully!");
+              window.location.replace('/ViewMyResume');
            }).fail(function(response){
             //   $('#error').text(JSON.parse(response.responseText).message);
                console.log(response.responseText);
            });
                  return false; 
           });
+          
+        $('#cancel').click(function(){
+            window.location.replace('/MyProfile');
+                
+        });
 
     </script>
 

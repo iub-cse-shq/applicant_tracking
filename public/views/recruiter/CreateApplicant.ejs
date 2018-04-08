@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/glyphicons.css">
+    <link rel="stylesheet" href="CreateApplicant.css">
+    <title>Create Resume</title>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-xs   navbar-dark bg-dark">
+           <span class="open-slide">
+                <span class="openbtn" onclick="openNav()">&#9776;</span>
+                <img class="logo" src="hr.png" onclick="location.href='dashboard.html';">
+            </span>
+          <ul class="a navitems nav ml-auto" >
+            <li> <a href="TrackApplicants.html">TrackApplicants</a> </li>
+          <li> <a href="Applicants.html">Applicants</a> </li>
+          <li> <a href="JobOpenings.html">JobOpenings</a> </li>
+          <li> <a href="Clients.html">Clients</a> </li>
+          <li> <a href="#"><span class="logoutb glyphicon glyphicon-log-out"> Logout</span></a> </li>
+        </ul>
+      </nav>
+      <div id="sidebar" class="sidenav">
+        <p href="#" class="closebtn" onclick="closeNav()">&times;</p>
+        <div class="CompanyName">
+          <a class="cName" href="#">ATS</a>
+        </div>
+        <div class="Sideitems">
+          <a href="dashboard.html">ActivityReport</a>
+          <a href="TrackApplicants.html">TrackApplicant</a>
+          <a href="JobOpenings.html">JobOpenings</a>
+          <a href="Applicants.html">Candidates</a>
+          <a href="Clients.html">Clients</a>
+          <a href="Emails.html">Emails</a>
+          <a href="Tests.html">Tests</a>
+          <a href="CareerTips.html">CareerTips</a>
+          <a href="UserAdministration.html">UserAdministration</a>
+      </div>
+    </div>
+  </header>
+    <!-- /* CONTAINER START */ -->
+    <div class="main" id="main">
+        <div class="container" id="container">
+
+            <div class="title jumbotron" id="jumbotron">
+                <!-- used title to reduce extra padding on top of  CREATE NEW CANDIDATE -->
+                <div class="title jumbotron p-2 bg-secondary">
+                    <h3 class="title display-5 py-2 text-white">Create New Applicant</h3>
+                </div>
+                <div class="form-row" id="basicinfo">
+                    <div class="sub col-sm-12  mt-4">
+                        <h2 class="sub title2 display-5">Personal Info</h2>
+                    </div>
+                    <div class="col-sm-6" >
+                        <input type="text" class="b form-control mt-2 textbox" placeholder="First name">
+                        <input type="email" class="b form-control mt-2 textbox" placeholder="Email">
+                        <input type="url" class="b form-control mt-2 textbox" placeholder="LinkedIn ID">
+                        <input type="url" class="b form-control mt-2 textbox" placeholder="Facebook ID">
+                    </div>
+                    <div class="col-sm-6 textbox">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Last name">
+                        <input type="text" class= "form-control mt-2 textbox" placeholder="Mobile">
+                        <input type="url" class="form-control mt-2 textbox" placeholder="Skype ID">
+                        <input type="url" class="form-control mt-2 textbox" placeholder="Twitter ID">
+
+                    </div>
+                </div>
+                <div class="form-row" id="address">
+                    <div class=" col-sm-12  mt-4">
+                        <h2 class="title2 display-5 ">Address Info</h2>
+                    </div>
+                    <div class="col-sm-6 ">
+                        <input type="email" class="form-control mt-2 textbox" placeholder="City">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Country">
+                        <textarea class="form-control mt-2" type="text" rows="1" cols="75" placeholder="Current Address"></textarea>
+                    </div>
+                    <div class=" col-sm-6">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="District">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Zip Code">
+                    </div>
+                </div>
+                <div class="form-row" id="education">
+                    <div class=" col-sm-12 mt-4">
+                        <h2 class="title2 display-6">Educational Details</h2>
+                        <!-- <button id="bt3" class="btn btn-info btn-sm float-right" >Add+ <span class="glyphicon glyphicon-plus"></span> </button> -->
+                    </div>
+                    <div class="col-sm-12 ">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Institute/School">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Degree">
+                        <input type="email" class="form-control mt-2 textbox" placeholder="Field of Study">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Grade">
+
+                    </div>
+                    <div class="col-sm-12 col-md-2">
+                      <label class="labelduration"> FROM  </label>
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                        <input type="month" class="form-control mt-2 textbox" placeholder="Start Month-Year" >
+                    </div>
+                    <div class="col-sm-12 col-md-2">
+                        <label class="labelTo" id="to1"> TO (or expected) </label>
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                        <input type="month" id="endDu1" class="form-control mt-2 textbox endDu1" placeholder="End Month-Year">
+                    </div>
+
+                </div>
+                <div class="form-row" id="Experience">
+                    <div class=" col-sm-12 mt-4">
+                        <h2 class="title2 display-6">Experience</h2>
+                        <!-- <button id="bt3" class="btn btn-info btn-sm float-right" >Add+ <span class="glyphicon glyphicon-plus"></span> </button> -->
+                    </div>
+                    <div class="col-sm-12 ">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Title (Ex:Manager)">
+                        <input type="email" class="form-control mt-2 textbox" placeholder="Company (Ex: Unilever)">
+                        <input type="email" class="form-control mt-2 textbox" placeholder="Location (Ex: Dhaka, Bangladesh)">
+                        <textarea class="form-control mt-2" type="text" rows="3" cols="75" placeholder="Description (Ex: Responsibilitites/Achievements)"></textarea>
+                    </div>
+                    <div class="col-sm-12 col-md-2">
+                      <label class="labelduration">FROM</label>
+                    </div>
+                      <div class="col-sm-12 col-md-4">
+                        <input type="month" class="form-control mt-2 textbox" placeholder="Start Month-Year" >
+                    </div>
+                    <div class="col-sm-12 col-md-2">
+                        <label class="labelTo" id="to2"> TO </label>
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                        <!-- <input type="month" id="endDu1" class="form-control mt-2 textbox endDu1" placeholder="end"> -->
+                        <input type="month" id="endDu2" class="form-control mt-2 textbox endDu2" placeholder="End Month-Year">
+                    </div>
+                    <div class="checkbox1">
+                      <input type="checkbox" value="1" id="c">
+                      <label for="c"></label>
+                    </div>
+                    <label class="label1" for="c" >I Currently Work Here</label>
+                </div>
+                <div class="">
+                  <textarea class="form-control mt-2" type="text" rows="1" cols="75" placeholder="Skill Set (Ex: Microsoft Office Skills, C++)"></textarea>
+                  <!-- <textarea class="form-control mt-2" type="text" rows="3" cols="75" placeholder="Summary"></textarea> -->
+
+                </div>
+
+                <div class="form-row" id="Attachment">
+                    <div class=" col-sm-12 mt-4">
+                        <h2 class="title2 display-6">Attachment Information</h2>
+                    </div>
+
+                  <div class="row">
+                    <div class="col-sm-12 col-md-4">
+                        <label  class="lableAttachment">Resume:</label>
+                    </div>
+                    <div class="col-sm-12 col-md-8">
+                          <input type="file" class="form-control mt-2 textbox">
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                        <label  class="lableAttachment">Photo:</label>
+                    </div>
+                    <div class="col-sm-12 col-md-8">
+                          <input type="file" class="form-control mt-2 textbox">
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                        <label  class="lableAttachment">Others:</label>
+                    </div>
+                    <div class="col-sm-12 col-md-8">
+                          <input type="file" class="form-control mt-2 textbox">
+                  </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class=" save col-sm-12 bg-secondary ">
+                        <form class="Savebtn form-inline my-2 my-lg-0 float-right ">
+                            <button class="saveb btn btn-primary-success m-1 m-sm-2 button" type="submit">Save</button>
+                            <button class="btn btn-primary-success m-1 m-sm-2 button" type="submit">Save and New</button>
+                            <button class="cancelb btn btn-primary-success m-1 m-sm-2 button" type="submit">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+       <script src="/vendor/js/jquery-3.3.1.js"></script>
+    <script type="/vendor/text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script src="/vendor/js/script.js"></script>
+    <script src="/vendor/js/bootstrap.min.js"></script>
+    <script>
+        function openNav() {
+            document.getElementById("sidebar").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "0";
+            document.body.style.backgroundColor = "rgba(0,0,0,0.3)";
+            document.getElementById("container").style.backgroundColor = "#B2B2B2";
+        }
+        function closeNav() {
+            document.getElementById("sidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            document.body.style.backgroundColor = "#F0F1F6";
+            document.getElementById("container").style.backgroundColor = "#F0F1F6";
+        }
+        $(document.getElementById("main")).click( function() {
+          closeNav();
+        });
+
+        $(document.getElementById("c")).click( function() {
+              if ($('#c').is(':checked')) {
+                $('#endDu2').attr('disabled', true);
+                document.getElementById("to2").innerText="TO: PRESENT";
+            }
+            else {
+              $('#endDu2').attr('disabled', false);
+              document.getElementById("to2").innerText="TO";
+
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>

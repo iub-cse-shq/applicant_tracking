@@ -3,205 +3,194 @@
 
 <head>
     <meta charset="utf-8">
-       <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="stylesheet" href="/vendor/css/bootstrap.min.css">
     <link rel="stylesheet" href="/vendor/css/style.css">
     <link rel="stylesheet" href="/vendor/css/glyphicons.css">
     <link rel="stylesheet" href="/css/EditMyResume.css" crossorigin="anonymous">
-    <title>Edit Resume</title>
+    <title>Edit My Resume</title>
 </head>
 
 <body>
-  <header>
-        <nav class="navbar navbar-expand-xs   navbar-dark bg-dark">
-               <span class="open-slide">
-                    <span class="openbtn" onclick="openNav()">&#9776;</span>
-                    <img class="logo" src="/css/hr.png" onclick="location.href='/ApplicantDashboard';">
-                </span>
+     <% include include/header %>
+  <!-- /* CONTAINER START */ -->
+ <div class="main" id="main">
+     <div class="container" id="container">
+         <div class="title jumbotron" id="jumbotron">
+             <div class="title jumbotron p-2 bg-secondary">
+                 <h3 class="title display-5 py-2 text-white">Edit My Resume</h3>
+             </div>
+             <div class="form-row" id="basicinfo">
+                 <div class="sub col-sm-12  mt-4">
+                     <h2 class="sub title2 display-5">Personal Info</h2>
+                 </div>
+                 <div class="col-sm-6">
+                     <label class="labelLeft" for="fname">First Name</label>
+                     <input type="text" class="b form-control mt-2 textbox" placeholder="First name" id="fname" value=<%=request.resumee.fname%>>
+                     <label class="labelLeft" for="email">Email</label>
+                     <input type="email" class="b form-control mt-2 textbox" placeholder="Email" id="email" value=<%=request.resumee.email%>>
+                     <label class="labelLeft" for="linkedIn">LinkedIn ID/URL</label>
+                     <input type="text" class="b form-control mt-2 textbox" placeholder="LinkedIn ID/Link" id="linkedIn" value=<%=request.resumee.linkedIn%>>
+                     <label class="labelLeft" for="facebook">Facebook ID/URL</label>
+                     <input type="text" class="b form-control mt-2 textbox" placeholder="Facebook ID/Link" id="facebook" value=<%=request.resumee.facebook%>>
+                 </div>
+                 <div class="col-sm-6 textbox">
+                     <label class="labelLeft" for="lname">Last Name</label>
+                     <input type="text" class="form-control mt-2 textbox" placeholder="Last name" id="lname" value=<%=request.resumee.lname%>>
+                     <label class="labelLeft" for="mobile">Mobile</label>
+                     <input type="text" class="form-control mt-2 textbox" placeholder="Mobile" id="mobile" value=<%=request.resumee.mobile%>>
+                     <label class="labelLeft" for="skype">Skype ID/URL</label>
+                     <input type="text" class="form-control mt-2 textbox" placeholder="Skype ID" id="skype" value=<%=request.resumee.skype%>>
+                     <label class="labelLeft" for="twitter">Twitter ID/URL</label>
+                     <input type="text" class="form-control mt-2 textbox" placeholder="Twitter ID" id="twitter" value=<%=request.resumee.twitter%>>
 
-              <ul class="navitems nav ml-auto">
-              <li> <a href="/MyProfile">MyProfile</a> </li>
-              <li> <a href="/ApplicantEmail">Emails</a> </li>
-              <li> <a href="/ApplicantTest">Tests</a> </li>
-              <li> <a href="/ApplicantCareerTips">CareerTips</a> </li>
-              <li> <a href="#"><span class="logoutb glyphicon glyphicon-log-out"> Logout</span></a> </li>
-            </ul>
-          </nav>
-          <div id="sidebar" class="sidenav">
-            <p href="#" class="closebtn" onclick="closeNav()">&times;</p>
-            <div class="CompanyName">
-              <a class="cName" href="#">ATS</a>
-            </div>
-            <div class="Sideitems">
-              <a href="/ApplicantDashboard">Home</a> 
-              <a href="/MyProfile">MyProfile</a>
-              <a href="/ApplicantEmail">Emails</a>
-              <a href="/ApplicantTest">Tests</a>
-              <a href="/ApplicantCareerTips">CareerTips</a>
-            </div>
-          </div>
-    </header>
-    <!-- /* CONTAINER START */ -->
-    <div class="main" id="main">
-        <div class="container" id="container">
+                 </div>
+             </div>
+             <div class="form-row" id="address">
+                 <div class=" col-sm-12  mt-4">
+                     <h2 class="title2 display-5 ">Address Info</h2>
+                 </div>
+                 <div class="col-sm-6 ">
+                     <label class="labelLeft" for="city">City</label>
+                     <input type="text" class="form-control mt-2 textbox" placeholder="City" id="city" value=<%=request.resumee.city%>>
+                     <label class="labelLeft" for="country">Country</label>
+                     <input type="text" class="form-control mt-2 textbox" placeholder="Country" id="country" value=<%=request.resumee.country%>>
+                     <label class="labelLeft" for="currentAddress">Current Address</label>
+                     <textarea class="form-control mt-2" type="text" rows="1" cols="75" placeholder="Current Address" id="currentAddress" value=<%=request.resumee.currentAddress%>></textarea>
+                 </div>
+                 <div class=" col-sm-6">
+                   <label class="labelLeft" for="district">District</label>
+                     <input type="text" class="form-control mt-2 textbox" placeholder="District" id="district" value=<%=request.resumee.district%>>
+                     <label class="labelLeft" for="zipCode">Zip Code</label>
+                     <input type="text" class="form-control mt-2 textbox" placeholder="Zip Code" id="zipCode" value=<%=request.resumee.zipCode%>>
+                 </div>
+             </div>
+             <div class="form-row" id="education">
+                 <div class=" col-sm-12 mt-4">
+                     <h2 class="title2 display-6">Educational Details</h2>
+                     <!-- <button id="bt3" class="btn btn-info btn-sm float-right" >Add+ <span class="glyphicon glyphicon-plus"></span> </button> -->
+                 </div>
+                 <div class="col-sm-12 ">
+                    <label class="labelLeft" for="institute">Institute/School</label>
+                     <input type="text" class="form-control mt-2 textbox" placeholder="Institute/School" id="institute" value=<%=request.resumee.institute%>>
+                     <label class="labelLeft" for="degree">Degree</label>
+                     <input type="text" class="form-control mt-2 textbox" placeholder="Degree" id="degree" value=<%=request.resumee.degree%>>
+                     <label class="labelLeft" for="fieldOfStudy">Field of Study</label>
+                     <input type="text" class="form-control mt-2 textbox" placeholder="Field of Study" id="fieldOfStudy" value=<%=request.resumee.fieldOfStsudy%>>
+                     <label class="labelLeft" for="grade">Grade</label>
+                     <input type="text" class="form-control mt-2 textbox" placeholder="Grade" id="grade" value=<%=request.resumee.grade%>>
 
-            <div class="title jumbotron" id="jumbotron">
-                <!-- used title to reduce extra padding on top of  CREATE NEW CANDIDATE -->
-                <div class="title jumbotron p-2 bg-secondary">
-                    <h3 class="title display-5 py-2 text-white">Edit My Resume</h3>
-                </div>
-                <div class="form-row" id="basicinfo">
-                    <div class="sub col-sm-12  mt-4">
-                        <h2 class="sub title2 display-5">Basic info</h2>
-                    </div>
-                    <div class="col-sm-6" >
-                        <input type="text" class="b form-control mt-2 textbox" placeholder="First name">
-                        <input type="email" class="b form-control mt-2 textbox" placeholder="Email">
-                        <input type="url" class="b form-control mt-2 textbox" placeholder="Skype ID">
-                    </div>
-                    <div class="col-sm-6 textbox">
-                        <input type="text" class="form-control mt-2 textbox" placeholder="Last name">
-                        <input type="text" class="form-control mt-2 textbox" placeholder="Mobile">
-                        <input type="url" class="form-control mt-2 textbox" placeholder="Twitter ID">
+                 </div>
+                 <div class="col-sm-12 col-md-2">
+                   <label class="labelduration"> FROM  </label>
+                 </div>
+                 <div class="col-sm-12 col-md-4">
+                     <input type="month" class="form-control mt-2 textbox" placeholder="Start Month-Year" id="startEdu" value=<%=request.resumee.startEdu%>>
+                 </div>
+                 <div class="col-sm-12 col-md-2">
+                     <label class="labelTo" id="to1"> TO (or expected) </label>
+                 </div>
+                 <div class="col-sm-12 col-md-4">
+                     <input type="month" class="form-control mt-2 textbox endDu1" placeholder="End Month-Year" id="endEdu" value=<%=request.resumee.endEdu%>>
+                 </div>
 
-                    </div>
-                </div>
-                <div class="form-row" id="address">
-                    <div class=" col-sm-12  mt-4">
-                        <h2 class="title2 display-5 ">Address info</h2>
-                    </div>
-                    <div class="col-sm-6 ">
-                        <input type="email" class="form-control mt-2 textbox" placeholder="City">
-                        <input type="text" class="form-control mt-2 textbox" placeholder="Country">
-                        <textarea class="form-control mt-2" type="text" rows="1" cols="75" placeholder="Full Address"></textarea>
-                    </div>
-                    <div class=" col-sm-6">
-                        <input type="text" class="form-control mt-2 textbox" placeholder="District">
-                        <input type="text" class="form-control mt-2 textbox" placeholder="Zip Code">
-                    </div>
-                </div>
-                <div class="form-row" id="profession">
+             </div>
+             <div class="form-row" id="Experience">
+                 <div class=" col-sm-12 mt-4">
+                     <h2 class="title2 display-6">Experience</h2>
+                     <!-- <button id="bt3" class="btn btn-info btn-sm float-right" >Add+ <span class="glyphicon glyphicon-plus"></span> </button> -->
+                 </div>
+                 <div class="col-sm-12 ">
+                   <label class="labelLeft" for="title">Title</label>
+                     <input type="text" class="form-control mt-2 textbox" placeholder="Title (Ex:Manager)" id="title" value=<%=request.resumee.title%>>
+                     <label class="labelLeft" for="company">Company</label>
+                     <input type="text" class="form-control mt-2 textbox" placeholder="Company (Ex: Unilever)" id="company" value=<%=request.resumee.company%>>
+                     <label class="labelLeft" for="location">Location</label>
+                     <input type="text" class="form-control mt-2 textbox" placeholder="Location (Ex: Dhaka, Bangladesh)" id="location" value=<%=request.resumee.location%>>
+                     <label class="labelLeft" for="des">Description</label>
+                     <textarea class="form-control mt-2" type="text" rows="3" cols="75" placeholder="Description (Ex: Responsibilitites/Achievements)" id="des" value=<%=request.resumee.des%>></textarea>
+                 </div>
+                 <div class="col-sm-12 col-md-2">
+                   <label class="labelduration">FROM</label>
+                 </div>
+                   <div class="col-sm-12 col-md-4">
+                     <input type="month" class="form-control mt-2 textbox" placeholder="Start Month-Year" id="startExp" value=<%=request.resumee.startExp%>>
+                 </div>
+                 <div class="col-sm-12 col-md-2">
+                     <label class="labelTo" id="to2"> TO </label>
+                 </div>
+                 <div class="col-sm-12 col-md-4">
+                     <!-- <input type="month" id="endDu1" class="form-control mt-2 textbox endDu1" placeholder="end"> -->
+                     <input type="month" class="form-control mt-2 textbox endDu2" placeholder="End Month-Year" id="endExp" value=<%=request.resumee.endExp%>>
+                 </div>
+                 <div class="checkbox1">
+                   <input type="checkbox" value="1" id="c">
+                   <label for="c"></label>
+                 </div>
+                 <label class="label1" for="c">I Currently Work Here</label>
+             </div>
+             <div class="">
+               <textarea class="form-control mt-2" type="text" rows="1" cols="75" placeholder="Skill Set (Ex: Microsoft Office Skills, C++)" id="skillSet"></textarea>
+               <!-- <textarea class="form-control mt-2" type="text" rows="3" cols="75" placeholder="Summary"></textarea> -->
 
-                    <div class=" col-sm-12 mt-4">
-                        <!-- <button id="bt3" class="btn btn-info btn-sm float-right" >Add+ <span class="glyphicon glyphicon-plus"></span> </button> -->
-                        <h2 class="title2 display-6">Professional Details</h2>
-                    </div>
-                    <div class="col-sm-6 ">
-                        <input type="text" class="form-control mt-2 textbox" placeholder="Experience in Years">
-                        <input type="email" class="form-control mt-2 textbox" placeholder="Current Job Title">
-                        <input type="text" class="form-control mt-2 textbox" placeholder="Expected Salary">
-                        <textarea class="form-control mt-2" type="text" rows="1" cols="75" placeholder="Skill Set"></textarea>
+             </div>
 
-                    </div>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control mt-2 textbox" placeholder="Highest Qualification Held">
-                        <input type="text" class="form-control mt-2 textbox" placeholder="Current Employer">
-                        <input type="text" class="form-control mt-2 textbox" placeholder="Current Salary">
-                        <textarea class="form-control mt-2" type="text" rows="1" cols="75" placeholder="Additional Info"></textarea>
-                    </div>
+             <div class="form-row" id="Attachment">
+                 <div class=" col-sm-12 mt-4">
+                     <h2 class="title2 display-6">Attachment Information</h2>
+                 </div>
 
-                </div>
-                <div class="form-row" id="education">
-                    <div class=" col-sm-12 mt-4">
-                        <h2 class="title2 display-6">Educational Details</h2>
-                        <!-- <button id="bt3" class="btn btn-info btn-sm float-right" >Add+ <span class="glyphicon glyphicon-plus"></span> </button> -->
-                    </div>
-                    <div class="col-sm-12 ">
-                        <input type="text" class="form-control mt-2 textbox" placeholder="Institute/School">
-                        <input type="email" class="form-control mt-2 textbox" placeholder="Major/Department">
-                        <input type="text" class="form-control mt-2 textbox" placeholder="Degree">
-                        <input type="text" class="form-control mt-2 textbox" placeholder="GPA/CGPA">
+               <div class="row">
+                 <div class="col-sm-12 col-md-4">
+                     <label  class="lableAttachment">Resume:</label>
+                 </div>
+                 <div class="col-sm-12 col-md-8">
+                       <input type="file" class="form-control mt-2 textbox" id="resumeAtt">
+                 </div>
+                 <div class="col-sm-12 col-md-4">
+                     <label  class="lableAttachment">Photo:</label>
+                 </div>
+                 <div class="col-sm-12 col-md-8">
+                       <input type="file" class="form-control mt-2 textbox" id="photoAtt">
+                 </div>
+                 <div class="col-sm-12 col-md-4">
+                     <label  class="lableAttachment">Others:</label>
+                 </div>
+                 <div class="col-sm-12 col-md-8">
+                       <input type="file" class="form-control mt-2 textbox" id="othersAtt">
+               </div>
+             </div>
 
-                    </div>
-                    <div class="col-sm-3">
-                      <label class="labelduration"> Duration  </label>
-                    </div>
-                    <div class="col-sm-4">
-                        <input type="month" class="form-control mt-2 textbox" placeholder="begin" >
-                    </div>
-                    <div class="col-sm-1">
-                        <label class="labelTo"> TO </label>
-                    </div>
-                    <div class="col-sm-4">
-                        <input type="month" id="endDu1" class="form-control mt-2 textbox endDu1" placeholder="end">
-                    </div>
-                    <div class="checkbox1">
-                      <input type="checkbox" value="1" id="b">
-                      <label for="b"></label>
-                    </div>
-                    <label class="label1" for="b">Currently Pursuing</label>
-                </div>
-                <div class="form-row" id="Experience">
-                    <div class=" col-sm-12 mt-4">
-                        <h2 class="title2 display-6">Experience Details</h2>
-                        <!-- <button id="bt3" class="btn btn-info btn-sm float-right" >Add+ <span class="glyphicon glyphicon-plus"></span> </button> -->
-                    </div>
-                    <div class="col-sm-12 ">
-                        <input type="text" class="form-control mt-2 textbox" placeholder="Occupation/Title">
-                        <input type="email" class="form-control mt-2 textbox" placeholder="Company">
-                        <textarea class="form-control mt-2" type="text" rows="2" cols="75" placeholder="Summary"></textarea>
-                    </div>
-                    <div class="col-sm-3">
-                      <label class="labelduration">Work Duration</label>
-                    </div>
-                    <div class="col-sm-4">
-                        <input type="month" class="form-control mt-2 textbox" placeholder="begin" >
-                    </div>
-                    <div class="col-sm-1">
-                        <label class="labelTo"> TO </label>
-                    </div>
-                    <div class="col-sm-4">
-                        <input type="month" id="endDu2" class="form-control mt-2 textbox" placeholder="end">
-                    </div>
-                    <div class="checkbox1">
-                      <input type="checkbox" value="1" id="c">
-                      <label for="c"></label>
-                    </div>
-                    <label class="label1" for="c" >I Currently Work Here</label>
-                </div>
-                <div class="form-row" id="Attachment">
-                    <div class=" col-sm-12 mt-4">
-                        <h2 class="title2 display-6">Attachment Information</h2>
-                    </div>
+             <div class="row mt-4">
+                 <div class=" save col-sm-12 bg-secondary ">
+                     <!--<form class="Savebtn form-inline my-2 my-lg-0 float-right ">-->
+                         <button class="saveb btn btn-primary-success m-1 m-sm-2 button" type="submit" id="submit">Submit</button>
+                         <button class="cancelb btn btn-primary-success m-1 m-sm-2 button" type="submit" id="cancel">Cancel</button>
+                     <!--</form>-->
+                 </div>
+             </div>
+         </div>
 
-                        <label  class="lableAttachment">Resume</label>
-                        <input type="file" class="form-control mt-2 textbox">
-                        <label   class="lableAttachment">Photo</label>
-                        <input type="file" class="form-control mt-2 textbox">
-                        <label   class="lableAttachment" >Others</label>
-                        <input type="file" class="form-control mt-2 textbox">
+     </div>
+ </div>
 
-                </div>
-
-                <div class="row mt-4">
-                    <div class=" save col-sm-12 bg-secondary ">
-                        <form class="Savebtn form-inline my-2 my-lg-0 float-right ">
-                            <button class="saveb btn btn-primary-success m-1 m-sm-2 button" type="submit">Update</button>
-                            <button class="btn btn-primary-success m-1 m-sm-2 button" type="submit">Cancel</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <script src="js/jquery-3.3.1.js"></script>
-    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="/vendor/js/jquery-3.3.1.js"></script>
+    <script type="/vendor/text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script src="/vendor/js/script.js"></script>
+    <script src="/vendor/js/bootstrap.min.js"></script>
     <script>
-    // var sidebar=0;
     var chk1=0;
         function openNav() {
-            // sidebar =1;
             document.getElementById("sidebar").style.width = "210px";
             document.getElementById("main").style.marginLeft = "0";
             document.body.style.backgroundColor = "rgba(0,0,0,0.3)";
             document.getElementById("container").style.backgroundColor = "#B2B2B2";
         }
         function closeNav() {
-          // sidebar =0;
             document.getElementById("sidebar").style.width = "0";
             document.getElementById("main").style.marginLeft = "0";
             document.body.style.backgroundColor = "#F0F1F6";
@@ -217,15 +206,35 @@
               }
               else $('.endDu1').attr('enabled', true);
         });
-
-        // $(document.getElementById("b")).click( function() {
-        //       console.log('asd');
-        //        $('.endDu1').attr('enabled', true);
-        // });
-
-        // $(document.getElementById("nav")).click( function() {
-        //       closeNav();
-        //   });
+          var applicantID = <%- JSON.stringify(request.resumee._id) %>;
+          var resume = {};
+          $('#fname').change(function(){
+            resume.fname = $('#fname').val();
+          });
+          $('#lname').change(function(){
+            resume.lname = $('#lname').val();
+          });
+          $('#email').change(function(){
+            resume.email = $('#email').val();
+          });
+          $('#mobile').change(function(){
+            resume.mobile = $('#mobile').val();
+          });
+          $('#submit').click(function(){
+            $.ajax({
+              method:"PUT",
+              url:'/api/applicants/edit/'+applicantID,
+              data: resume
+            }).done(function(response){
+              console.log(response);
+            //   window.location.replace("/resumes/"+response._id);
+            return false;
+            }).fail(function(response){
+            //   $("#error").text(JSON.parse(response.responseText).message);
+                console.log(response);
+            });
+          });
+         
 
     </script>
 

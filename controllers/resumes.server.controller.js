@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var Resume = require('./../models/Resume.js');
+var Resume = require('./../models/Resumee.js');
 var errorHandler = require('./errors.server.controller');
 var _ = require('lodash');
 

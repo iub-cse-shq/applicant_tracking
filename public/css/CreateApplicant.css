@@ -2,15 +2,11 @@ body {
     font-family: 'Poppins', sans-serif;
     background: #F0F1F6;
     transition: background-color .9s;
-    margin:0;
 }
 /*//////////////  NAVBAR /////////////*/
 .navbar{
   height: 70px;
   min-width: 100%;
-}
-.nav{
-  padding-bottom: 10px;
 }
 .logo{
    /* width: 120px; */
@@ -94,11 +90,7 @@ body {
     cursor: pointer;
 }
 /* //////////////CONTAINER START///////////////// */
-.labelLeft, .labelRight{
-  padding-top: 10px;
-  padding-left: 10px;
-  margin: 0;
-}
+
 .container{
   padding: 0;
 }
@@ -121,6 +113,7 @@ body {
 }
 .save{
   width: 1110px;
+  /* width: 2000px; */
 }
 /* .Savebtn{
   margin: 0;

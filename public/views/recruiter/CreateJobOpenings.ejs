@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/vendor/css/style.css">
+    <link rel="stylesheet" href="/vendor/css/glyphicons.css">
+    <link rel="stylesheet" href="/css/CreateJobOpenings.css" crossorigin="anonymous">
+    <title>Create Job Opening</title>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-xs   navbar-dark bg-dark">
+           <span class="open-slide">
+                <span class="openbtn" onclick="openNav()">&#9776;</span>
+                <img class="logo" src="hr.png" onclick="location.href='dashboard.html';">
+            </span>
+          <ul class="a navitems nav ml-auto" >
+            <li> <a href="TrackApplicants.html">TrackApplicants</a> </li>
+          <li> <a href="Applicants.html">Applicants</a> </li>
+          <li> <a href="JobOpenings.html">JobOpenings</a> </li>
+          <li> <a href="Clients.html">Clients</a> </li>
+          <li> <a href="#"><span class="logoutb glyphicon glyphicon-log-out"> Logout</span></a> </li>
+        </ul>
+      </nav>
+      <div id="sidebar" class="sidenav">
+        <p href="#" class="closebtn" onclick="closeNav()">&times;</p>
+        <div class="CompanyName">
+          <a class="cName" href="#">ATS</a>
+        </div>
+        <div class="Sideitems">
+          <a href="dashboard.html">ActivityReport</a>
+          <a href="TrackApplicants.html">TrackApplicant</a>
+          <a href="JobOpenings.html">JobOpenings</a>
+          <a href="Applicants.html">Candidates</a>
+          <a href="Clients.html">Clients</a>
+          <a href="Emails.html">Emails</a>
+          <a href="Tests.html">Tests</a>
+          <a href="CareerTips.html">CareerTips</a>
+          <a href="UserAdministration.html">UserAdministration</a>
+      </div>
+    </div>
+  </header>
+    <!-- /* CONTAINER START */ -->
+    <div class="main" id="main">
+        <div class="container" id="container">
+
+            <div class="title jumbotron" id="jumbotron">
+                <!-- used title to reduce extra padding on top of  CREATE NEW CANDIDATE -->
+                <div class="title jumbotron p-2 bg-secondary">
+                    <h3 class="title display-5 py-2 text-white">Create New Job Opening</h3>
+                </div>
+                <div class="form-row" id="">
+                    <div class="sub col-sm-12  mt-4">
+                        <h2 class="sub title2 display-5">Job Opening Information</h2>
+                    </div>
+                    <div class="col-sm-6" >
+                        <input type="text" class="b form-control mt-2 textbox" placeholder="Posting Title">
+                        <input type="text" class="b form-control mt-2 textbox" placeholder="Contact Name">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Contact Email">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Contact Phone">
+                        <input type="text" class="b form-control mt-2 textbox" placeholder="Industry">
+                        <input type="number" class="b form-control mt-2 textbox" placeholder="Salary">
+                        <input type="number" class="form-control mt-2 textbox" placeholder="Work Experience">
+                </div>
+                    <div class="col-sm-6 textbox">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Company Name">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Assigned Recruiter">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Job Type">
+                        <input type="text" class="b form-control mt-2 textbox" placeholder="City">
+                        <input type="text" class="b form-control mt-2 textbox" placeholder="Country">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="District">
+                        <input type="number" class="form-control mt-2 textbox" placeholder="Number of Vacancy">
+                    </div>
+                    <div class="col-sm-6 textbox">
+                      <label class="labelduration">Date Opened: </label> <br>
+                      <input type="date" class="form-control mt-2 textbox" placeholder="Date Opened">
+                    </div>
+                    <div class="col-sm-6 textbox">
+                      <label class="labelduration">Target Date: </label>
+                      <input type="date" class="b form-control mt-2 textbox" placeholder="Target Date">
+                    </div>
+                </div>
+                <div class="form-row" id="">
+                    <div class=" col-sm-12  mt-4">
+                        <h2 class="title2 display-5 ">Job Description</h2>
+                    </div>
+                     <div class="col-sm-12 textbox">
+                      <textarea class="form-control mt-2" type="text" rows="2" cols="75" placeholder="Job Description"></textarea>
+                    </div>
+                </div>
+                <div class="form-row" id="">
+                    <div class=" col-sm-12  mt-4">
+                        <h2 class="title2 display-5 ">Forecast Details</h2>
+                    </div>
+                    <div class="col-sm-6 ">
+                        <input type="number" class="form-control mt-2 textbox" placeholder="Number of Positions">
+                        <input type="number" class="form-control mt-2 textbox" placeholder="Expected Revenue">
+                        <input type="number" class="form-control mt-2 textbox" placeholder="Missed Revenue">
+                    </div>
+                    <div class=" col-sm-6">
+                      <input type="number" class="form-control mt-2 textbox" placeholder="Revenue Per Position">
+                      <input type="number" class="form-control mt-2 textbox" placeholder="Actual Revenue">
+                    </div>
+                </div>
+
+                <div class="form-row" id="Attachment">
+                    <div class=" col-sm-12 mt-4">
+                        <h2 class="title2 display-6">Attachments</h2>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-sm-12 col-md-4">
+                          <label  class="lableAttachment">Job Description</label>
+                      </div>
+                      <div class="col-sm-12 col-md-8">
+                            <input type="file" class="form-control mt-2 textbox">
+                      </div>
+                      <div class="col-sm-12 col-md-4">
+                          <label  class="lableAttachment">Others</label>
+                      </div>
+                      <div class="col-sm-12 col-md-8">
+                            <input type="file" class="form-control mt-2 textbox">
+                      </div>
+                  </div>
+
+                </div>
+
+                <div class="row mt-4">
+                    <div class=" save col-sm-12 bg-secondary ">
+                        <form class="Savebtn form-inline my-2 my-lg-0 float-right ">
+                            <button class="saveb btn btn-primary-success m-1 m-sm-2 button" type="submit">Save</button>
+                            <button class="btn btn-primary-success m-1 m-sm-2 button" type="submit">Save and New</button>
+                            <button class="btn btn-primary-success m-1 m-sm-2 button" type="submit">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+       <script src="/vendor/js/jquery-3.3.1.js"></script>
+    <script type="/vendor/text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script src="/vendor/js/script.js"></script>
+    <script src="/vendor/js/bootstrap.min.js"></script>
+    <script>
+        function openNav() {
+            document.getElementById("sidebar").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "0";
+            document.body.style.backgroundColor = "rgba(0,0,0,0.3)";
+            document.getElementById("container").style.backgroundColor = "#B2B2B2";
+        }
+        function closeNav() {
+            document.getElementById("sidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            document.body.style.backgroundColor = "#F0F1F6";
+            document.getElementById("container").style.backgroundColor = "#F0F1F6";
+        }
+        $(document.getElementById("main")).click( function() {
+          closeNav();
+        });
+
+
+    </script>
+
+</body>
+
+</html>

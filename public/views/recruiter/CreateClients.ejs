@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/vendor/css/style.css">
+    <link rel="stylesheet" href="/vendor/css/glyphicons.css">
+    <link rel="stylesheet" href="/css/CreateClients.css" crossorigin="anonymous">
+    <title>Create New Client</title>
+</head>
+
+<body>
+   <% include include/RecHeader %>
+    <!-- /* CONTAINER START */ -->
+    <div class="main" id="main">
+        <div class="container" id="container">
+
+            <div class="title jumbotron" id="jumbotron">
+                <!-- used title to reduce extra padding on top of  CREATE NEW CANDIDATE -->
+                <div class="title jumbotron p-2 bg-secondary">
+                    <h3 class="title display-5 py-2 text-white">Create New Client</h3>
+                </div>
+                <div class="form-row" id="">
+                    <div class="sub col-sm-12  mt-4">
+                        <h2 class="sub title2 display-5">Contact Information</h2>
+                    </div>
+                    <div class="col-sm-8" >
+                        <input type="text" class="b form-control mt-2 textbox" placeholder="Contact Name">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Contact Email">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Contact Phone">
+                        <input type="text" class="b form-control mt-2 textbox" placeholder="Source">
+                </div>
+                </div>
+                <div class="form-row" id="">
+                    <div class="sub col-sm-12  mt-4">
+                        <h2 class="sub title2 display-5">Company Information</h2>
+                    </div>
+                    <div class="col-sm-8" >
+                      <input type="text" class="form-control mt-2 textbox" placeholder="Company Name">
+                      <input type="text" class="b form-control mt-2 textbox" placeholder="Industry">
+                      <input type="url" class="form-control mt-2 textbox" placeholder="Website">
+                      <input type="text" class="form-control mt-2 textbox" placeholder="City">
+                      <input type="text" class="b form-control mt-2 textbox" placeholder="District">
+                      <input type="text" class="b form-control mt-2 textbox" placeholder="Country">
+                        <textarea class="form-control mt-2" type="text" rows="1" cols="75" placeholder="Full Address of Company"></textarea>
+                    </div>
+                </div>
+                <div class="form-row" id="Attachment">
+                    <div class=" col-sm-12 mt-4">
+                        <h2 class="title2 display-6">Attachment Information</h2>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-sm-12 col-md-4">
+                          <label  class="lableAttachment">Agreements</label>
+                      </div>
+                      <div class="col-sm-12 col-md-8">
+                            <input type="file" class="form-control mt-2 textbox">
+                      </div>
+                      <div class="col-sm-12 col-md-4">
+                          <label  class="lableAttachment">Others</label>
+                      </div>
+                      <div class="col-sm-12 col-md-8">
+                            <input type="file" class="form-control mt-2 textbox">
+                      </div>
+                  </div>
+
+                </div>
+
+                <div class="row mt-4">
+                    <div class=" save col-sm-12 bg-secondary ">
+                        <form class="Savebtn form-inline my-2 my-lg-0 float-right ">
+                            <button class="saveb btn btn-primary-success m-1 m-sm-2 button" type="submit">Save</button>
+                            <button class="btn btn-primary-success m-1 m-sm-2 button" type="submit">Save and New</button>
+                            <button class="btn btn-primary-success m-1 m-sm-2 button" type="submit">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+      <script src="/vendor/js/jquery-3.3.1.js"></script>
+    <script type="/vendor/text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script src="/vendor/js/script.js"></script>
+    <script src="/vendor/js/bootstrap.min.js"></script>
+    <script>
+        function openNav() {
+            document.getElementById("sidebar").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "0";
+            document.body.style.backgroundColor = "rgba(0,0,0,0.3)";
+            document.getElementById("container").style.backgroundColor = "#B2B2B2";
+        }
+        function closeNav() {
+            document.getElementById("sidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            document.body.style.backgroundColor = "#F0F1F6";
+            document.getElementById("container").style.backgroundColor = "#F0F1F6";
+        }
+        $(document.getElementById("main")).click( function() {
+          closeNav();
+        });
+
+
+    </script>
+
+</body>
+
+</html>

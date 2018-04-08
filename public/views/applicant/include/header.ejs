@@ -1,0 +1,52 @@
+    <header>
+        <nav class="navbar navbar-expand-xs   navbar-dark bg-dark">
+               <span class="open-slide">
+                    <span class="openbtn" onclick="openNav()">&#9776;</span>
+                    <img class="logo" src="/css/hr.png" onclick="location.href='/ApplicantDashboard';">
+                </span>
+
+              <ul class="navitems nav ml-auto">
+              <li> <a href="/MyProfile">MyProfile</a> </li>
+              <li> <a href="/ApplicantEmail">Emails</a> </li>
+              <li> <a href="/ApplicantTest">Tests</a> </li>
+              <li> <a href="/ApplicantCareerTips">CareerTips</a> </li>
+              <li> <a href="#" id="logout"><span class="logoutb glyphicon glyphicon-log-out"> Logout</span></a> </li>
+            </ul>
+          </nav>
+          <div id="sidebar" class="sidenav">
+            <p href="#" class="closebtn" onclick="closeNav()">&times;</p>
+            <div class="CompanyName">
+              <a class="cName" href="#">ATS</a>
+            </div>
+            <div class="Sideitems">
+              <a href="/ApplicantDashboard">Home</a> 
+              <a href="/MyProfile">MyProfile</a>
+              <a href="/ApplicantEmail">Emails</a>
+              <a href="/ApplicantTest">Tests</a>
+              <a href="/ApplicantCareerTips">CareerTips</a>
+            </div>
+          </div>
+    </header>
+    
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/vendor/ejs_production.js"></script>
+    <script src="/vendor/js/jquery-3.3.1.js"></script>
+    <script type="/vendor/text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script src="/vendor/js/script.js"></script>
+    <script src="/vendor/js/bootstrap.min.js"></script>
+  <script>
+      $("#logout").click(function(event){
+          $.ajax({
+			method: 'GET',
+			url: '/auth/signout'
+		}).done(function(response){
+			// alert('Signed out' + user.email);
+			// console.log(response);
+			alert('Signing Out!');
+			window.location.replace('/');
+		}).fail(function(response){
+			console.log(response);
+			
+		});
+  });
+  </script>
