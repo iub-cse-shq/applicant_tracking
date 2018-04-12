@@ -2,14 +2,14 @@
       <nav class="navbar navbar-expand-xs   navbar-dark bg-dark">
              <span class="open-slide">
                   <span class="openbtn" onclick="openNav()">&#9776;</span>
-                  <img class="logo" src="/css/hr.png" onclick="location.href='dashboard.html';">
+                  <img class="logo" src="/css/hr.png" onclick="location.href='/Dashboard';">
               </span>
             <ul class="a navitems nav ml-auto" >
-            <li> <a href="/TrackApplicants.html">TrackApplicants</a> </li>
-            <li> <a href="/Applicants.html">Applicants</a> </li>
-            <li> <a href="/JobOpenings.html">JobOpenings</a> </li>
-            <li> <a href="/Clients.html">Clients</a> </li>
-            <li> <a href="#"><span class="logoutb glyphicon glyphicon-log-out"> Logout</span></a> </li>
+            <li> <a href="/TrackApplicants">TrackApplicants</a> </li>
+            <li> <a href="/Applicants">Applicants</a> </li>
+            <li> <a href="/JobOpenings">JobOpenings</a> </li>
+            <li> <a href="/Clients">Clients</a> </li>
+            <li> <a href="#" id="logout"><span class="logoutb glyphicon glyphicon-log-out"> Logout</span></a> </li>
           </ul>
         </nav>
         <div id="sidebar" class="sidenav">
@@ -18,38 +18,36 @@
             <a class="cName" href="#">ATS</a>
           </div>
           <div class="Sideitems">
-            <a href="/dashboard.html">ActivityReport</a>
-            <a href="/TrackApplicants.html">TrackApplicant</a>
-            <a href="/JobOpenings.html">JobOpenings</a>
-            <a href="/Applicants.html">Candidates</a>
-            <a href="/Clients.html">Clients</a>
-            <a href="/Emails.html">Emails</a>
-            <a href="/Tests.html">Tests</a>
-            <a href="/CareerTips.html">CareerTips</a>
-            <a href="/UserAdministration.html">UserAdministration</a>
+            <a href="/Dashboard">ActivityReport</a>
+            <a href="/TrackApplicants">TrackApplicant</a>
+            <a href="/JobOpenings">JobOpenings</a>
+            <a href="/Applicants">Candidates</a>
+            <a href="/Clients">Clients</a>
+            <a href="/Emails">Emails</a>
+            <a href="/Tests">Tests</a>
+            <a href="/CareerTips">CareerTips</a>
+            <a href="/UserAdministration">UserAdministration</a>
         </div>
       </div>
     </header>
     
-        <script src="/lib/jquery/dist/jquery.min.js"></script>
-        <script src="/vendor/ejs_production.js"></script>
-        <script src="/vendor/js/jquery-3.3.1.js"></script>
-        <script type="/vendor/text/javascript" src="js/jquery-3.1.1.min.js"></script>
-        <script src="/vendor/js/script.js"></script>
-        <script src="/vendor/js/bootstrap.min.js"></script>
-        <script>
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/vendor/ejs_production.js"></script>
+    <script src="/vendor/js/jquery-3.3.1.js"></script>
+    <script type="/vendor/text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script src="/vendor/js/script.js"></script>
+    <script src="/vendor/js/bootstrap.min.js"></script>
+  <script>
       $("#logout").click(function(event){
           $.ajax({
 			method: 'GET',
 			url: '/auth/signout'
 		}).done(function(response){
-			// alert('Signed out' + user.email);
-			// console.log(response);
-			alert('Signout');
+			alert('Signing Out!');
 			window.location.replace('/');
 		}).fail(function(response){
 			console.log(response);
 			
 		});
-      });
+  });
   </script>

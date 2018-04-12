@@ -190,7 +190,7 @@
         });
         var newResume = {fname:"", lname:"", email:"", mobile:"", linkedIn:"", facebook:"", skype:"", twitter:"", city:"", country:"",
                          currentAddress:"",district:"",zipCode:"",institute:"",degree:"",fieldOfStudy:"",grade:"",startEdu:"",endEdu:"",
-                         title:"",company:"",location:"",des:"",startExp:"",endExp:"",skillSet:"",resumeAtt:"",photoAtt:"",othersAtt:"" };
+                         title:"",company:"",location:"",des:"",startExp:"",endExp:"",skillSet:"",resumeAtt:"",photoAtt:"",othersAtt:"",resumeStatus2:"Submitted"};
       
           $('#submit').click(function(){
             newResume.fname=$('#fname').val();
@@ -222,6 +222,7 @@
             newResume.resumeAtt=$('#resumeAtt').val();
             newResume.photoAtt=$('#photoAtt').val();
             newResume.othersAtt=$('#othersAtt').val();
+            // newResume.resumeStatus2="Submitted";
            $.ajax({
                method:"POST",
                url: "/api/resumes",
@@ -230,12 +231,12 @@
             //   $('#success').text("Resume Added!");
                console.log(response);
                alert("Resume Submitted Successfully!");
-              window.location.replace('/ViewMyResume');
+               window.location.replace('/ViewMyResume');
            }).fail(function(response){
             //   $('#error').text(JSON.parse(response.responseText).message);
                console.log(response.responseText);
            });
-                 return false; 
+                //  return false; 
           });
           
         $('#cancel').click(function(){

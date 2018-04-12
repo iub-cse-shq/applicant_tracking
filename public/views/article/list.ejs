@@ -1,10 +1,11 @@
 
-<h1>Article List</h1>
-<% console.log(articles) %>
-  <% for(var i=0; i<articles.length; i++) { %>
-    <h1> <%= articles[i].title %> </h1>
+<h1>Applicant List</h1>
+    <% console.log(resumee) %>
+    <% console.log(p) %>
+    <% for(var i=0; i<resumee.length; i++) { %>
+    <h1> <%= resumee[i].fname %> </h1>
     <p>
-      <%= articles[i].user%>
+    <%= resumee[i].lname%>
     </p>
-    <h3><%= articles[i].content%></h3>
+    <h3><%= resumee[i].email%></h3>
     <% } %>

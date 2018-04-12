@@ -114,12 +114,22 @@ module.exports.ApplicantDashboard = function(req, res) {
 	});
 };
 module.exports.MyProfile = function(req, res) {
-     
-    res.render('./../public/views/applicant/MyProfile.ejs', {
-		user: req.user || null, 
-		request: req
+	var ObjectId = require('mongoose').Types.ObjectId; // load the Mongoose ObjectId function 
+	Resumee.findOne({user: ObjectId(req.user._id)}).exec(function(err, resumee) {
+		if (err) console.error(err);
+		if (!resumee) {
+		   resumee=null;
+		}
+		req.resumee = resumee;
+		console.log(resumee);
+		
+		res.render('./../public/views/applicant/MyProfile.ejs', {
+			user: req.user || null, 
+			request: req
+		});
 	});
 };
+
 module.exports.ApplicantEmail = function(req, res) {
      
     res.render('./../public/views/applicant/ApplicantEmail.ejs', {
@@ -168,22 +178,23 @@ module.exports.CreateMyResume = function(req, res) {
 	});
 };
 module.exports.EditMyResume = function(req, res) {
-	// 	//console.log(req.user);
-	// var ObjectId = require('mongoose').Types.ObjectId; // load the Mongoose ObjectId function 
-	//  // Mongoose query find and return one object.
-	// // Resumee.findOne({title: ObjectId(searchData)}).exec(function(err, resumee) {
-	// Resumee.findOne({user: ObjectId(req.user._id)}).exec(function(err, resumee) {
-	// 	if (err) console.error(err);
-	// 	if (!resumee) return console.error(new Error('Failed to load resumee of user' + req.user._id));
-	// 	req.resumee = resumee;
-	// 	console.log(resumee);
-     
-    res.render('./../public/views/applicant/EditMyResume.ejs', {
-		user: req.user || null, 
-		request: req
-	 });
-	// });
+	var ObjectId = require('mongoose').Types.ObjectId; // load the Mongoose ObjectId function 
+	 // Mongoose query find and return one object.
+	// Resumee.findOne({title: ObjectId(searchData)}).exec(function(err, resumee) {
+	Resumee.findOne({user: ObjectId(req.user._id)}).exec(function(err, resumee) {
+		if (err) console.error(err);
+		if (!resumee) return console.error(new Error('Failed to load resumee of user' + req.user._id));
+		req.resumee = resumee;
+		console.log(resumee);
+		
+		res.render('./../public/views/applicant/EditMyResume.ejs', {
+			user: req.user || null, 
+			request: req
+		});
+	});
+	
 };
+    
 
 exports.applicantByID = function(req, res, next, id) {
 	Resumee.findById(id).populate('user', 'email').exec(function(err, resumee) {

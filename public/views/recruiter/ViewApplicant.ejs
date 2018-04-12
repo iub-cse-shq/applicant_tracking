@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <link rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/vendor/css/style.css">
+    <link rel="stylesheet" href="/vendor/css/glyphicons.css">
+    <link rel="stylesheet" href="/css/ViewMyResume.css" crossorigin="anonymous">
+    <title>Applicant</title>
+</head>
+
+<body>
+    <% include include/RecHeader %>
+     <!-- /* CONTAINER START */ -->
+ <div class="main" id="main">
+     <div class="container" id="container">
+         <div class="title jumbotron" id="jumbotron">
+             <div class="title jumbotron p-2 bg-secondary">
+                 <h3 class="title display-5 py-2 text-white">Resume of <%=request.resumee.fname%> <%=request.resumee.lname%></h3>
+             </div>
+             <div class="form-row" id="basicinfo">
+                 <div class="sub col-sm-12  mt-4">
+                     <h2 class="sub title2 display-5">Personal Info</h2>
+                 </div>
+                 <div class="col-sm-6">
+                     <label class="labelLeft" for="fname">First Name</label>
+                     <input type="text" class="b form-control mt-2 textbox" placeholder="First name" id="fname" value=<%=request.resumee.fname%>>
+                     <label class="labelLeft" for="email">Email</label>
+                     <input type="email" class="b form-control mt-2 textbox" placeholder="Email" id="email" value=<%=request.resumee.email%>>
+                     <label class="labelLeft" for="linkedIn">LinkedIn ID/URL</label>
+                     <input type="text" class="b form-control mt-2 textbox" placeholder="LinkedIn ID/Link" id="linkedIn" value=<%=request.resumee.linkedIn%>>
+                     <label class="labelLeft" for="facebook">Facebook ID/URL</label>
+                     <input type="text" class="b form-control mt-2 textbox" placeholder="Facebook ID/Link" id="facebook" value=<%=request.resumee.facebook%>>
+                 </div>
+                 <div class="col-sm-6 textbox">
+                     <label class="labelLeft" for="lname">Last Name</label>
+                     <input type="text" class="form-control mt-2 textbox" placeholder="Last name" id="lname" value=<%=request.resumee.lname%>>
+                     <label class="labelLeft" for="mobile">Mobile</label>
+                     <input type="text" class="form-control mt-2 textbox" placeholder="Mobile" id="mobile" value=<%=request.resumee.mobile%>>
+                     <label class="labelLeft" for="skype">Skype ID/URL</label>
+                     <input type="text" class="form-control mt-2 textbox" placeholder="Skype ID" id="skype" value=<%=request.resumee.skype%>>
+                     <label class="labelLeft" for="twitter">Twitter ID/URL</label>
+                     <input type="text" class="form-control mt-2 textbox" placeholder="Twitter ID" id="twitter" value=<%=request.resumee.twitter%>>
+
+                 </div>
+             </div>
+             <div class="form-row" id="address">
+                 <div class=" col-sm-12  mt-4">
+                     <h2 class="title2 display-5 ">Address Info</h2>
+                 </div>
+                 <div class="col-sm-6 ">
+                     <label class="labelLeft" for="city">City</label>
+                     <input type="text" class="form-control mt-2 textbox" placeholder="City" id="city" value=<%=request.resumee.city%>>
+                     <label class="labelLeft" for="country">Country</label>
+                     <input type="text" class="form-control mt-2 textbox" placeholder="Country" id="country" value=<%=request.resumee.country%>>
+                     <label class="labelLeft" for="currentAddress">Current Address</label>
+                     <textarea class="form-control mt-2" type="text" rows="1" cols="75" placeholder="Current Address" id="currentAddress" value=<%=request.resumee.currentAddress%>></textarea>
+                 </div>
+                 <div class=" col-sm-6">
+                   <label class="labelLeft" for="district">District</label>
+                     <input type="text" class="form-control mt-2 textbox" placeholder="District" id="district" value=<%=request.resumee.district%>>
+                     <label class="labelLeft" for="zipCode">Zip Code</label>
+                     <input type="text" class="form-control mt-2 textbox" placeholder="Zip Code" id="zipCode" value=<%=request.resumee.zipCode%>>
+                 </div>
+             </div>
+             <div class="form-row" id="education">
+                 <div class=" col-sm-12 mt-4">
+                     <h2 class="title2 display-6">Educational Details</h2>
+                     <!-- <button id="bt3" class="btn btn-info btn-sm float-right" >Add+ <span class="glyphicon glyphicon-plus"></span> </button> -->
+                 </div>
+                 <div class="col-sm-12 ">
+                    <label class="labelLeft" for="institute">Institute/School</label>
+                     <input type="text" class="form-control mt-2 textbox" placeholder="Institute/School" id="institute" value=<%=request.resumee.institute%>>
+                     <label class="labelLeft" for="degree">Degree</label>
+                     <input type="text" class="form-control mt-2 textbox" placeholder="Degree" id="degree" value=<%=request.resumee.degree%>>
+                     <label class="labelLeft" for="fieldOfStudy">Field of Study</label>
+                     <input type="text" class="form-control mt-2 textbox" placeholder="Field of Study" id="fieldOfStudy" value=<%=request.resumee.fieldOfStsudy%>>
+                     <label class="labelLeft" for="grade">Grade</label>
+                     <input type="text" class="form-control mt-2 textbox" placeholder="Grade" id="grade" value=<%=request.resumee.grade%>>
+
+                 </div>
+                 <div class="col-sm-12 col-md-2">
+                   <label class="labelduration"> FROM  </label>
+                 </div>
+                 <div class="col-sm-12 col-md-4">
+                     <input type="month" class="form-control mt-2 textbox" placeholder="Start Month-Year" id="startEdu" value=<%=request.resumee.startEdu%>>
+                 </div>
+                 <div class="col-sm-12 col-md-2">
+                     <label class="labelTo" id="to1"> TO (or expected) </label>
+                 </div>
+                 <div class="col-sm-12 col-md-4">
+                     <input type="month" class="form-control mt-2 textbox endDu1" placeholder="End Month-Year" id="endEdu" value=<%=request.resumee.endEdu%>>
+                 </div>
+
+             </div>
+             <div class="form-row" id="Experience">
+                 <div class=" col-sm-12 mt-4">
+                     <h2 class="title2 display-6">Experience</h2>
+                     <!-- <button id="bt3" class="btn btn-info btn-sm float-right" >Add+ <span class="glyphicon glyphicon-plus"></span> </button> -->
+                 </div>
+                 <div class="col-sm-12 ">
+                   <label class="labelLeft" for="title">Title</label>
+                     <input type="text" class="form-control mt-2 textbox" placeholder="Title (Ex:Manager)" id="title" value=<%=request.resumee.title%>>
+                     <label class="labelLeft" for="company">Company</label>
+                     <input type="text" class="form-control mt-2 textbox" placeholder="Company (Ex: Unilever)" id="company" value=<%=request.resumee.company%>>
+                     <label class="labelLeft" for="location">Location</label>
+                     <input type="text" class="form-control mt-2 textbox" placeholder="Location (Ex: Dhaka, Bangladesh)" id="location" value=<%=request.resumee.location%>>
+                     <label class="labelLeft" for="des">Description</label>
+                     <textarea class="form-control mt-2" type="text" rows="3" cols="75" placeholder="Description (Ex: Responsibilitites/Achievements)" id="des" value=<%=request.resumee.des%>></textarea>
+                 </div>
+                 <div class="col-sm-12 col-md-2">
+                   <label class="labelduration">FROM</label>
+                 </div>
+                   <div class="col-sm-12 col-md-4">
+                     <input type="month" class="form-control mt-2 textbox" placeholder="Start Month-Year" id="startExp" value=<%=request.resumee.startExp%>>
+                 </div>
+                 <div class="col-sm-12 col-md-2">
+                     <label class="labelTo" id="to2"> TO </label>
+                 </div>
+                 <div class="col-sm-12 col-md-4">
+                     <!-- <input type="month" id="endDu1" class="form-control mt-2 textbox endDu1" placeholder="end"> -->
+                     <input type="month" class="form-control mt-2 textbox endDu2" placeholder="End Month-Year" id="endExp" value=<%=request.resumee.endExp%>>
+                 </div>
+                 <div class="checkbox1">
+                   <input type="checkbox" value="1" id="c">
+                   <label for="c"></label>
+                 </div>
+                 <label class="label1" for="c">I Currently Work Here</label>
+             </div>
+             <div class="">
+               <textarea class="form-control mt-2" type="text" rows="1" cols="75" placeholder="Skill Set (Ex: Microsoft Office Skills, C++)" id="skillSet"></textarea>
+               <!-- <textarea class="form-control mt-2" type="text" rows="3" cols="75" placeholder="Summary"></textarea> -->
+
+             </div>
+
+             <div class="form-row" id="Attachment">
+                 <div class=" col-sm-12 mt-4">
+                     <h2 class="title2 display-6">Attachment Information</h2>
+                 </div>
+
+               <div class="row">
+                 <div class="col-sm-12 col-md-4">
+                     <label  class="lableAttachment">Resume:</label>
+                 </div>
+                 <div class="col-sm-12 col-md-8">
+                       <input type="file" class="form-control mt-2 textbox" id="resumeAtt">
+                 </div>
+                 <div class="col-sm-12 col-md-4">
+                     <label  class="lableAttachment">Photo:</label>
+                 </div>
+                 <div class="col-sm-12 col-md-8">
+                       <input type="file" class="form-control mt-2 textbox" id="photoAtt">
+                 </div>
+                 <div class="col-sm-12 col-md-4">
+                     <label  class="lableAttachment">Others:</label>
+                 </div>
+                 <div class="col-sm-12 col-md-8">
+                       <input type="file" class="form-control mt-2 textbox" id="othersAtt">
+               </div>
+             </div>
+
+             <div class="row mt-4">
+                 <div class=" save col-sm-12 bg-secondary ">
+                     <form class="Savebtn form-inline my-2 my-lg-0 float-right ">
+                         <button class="saveb btn btn-primary-success m-1 m-sm-2 button" type="submit" id="Edit">Edit</button>
+                         <button class="cancelb btn btn-primary-success m-1 m-sm-2 button" type="Print" id="cancel">Print</button>
+                     </form>
+                 </div>
+             </div>
+         </div>
+
+     </div>
+ </div>
+
+    <script src="/vendor/js/jquery-3.3.1.js"></script>
+    <script type="/vendor/text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script src="/vendor/js/script.js"></script>
+    <script src="/vendor/js/bootstrap.min.js"></script>
+    <script>
+    var chk1=0;
+        function openNav() {
+            document.getElementById("sidebar").style.width = "210px";
+            document.getElementById("main").style.marginLeft = "0";
+            document.body.style.backgroundColor = "rgba(0,0,0,0.3)";
+            document.getElementById("container").style.backgroundColor = "#B2B2B2";
+        }
+        function closeNav() {
+            document.getElementById("sidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            document.body.style.backgroundColor = "#F0F1F6";
+            document.getElementById("container").style.backgroundColor = "#F0F1F6";
+        }
+        $(document.getElementById("main")).click( function() {
+          closeNav();
+        });
+        $(document.getElementById("b")).click( function() {
+              if (chk1==0) {
+                $('.endDu1').attr('disabled', true);
+              }
+              else $('.endDu1').attr('enabled', true);
+        });
+        
+         
+
+    </script>
+
+</body>
+
+</html>

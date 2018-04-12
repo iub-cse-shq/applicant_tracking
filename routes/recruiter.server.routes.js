@@ -7,6 +7,9 @@ module.exports = function(app){
     .get(recruiters.list)
 	.post(users.requiresLogin, recruiters.create);
 
+app.route('/api/track')
+	.post(users.requiresLogin, recruiters.track);
+
   app.route('/api/recruiters/:recruiterId')
 	.get(recruiters.read)
     .delete(users.requiresLogin, recruiters.delete);
@@ -28,7 +31,7 @@ app.route('/Dashboard').get(recruiters.Dashboard);
 app.route('/TrackApplicants').get(recruiters.TrackApplicants);
 app.route('/Applicants').get(recruiters.Applicants);
 app.route('/CreateApplicant').get(recruiters.CreateApplicant);
-app.route('/ViewApplicant').get(recruiters.ViewApplicant);
+app.route('/ViewApplicant/:resumeId').get(recruiters.ViewApplicant);
 app.route('/EditApplicant').get(recruiters.EditApplicant);
 app.route('/Clients').get(recruiters.Clients);
 app.route('/CreateClients').get(recruiters.CreateClients);
@@ -42,10 +45,10 @@ app.route('/CareerTips').get(recruiters.CareerTips);
 app.route('/Emails').get(recruiters.Emails);
 app.route('/Tests').get(recruiters.Tests);
 app.route('/UserAdministration').get(recruiters.UserAdministration);
-app.route('/CreateNewUser').get(recruiters.CreateNewUser);
+app.route('/AddNewUser').get(recruiters.AddNewUser);
 
 
 app.param('recruiterId', recruiters.recruiterByID);
-// app.param('resumeId', recruiters.resumeByID);
+app.param('resumeId', recruiters.resumeByID);
 
 }

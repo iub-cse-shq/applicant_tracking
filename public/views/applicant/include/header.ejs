@@ -40,8 +40,6 @@
 			method: 'GET',
 			url: '/auth/signout'
 		}).done(function(response){
-			// alert('Signed out' + user.email);
-			// console.log(response);
 			alert('Signing Out!');
 			window.location.replace('/');
 		}).fail(function(response){

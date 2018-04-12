@@ -23,9 +23,9 @@
                     <h3 class="title display-5 py-2 text-white">My Profile</h3>
                 </div>
                 <div class="button"> 
-                    <button type="button" class="button1" onclick="location.href='/ViewMyResume';">View My Resume</button>
-                    <button type="button" class="button1" onclick="location.href='/CreateMyResume';">Create My Resume</button>
-                    <button type="button" class="button1" onclick="location.href='/EditMyResume';">Edit My Resume</button>
+                    <button type="button" class="button1" id="viewResume" onclick="location.href='/ViewMyResume';">View My Resume</button>
+                    <button type="button" class="button1" id="createResume" onclick="location.href='/CreateMyResume';">Create My Resume</button>
+                    <button type="button" class="button1" id="editResume" onclick="location.href='/EditMyResume';" >Edit My Resume</button>
                 </div>
 
 
@@ -54,13 +54,22 @@
           closeNav();
         });
         
-        var applicantID = <%- JSON.stringify(request.resumee._id) %>;
-        var a = <%- JSON.stringify(request.resumee.email) %>;  
-        console.log(a);
-          
+        var status = <%- JSON.stringify(request.user.resumeStatus) %>;
+        console.log(status);  
+        
+        // if(status=="Submitted"){
+        //     $('#createResume').hide();
+        // }
+        // if(status=="NotSubmitted"){
+        //     $('#viewResume').hide();
+        //     $('#editResume').hide();
+        // }
+        
 
     </script>
 
 </body>
 
 </html>
+
+        

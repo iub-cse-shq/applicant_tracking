@@ -94,7 +94,20 @@
   margin-bottom: 0;
   padding-bottom: 10px;
 }
-
+.button1{
+  cursor: pointer;
+  margin: 6px;
+  width: 250px;
+  height: 50px;
+  background: #546575;
+  color: white;
+  border-radius: 10%;
+  border: 2px;
+}
+.button1:hover{
+  color: black;
+  background: #566A7F;
+}
 
 @media (max-width:380px) {
 

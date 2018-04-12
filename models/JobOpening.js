@@ -1,22 +1,22 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var ResumeeSchema = {
+var JobOpeningSchema = {
 
-  fname: {
+  title: {
     type: String,
     trim: true,
     required: 'FName required'
   },
-  lname: {
+  companyName: {
     type: String,
     trim: true,
     required: 'LName required'
   },
-  email: {
+  contactName: {
     type: String,
     trim: true
   },
-  mobile: {
+  assignedRec: {
     type: Number,
     trim: true
     // required: 'Mobile required'
@@ -122,10 +122,6 @@ var ResumeeSchema = {
     type: String,
     trim: true
   },
-  resumeStatus2: {
-    type: String,
-    trim: true
-  },
   user: {
     type: Schema.ObjectId,
     ref: 'User'
@@ -137,5 +133,5 @@ var ResumeeSchema = {
   
 }
 
-var Resumee = mongoose.model('Resumee', ResumeeSchema, 'resumees');
-module.exports = Resumee;
+var JobOpening = mongoose.model('JobOpening', JobOpeningSchema, 'jobOpenings');
+module.exports = JobOpening;

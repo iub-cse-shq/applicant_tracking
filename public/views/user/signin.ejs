@@ -14,63 +14,13 @@
     <h2>Sign In</h2>
     <input id="email" type="email" placeholder="email"/> 
     <input id="password" type="password" placeholder="password"/> <br>
-    <label class="radio">
-           <input type="radio" name="type" class="button1" value="Applicant">Applicant<br>
-    </label>
-    <label class="radio">
-           <input type="radio" name="type" class="button1" value="Recruiter">Recruiter <br>
-    </label>
+
     <button id="submit">Submit</button>
     <br/>
     <div id="error"></div>
   </body>
   <script src="/lib/jquery/dist/jquery.min.js"></script>
   <script src="/vendor/ejs_production.js"></script>
-  // <script>
-  // var user = {};
-  // var type="type";
-  //   $("#email").change(function(event){
-  //     user.email=$("#email").val();
-  //   });
-  //   $("#password").change(function(event){
-  //     user.password=$("#password").val();
-  //   });
-  //   $(".button1:checked").each(function() {
-		//   type=($(this).val());
-	 // });
-  //   $("#submit").click(function(event){
-  //       console.log(type);
-  //       if (type=="Applicant") {
-  //       console.log("y");
-  //           $.ajax({
-  //             method: 'POST',
-  //             url: "/auth/signin",
-  //             data: user
-  //           }).done(function(response){
-  //             console.log(response);
-  //             window.location.replace('/ApplicantDashboard');
-  //           }).fail(function(response){
-  //             console.log(response);
-  //             $("#error").text("Something went wrong! Try again.");
-  //           });
-  //       }
-  //       else if  (type=="Recruiter") {
-  //           console.log("x");
-  //           $.ajax({
-  //             method: 'POST',
-  //             url: "/auth/signin",
-  //             data: user
-  //           }).done(function(response){
-  //             console.log(response);
-  //             window.location.replace('/dashboard.ejs');
-  //           }).fail(function(response){
-  //             console.log(response);
-  //             $("#error").text("Something went wrong! Try again.");
-  //           });
-  //       }
-  
-  //   });
-  // </script>
   <script>
   var user = {};
     $("#email").change(function(event){
@@ -80,17 +30,21 @@
       user.password=$("#password").val();
     });
     $("#submit").click(function(event){
-      //if-else for user type 
       $.ajax({
         method: 'POST',
         url: "/auth/signin",
         data: user
       }).done(function(response){
         console.log(response);
-        window.location.replace('/ApplicantDashboard');
+            if(response.type == "Applicant"){
+        	window.location.replace('/ApplicantDashboard');
+          	}
+          	if(response.type == "Recruiter"){
+                  	window.location.replace('/Dashboard');
+          	}
       }).fail(function(response){
         console.log(response);
-        $("#error").text("Something went wrong! Try again.");
+        $("#error").text("Wrong Email/Passward");
       });
     });
   </script>

@@ -37,7 +37,6 @@ module.exports.read = function(req, res) {
   res.json(req.article);
 };
 
-
 exports.delete = function(req, res) {
 	var article = req.article;
 	article.remove(function(err) {

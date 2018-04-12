@@ -7,12 +7,10 @@ module.exports.list = function(req, res) {
   Resumee.find(function(err, data) {
     if (err) {
       return res.status(400).send({
-
-  				message: errorHandler.getErrorMessage(err)
-  			});
+  		message: errorHandler.getErrorMessage(err)
+  	   });
     } else {
       console.log("api called"); 
-
       res.status(200).send(data);  
     }
   });
@@ -87,27 +85,32 @@ module.exports.createView = function(req, res) {
 	});
 };
 module.exports.listView = function(req, res) {
-  Resumee.find(function(err, data) {
+  Resumee.find(function(err, resumee) {
         if (err) {
           return res.status(400).send({
     
       				message: errorHandler.getErrorMessage(err)
       			});
         } else {
-          console.log("api called");
-    
-            res.render('./../public/views/resumee/all.ejs', {
-        		user: req.user || null,
-        		request: req,
-        		resumees: data
-        	});
+          req.resumee = resumee;
+		   console.log(resumee);
+		  res.json(resumee);
         }
   });
 };
 
+module.exports.track = function(req, res) {
+	Resumee.find({title: req.body.title}).exec(function(err, resumee) {
+		if (err) console.error(err);
+		if (!resumee) {resumee=null;}
+		req.resumee = resumee;
+		// console.log(resumee);
+		res.json(resumee);
+	});
+};
 module.exports.Dashboard = function(req, res) {
      
-    res.render('./../public/views/recruiter/dashboard.ejs', {
+    res.render('./../public/views/recruiter/Dashboard.ejs', {
 		user: req.user || null, 
 		request: req
 	});
@@ -231,15 +234,24 @@ module.exports.UserAdministration = function(req, res) {
 		request: req
 	});
 };
-module.exports.CreateNewUser = function(req, res) {
+module.exports.AddNewUser = function(req, res) {
      
-    res.render('./../public/views/recruiter/CreateNewUser.ejs', {
+    res.render('./../public/views/recruiter/AddNewUser.ejs', {
 		user: req.user || null, 
 		request: req
 	});
 };
 
-exports.applicantByID = function(req, res, next, id) {
+exports.recruiterByID = function(req, res, next, id) {
+	Resumee.findById(id).populate('user', 'email').exec(function(err, resumee) {
+		if (err) return next(err);
+		if (!resumee) return next(new Error('Failed to load resumee ' + id));
+		req.resumee = resumee;
+		next();
+	});
+};
+
+exports.resumeByID = function(req, res, next, id) {
 	Resumee.findById(id).populate('user', 'email').exec(function(err, resumee) {
 		if (err) return next(err);
 		if (!resumee) return next(new Error('Failed to load resumee ' + id));

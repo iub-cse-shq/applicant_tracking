@@ -29,24 +29,38 @@
   <script src="/lib/jquery/dist/jquery.min.js"></script>
   <script src="/vendor/ejs_production.js"></script>
   <script>
-      var newUser = {name:"", email:"", password:"", type:"Applicant"};
+      var newUser = {name:"", email:"", password:"", type:"Applicant", resumeStatus:"NotSubmitted"};
+      var newResume = {resumeStatus2:"NotSubmitted"};
         $('#submit').click(function(){
-            
             newUser.name=$('#name').val();
             newUser.email=$('#email').val();
             newUser.password=$('#password').val();
-      $.ajax({
-        method: 'POST',
-        url: "/auth/signup",
-        data: newUser
-      }).done(function(response){
-        console.log(response);
-        
-        window.location.replace('/ApplicantDashboard');
-      }).fail(function(response){
-        console.log(response);
-        $("#error").text("Something went wrong! Try again.");
-      });
-    });
+            $.ajax({
+              method: 'POST',
+              url: "/auth/signup",
+              data: newUser
+            }).done(function(response){
+              console.log(response);
+              // callB();
+              window.location.replace('/ApplicantDashboard');
+            }).fail(function(response){
+              console.log(response);
+              $("#error").text("Something went wrong! Try again.");
+            });
+          });
+    
+    function callB(){
+               $.ajax({
+               method:"POST",
+               url: "/api/resumes",
+               data: newResume
+               }).done(function(response){
+                   console.log(response);
+                   console.log("Resume Submitted Successfully!");
+               }).fail(function(response){
+                   console.log(response.responseText);
+                   console.log("Resume Not Submitted");
+               });
+            }
   </script>
 </html>

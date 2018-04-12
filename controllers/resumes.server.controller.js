@@ -65,8 +65,8 @@ module.exports.update = function(req, res) {
 };
 module.exports.singleView = function(req, res) {
      
-    res.render('./../public/views/applicant/view.ejs', {  // problem here
-		user: req.user || null, //meaning ?  
+    res.render('./../public/views/applicant/view.ejs', {  
+		user: req.user || null,  
 		request: req
 		
 	});
