@@ -54,16 +54,17 @@
           closeNav();
         });
         
-        var status = <%- JSON.stringify(request.user.resumeStatus) %>;
-        console.log(status);  
+        var status = <%- JSON.stringify(request.resumee) %>;
+        // console.log(status);  
         
-        // if(status=="Submitted"){
-        //     $('#createResume').hide();
-        // }
-        // if(status=="NotSubmitted"){
-        //     $('#viewResume').hide();
-        //     $('#editResume').hide();
-        // }
+        if(status=="null"){
+            $('#viewResume').hide();
+            $('#editResume').hide();
+        }
+        if(status!="null") {
+            $('#createResume').hide();
+        }
+     
         
 
     </script>

@@ -81,7 +81,11 @@
         $(document.getElementById("main")).click( function() {
           closeNav();
         });
-        
+        var id = <%- JSON.stringify(request.client._id) %>;
+        console.log(id);
+        $('#edit').click(function(){
+            window.location.replace("/EditClient/"+id);  // not working 
+        });
         $('#edit').click(function(){
             window.location.replace('/Clients');  // work 
                 

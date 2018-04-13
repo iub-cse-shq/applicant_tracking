@@ -116,12 +116,8 @@ module.exports.MyProfile = function(req, res) {
 	var ObjectId = require('mongoose').Types.ObjectId; // load the Mongoose ObjectId function 
 	Resumee.findOne({user: ObjectId(req.user._id)}).exec(function(err, resumee) {
 		if (err) console.error(err);
-		if (!resumee) {
-		   resumee=null;
-		}
+		if (!resumee) req.resumee = false;
 		req.resumee = resumee;
-		console.log(resumee);
-		
 		res.render('./../public/views/applicant/MyProfile.ejs', {
 			user: req.user || null, 
 			request: req
