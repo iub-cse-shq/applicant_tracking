@@ -30,7 +30,6 @@
   <script src="/vendor/ejs_production.js"></script>
   <script>
       var newUser = {name:"", email:"", password:"", type:"Applicant", resumeStatus:"NotSubmitted"};
-      var newResume = {resumeStatus2:"NotSubmitted"};
         $('#submit').click(function(){
             newUser.name=$('#name').val();
             newUser.email=$('#email').val();
@@ -41,7 +40,7 @@
               data: newUser
             }).done(function(response){
               console.log(response);
-              // callB();
+              callB();
               window.location.replace('/ApplicantDashboard');
             }).fail(function(response){
               console.log(response);
@@ -50,9 +49,10 @@
           });
     
     function callB(){
+      var newResume = {resumeStatus2:"NotSubmitted"};
                $.ajax({
                method:"POST",
-               url: "/api/resumes",
+               url: "/api/applicants",
                data: newResume
                }).done(function(response){
                    console.log(response);

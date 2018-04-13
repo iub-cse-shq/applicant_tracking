@@ -57,7 +57,7 @@
                 <div class="form-row" id="education">
                     <div class=" col-sm-12 mt-4">
                         <h2 class="title2 display-6">Educational Details</h2>
-                         <button id="bt3" class="btn btn-info btn-sm float-right" >Add+ <span class="glyphicon glyphicon-plus"></span> </button> 
+                         <!--<button id="bt3" class="btn btn-info btn-sm float-right" >Add+ <span class="glyphicon glyphicon-plus"></span> </button> -->
                     </div>
                     <div class="col-sm-12 ">
                         <input type="text" class="form-control mt-2 textbox" placeholder="Institute/School" id="institute">
@@ -83,7 +83,6 @@
                 <div class="form-row" id="Experience">
                     <div class=" col-sm-12 mt-4">
                         <h2 class="title2 display-6">Experience</h2>
-                        <!-- <button id="bt3" class="btn btn-info btn-sm float-right" >Add+ <span class="glyphicon glyphicon-plus"></span> </button> -->
                     </div>
                     <div class="col-sm-12 ">
                         <input type="text" class="form-control mt-2 textbox" placeholder="Title (Ex:Manager)" id="title">
@@ -190,7 +189,7 @@
         });
         var newResume = {fname:"", lname:"", email:"", mobile:"", linkedIn:"", facebook:"", skype:"", twitter:"", city:"", country:"",
                          currentAddress:"",district:"",zipCode:"",institute:"",degree:"",fieldOfStudy:"",grade:"",startEdu:"",endEdu:"",
-                         title:"",company:"",location:"",des:"",startExp:"",endExp:"",skillSet:"",resumeAtt:"",photoAtt:"",othersAtt:"",resumeStatus2:"Submitted"};
+                         title:"",company:"",location:"",des:"",startExp:"",endExp:"",skillSet:"",resumeAtt:"",photoAtt:"",othersAtt:"",resumeStatus2:""};
       
           $('#submit').click(function(){
             newResume.fname=$('#fname').val();
@@ -222,21 +221,19 @@
             newResume.resumeAtt=$('#resumeAtt').val();
             newResume.photoAtt=$('#photoAtt').val();
             newResume.othersAtt=$('#othersAtt').val();
-            // newResume.resumeStatus2="Submitted";
+            newResume.resumeStatus2="Submitted";
            $.ajax({
                method:"POST",
-               url: "/api/resumes",
+               url: "/api/applicants",
                data: newResume
            }).done(function(response){
-            //   $('#success').text("Resume Added!");
                console.log(response);
                alert("Resume Submitted Successfully!");
                window.location.replace('/ViewMyResume');
            }).fail(function(response){
-            //   $('#error').text(JSON.parse(response.responseText).message);
                console.log(response.responseText);
            });
-                //  return false; 
+                 return false; 
           });
           
         $('#cancel').click(function(){

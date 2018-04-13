@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Resumee = require('./../models/Resumee.js');
+var Client = require('./../models/Client.js');
 var errorHandler = require('./errors.server.controller');
 var _ = require('lodash');
 
@@ -31,12 +32,37 @@ module.exports.create = function(req, res) {
   });
 };
 
+module.exports.Clientlist = function(req, res) {
+   Client.find(function(err, data) {
+    if (err) {
+      return res.status(400).send({
+  		message: errorHandler.getErrorMessage(err)
+  	   });
+    } else {
+      console.log("api called"); 
+      res.status(200).send(data);  
+    }
+  });
+};
+
+module.exports.createClient = function(req, res) {
+  var client = new Client(req.body);
+  client.user = req.user;
+  client.save(function(err, data) {
+    if (err) {
+      return res.status(400).send({
+
+  				message: errorHandler.getErrorMessage(err)
+  			});
+    } else {
+      res.status(200).send(data);
+    }
+  });
+};
+
 module.exports.read = function(req, res) {
   res.json(req.resumee);
 };
-
-
-
 
 exports.delete = function(req, res) {
 	var resumee = req.resumee;
@@ -256,6 +282,14 @@ exports.resumeByID = function(req, res, next, id) {
 		if (err) return next(err);
 		if (!resumee) return next(new Error('Failed to load resumee ' + id));
 		req.resumee = resumee;
+		next();
+	});
+};
+exports.clientByID = function(req, res, next, id) {
+	Client.findById(id).populate('user', 'email').exec(function(err, client) {
+		if (err) return next(err);
+		if (!client) return next(new Error('Failed to load client ' + id));
+		req.client = client;
 		next();
 	});
 };

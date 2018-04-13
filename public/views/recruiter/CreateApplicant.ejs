@@ -190,7 +190,7 @@
         });
         var newResume = {fname:"", lname:"", email:"", mobile:"", linkedIn:"", facebook:"", skype:"", twitter:"", city:"", country:"",
                          currentAddress:"",district:"",zipCode:"",institute:"",degree:"",fieldOfStudy:"",grade:"",startEdu:"",endEdu:"",
-                         title:"",company:"",location:"",des:"",startExp:"",endExp:"",skillSet:"",resumeAtt:"",photoAtt:"",othersAtt:"",resumeStatus2:"Submitted"};
+                         title:"",company:"",location:"",des:"",startExp:"",endExp:"",skillSet:"",resumeAtt:"",photoAtt:"",othersAtt:"",resumeStatus2:""};
       
           $('#submit').click(function(){
             newResume.fname=$('#fname').val();
@@ -222,20 +222,20 @@
             newResume.resumeAtt=$('#resumeAtt').val();
             newResume.photoAtt=$('#photoAtt').val();
             newResume.othersAtt=$('#othersAtt').val();
-            // newResume.resumeStatus2="Submitted";
+            newResume.resumeStatus2="Submitted";
            $.ajax({
                method:"POST",
-               url: "/api/resumes",
+               url: "/api/applicants",
                data: newResume
            }).done(function(response){
                console.log(response);
                alert("Resume Submitted Successfully!");
-               window.location.replace('/ViewResume/'+response._id);
+               window.location.replace('/ViewApplicant/'+response._id); 
            }).fail(function(response){
                console.log(response.responseText);
                console.log("Not submitted");
            });
-                //  return false; 
+                 return false; 
           });
           
         $('#cancel').click(function(){

@@ -37,7 +37,6 @@ var ResumeeSchema = {
     type: String,
     trim: true
   },  
-
   city: {
     type: String,
     trim: true
@@ -135,7 +134,7 @@ var ResumeeSchema = {
     default: Date.now
   }
   
-}
+};
 
 var Resumee = mongoose.model('Resumee', ResumeeSchema, 'resumees');
 module.exports = Resumee;

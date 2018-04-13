@@ -7,6 +7,10 @@ module.exports = function(app){
     .get(recruiters.list)
 	.post(users.requiresLogin, recruiters.create);
 
+app.route('/api/clients')
+    .get(recruiters.Clientlist)
+	.post(users.requiresLogin, recruiters.createClient);
+
 app.route('/api/track')
 	.post(users.requiresLogin, recruiters.track);
 
@@ -18,13 +22,6 @@ app.route('/api/track')
 	.get(recruiters.read)
 	.put(users.requiresLogin, recruiters.update);
 	
-	
-	
-	
-// app.route('/recruiters/all').get(recruiters.listView);  // show all recruiter 
-// app.route('/recruiters/new').get(recruiters.createView);  // create and view only  
-// app.route('/recruiter/:recruiterId').get(recruiters.singleView);  // single recruiter
-// app.route('/recruiter/:recruiterId/content').get(recruiters.showContent);  // show content of a single recruiter
 
 // app.route('/Dashboard').get(users.requiresLogin, recruiters.Dashboard);   
 app.route('/Dashboard').get(recruiters.Dashboard);   
@@ -32,15 +29,15 @@ app.route('/TrackApplicants').get(recruiters.TrackApplicants);
 app.route('/Applicants').get(recruiters.Applicants);
 app.route('/CreateApplicant').get(recruiters.CreateApplicant);
 app.route('/ViewApplicant/:resumeId').get(recruiters.ViewApplicant);
-app.route('/EditApplicant').get(recruiters.EditApplicant);
+app.route('/EditApplicant/:resumeId').get(recruiters.EditApplicant);
 app.route('/Clients').get(recruiters.Clients);
-app.route('/CreateClients').get(recruiters.CreateClients);
-app.route('/ViewClients').get(recruiters.CreateClients);
-app.route('/EditClients').get(recruiters.CreateClients);
+app.route('/CreateClient').get(recruiters.CreateClients);
+app.route('/ViewClient').get(recruiters.CreateClients);
+app.route('/EditClient').get(recruiters.CreateClients);
 app.route('/JobOpenings').get(recruiters.JobOpenings);
-app.route('/CreateJobOpenings').get(recruiters.CreateJobOpenings);
-app.route('/ViewJobOpenings').get(recruiters.CreateJobOpenings);
-app.route('/EditJobOpenings').get(recruiters.CreateJobOpenings);
+app.route('/CreateJobOpening').get(recruiters.CreateJobOpenings);
+app.route('/ViewJobOpening').get(recruiters.CreateJobOpenings);
+app.route('/EditJobOpening').get(recruiters.CreateJobOpenings);
 app.route('/CareerTips').get(recruiters.CareerTips);
 app.route('/Emails').get(recruiters.Emails);
 app.route('/Tests').get(recruiters.Tests);
@@ -50,5 +47,6 @@ app.route('/AddNewUser').get(recruiters.AddNewUser);
 
 app.param('recruiterId', recruiters.recruiterByID);
 app.param('resumeId', recruiters.resumeByID);
+app.param('clientId', recruiters.clientByID);
 
 }

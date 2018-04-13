@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/vendor/css/style.css">
     <link rel="stylesheet" href="/vendor/css/glyphicons.css">
     <link rel="stylesheet" href="/css/EditMyResume.css" crossorigin="anonymous">
-    <title>Edit My Resume</title>
+    <title>Edit Applicant</title>
 </head>
 
 <body>
@@ -22,7 +22,7 @@
      <div class="container" id="container">
          <div class="title jumbotron" id="jumbotron">
              <div class="title jumbotron p-2 bg-secondary">
-                 <h3 class="title display-5 py-2 text-white">Edit My Resume</h3>
+                 <h3 class="title display-5 py-2 text-white">Edit Applicant</h3>
              </div>
              <div class="form-row" id="basicinfo">
                  <div class="sub col-sm-12  mt-4">
@@ -227,7 +227,7 @@
               data: resume
             }).done(function(response){
               console.log(response);
-              window.location.replace("/ViewMyResume");
+              window.location.replace('/ViewApplicant/'+response._id); 
             return false;
             }).fail(function(response){
                 console.log(response);

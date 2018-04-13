@@ -13,11 +13,11 @@ var ClientSchema = {
     required: 'LName required'
   },
   cPhone: {
-    type: String,
+    type: Number,
     trim: true
   },
   source: {
-    type: Number,
+    type: String,
     trim: true
     // required: 'Mobile required'
   },  
@@ -37,7 +37,6 @@ var ClientSchema = {
     type: String,
     trim: true
   },  
-
   district: {
     type: String,
     trim: true

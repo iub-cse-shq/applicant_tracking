@@ -24,9 +24,8 @@ module.exports.create = function(req, res) {
   resumee.save(function(err, data) {
     if (err) {
       return res.status(400).send({
-
-  				message: errorHandler.getErrorMessage(err)
-  			});
+  		message: errorHandler.getErrorMessage(err)
+  	  });
     } else {
       res.status(200).send(data);
     }

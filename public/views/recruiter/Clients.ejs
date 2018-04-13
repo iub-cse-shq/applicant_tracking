@@ -22,8 +22,9 @@
                 <div class="title jumbotron p-2 bg-secondary">
                     <h3 class="title display-5 py-2 text-white">Clients</h3>
                 </div>
-                <a href="/CreateClients">Create New Client</a>
-
+                <button type="button" class="button1" id="CreateCl" onclick="location.href='/CreateClient';">Create New Client</button>
+                <button type="button" class="button1" id="showAllCl" >show All Clients</button>
+                <div id="list"></div>
             </div>
         </div>
     </div>
@@ -47,6 +48,12 @@
         }
         $(document.getElementById("main")).click( function() {
           closeNav();
+        });
+        $("#showAllCl").click(function(){
+                $.get("/api/clients", function(data, status){
+                  var html = new EJS({url: 'views/recruiter/ShowAllClients.ejs'}).render({client:data});
+                  $("#list").html(html);
+             });
         });
 
 

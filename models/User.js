@@ -58,9 +58,7 @@ var UserSchema = new Schema({
      resumeStatus: {         
         type: String,
         trim: true,
-        //default: '',
       },
-    
     lastName: {
         type: String,
         trim: true,

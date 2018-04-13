@@ -76,7 +76,7 @@
                     $('#show').text("No Match found!");   
                }
                else if(response){
-                  var html = new EJS({url: 'views/recruiter/list.ejs'}).render({resumee:response});
+                  var html = new EJS({url: 'views/recruiter/ListOfTrackedApp.ejs'}).render({resumee:response});
                   $("#show").html(html);
                }
            }).fail(function(response){

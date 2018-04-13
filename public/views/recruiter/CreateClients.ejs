@@ -27,10 +27,10 @@
                         <h2 class="sub title2 display-5">Contact Information</h2>
                     </div>
                     <div class="col-sm-8" >
-                        <input type="text" class="b form-control mt-2 textbox" placeholder="Contact Name">
-                        <input type="text" class="form-control mt-2 textbox" placeholder="Contact Email">
-                        <input type="text" class="form-control mt-2 textbox" placeholder="Contact Phone">
-                        <input type="text" class="b form-control mt-2 textbox" placeholder="Source">
+                        <input type="text" class="b form-control mt-2 textbox" placeholder="Contact Name" id="contactName">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Contact Email" id="cEmail">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Contact Phone" id="cPhone">
+                        <input type="text" class="b form-control mt-2 textbox" placeholder="Source" id="source">
                 </div>
                 </div>
                 <div class="form-row" id="">
@@ -38,13 +38,13 @@
                         <h2 class="sub title2 display-5">Company Information</h2>
                     </div>
                     <div class="col-sm-8" >
-                      <input type="text" class="form-control mt-2 textbox" placeholder="Company Name">
-                      <input type="text" class="b form-control mt-2 textbox" placeholder="Industry">
-                      <input type="url" class="form-control mt-2 textbox" placeholder="Website">
-                      <input type="text" class="form-control mt-2 textbox" placeholder="City">
-                      <input type="text" class="b form-control mt-2 textbox" placeholder="District">
-                      <input type="text" class="b form-control mt-2 textbox" placeholder="Country">
-                      <textarea class="form-control mt-2" type="text" rows="1" cols="75" placeholder="Current Address"></textarea>
+                      <input type="text" class="form-control mt-2 textbox" placeholder="Company Name" id="companyName">
+                      <input type="text" class="b form-control mt-2 textbox" placeholder="Industry" id="industry">
+                      <input type="text" class="form-control mt-2 textbox" placeholder="Website" id="website">
+                      <input type="text" class="form-control mt-2 textbox" placeholder="City" id="city">
+                      <input type="text" class="b form-control mt-2 textbox" placeholder="District" id="district">
+                      <input type="text" class="b form-control mt-2 textbox" placeholder="Country" id="country">
+                      <textarea class="form-control mt-2" type="text" rows="1" cols="75" placeholder="Current Address" id="currentAddress"></textarea>
                     </div>
                 </div>
                 <div class="form-row" id="Attachment">
@@ -57,13 +57,13 @@
                           <label  class="lableAttachment">Agreements</label>
                       </div>
                       <div class="col-sm-12 col-md-8">
-                            <input type="file" class="form-control mt-2 textbox">
+                            <input type="file" class="form-control mt-2 textbox" id="agreementsAtt">
                       </div>
                       <div class="col-sm-12 col-md-4">
                           <label  class="lableAttachment">Others</label>
                       </div>
                       <div class="col-sm-12 col-md-8">
-                            <input type="file" class="form-control mt-2 textbox">
+                            <input type="file" class="form-control mt-2 textbox" id="othersAtt">
                       </div>
                   </div>
 
@@ -72,9 +72,9 @@
                 <div class="row mt-4">
                     <div class=" save col-sm-12 bg-secondary ">
                         <form class="Savebtn form-inline my-2 my-lg-0 float-right ">
-                            <button class="saveb btn btn-primary-success m-1 m-sm-2 button" type="submit">Save</button>
-                            <button class="btn btn-primary-success m-1 m-sm-2 button" type="submit">Save and New</button>
-                            <button class="btn btn-primary-success m-1 m-sm-2 button" type="submit">Cancel</button>
+                            <button class="saveb btn btn-primary-success m-1 m-sm-2 button" type="submit" id="save">Save</button>
+                            <button class="btn btn-primary-success m-1 m-sm-2 button" type="submit" id="saveNew">Save and New</button>
+                            <button class="btn btn-primary-success m-1 m-sm-2 button" type="submit" id="cancel">Cancel</button>
                         </form>
                     </div>
                 </div>
@@ -102,6 +102,43 @@
         }
         $(document.getElementById("main")).click( function() {
           closeNav();
+        });
+        var newClient = {contactName:"", cEmail:"",cPhone:"",source:"",
+                         companyName:"",industry:"",website:"",city:"",district:"",
+                         country:"",currentAddress:"",agreementsAtt:"",othersAtt:""};
+          $('#save').click(function(){
+            newClient.contactName=$('#contactName').val();
+            newClient.cEmail=$('#cEmail').val();
+            newClient.cPhone=$('#cPhone').val();
+            newClient.source=$('#source').val();
+            newClient.companyName=$('#companyName').val();
+            newClient.industry=$('#industry').val();
+            newClient.website=$('#website').val();
+            newClient.city=$('#city').val();
+            newClient.district=$('#district').val();
+            newClient.country=$('#country').val();
+            newClient.currentAddress=$('#currentAddress').val();
+            newClient.agreementsAtt=$('#agreementsAtt').val();
+            newClient.othersAtt=$('#othersAtt').val();
+            
+           $.ajax({
+               method:"POST",
+               url: "/api/clients",
+               data: newClient
+           }).done(function(response){
+               console.log(response);
+               alert("newClient Submitted Successfully!");
+              window.location.replace('/ViewClient/'+response._id); 
+           }).fail(function(response){
+               console.log(response.responseText);
+               console.log("Not submitted");
+           });
+                 return false; 
+          });
+          
+        $('#cancel').click(function(){
+            window.location.replace('/Clients');
+                
         });
 
 

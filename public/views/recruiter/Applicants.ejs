@@ -50,9 +50,9 @@
           closeNav();
         });
               $("#showAllApp").click(function(){
-                $.get("/api/recruiters", function(data, status){
-                  var html = new EJS({url: 'views/recruiter/all.ejs'}).render({resumee:data});
-                $("#list").html(html);
+                $.get("/api/applicants", function(data, status){
+                  var html = new EJS({url: 'views/recruiter/ShowAllApplicants.ejs'}).render({resumee:data});
+                  $("#list").html(html);
                 });
               });
 

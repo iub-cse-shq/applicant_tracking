@@ -165,7 +165,7 @@
                  <div class=" save col-sm-12 bg-secondary ">
                      <form class="Savebtn form-inline my-2 my-lg-0 float-right ">
                          <button class="saveb btn btn-primary-success m-1 m-sm-2 button" type="submit" id="Edit">Edit</button>
-                         <button class="cancelb btn btn-primary-success m-1 m-sm-2 button" type="Print" id="cancel">Print</button>
+                         <button class="cancelb btn btn-primary-success m-1 m-sm-2 button" type="submit" id="Print">Print</button>
                      </form>
                  </div>
              </div>
@@ -201,7 +201,11 @@
               }
               else $('.endDu1').attr('enabled', true);
         });
-        
+        var id = <%- JSON.stringify(request.resumee._id) %>;
+        console.log(id);
+        $('#Edit').click(function(){
+            window.location.replace('/EditApplicant/'+id);  // not working 
+        });
          
 
     </script>
