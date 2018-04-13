@@ -15,7 +15,7 @@
     <input id="email" type="email" placeholder="email"/> 
     <input id="password" type="password" placeholder="password"/> <br>
 
-    <button id="submit">Submit</button>
+    <button id="submit" onclick="javascript:callAJAX()">Submit</button>
     <br/>
     <div id="error"></div>
   </body>
@@ -29,8 +29,16 @@
     $("#password").change(function(event){
       user.password=$("#password").val();
     });
-    $("#submit").click(function(event){
-      $.ajax({
+    var pass = document.getElementById("password");
+        pass.addEventListener("keyup", function(event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+          document.getElementById("submit").click();
+    }
+});
+
+    function callAJAX(){
+         $.ajax({
         method: 'POST',
         url: "/auth/signin",
         data: user
@@ -46,6 +54,6 @@
         console.log(response);
         $("#error").text("Wrong Email/Passward");
       });
-    });
+    }
   </script>
 </html>

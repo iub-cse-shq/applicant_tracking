@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/vendor/css/style.css">
     <link rel="stylesheet" href="/vendor/css/glyphicons.css">
     <link rel="stylesheet" href="/css/CreateClients.css" crossorigin="anonymous">
-    <title>Client</title>
+    <title>Edit Client</title>
 </head>
 
 <body>
@@ -20,7 +20,7 @@
             <div class="title jumbotron" id="jumbotron">
                 <!-- used title to reduce extra padding on top of  CREATE NEW CANDIDATE -->
                 <div class="title jumbotron p-2 bg-secondary">
-                    <h3 class="title display-5 py-2 text-white">View <%=request.client.contactName%> </h3>
+                    <h3 class="title display-5 py-2 text-white">Edit <%=request.client.contactName%> </h3>
                 </div>
                 <div class="form-row" id="">
                     <div class="sub col-sm-12  mt-4">
@@ -49,11 +49,8 @@
                 </div>
                 <div class="row mt-4">
                     <div class=" save col-sm-12 bg-secondary ">
-                        <!--<form class="Savebtn form-inline my-2 my-lg-0 float-right ">-->
-                            <button class="saveb btn btn-primary-success m-1 m-sm-2 button" type="submit" id="edit">Edit</button>
-                            <button class="btn btn-primary-success m-1 m-sm-2 button" type="submit" id="print">Print</button>
-                            <button class="btn btn-primary-success m-1 m-sm-2 button" type="submit" id="back">Back</button>
-                        <!--</form>-->
+                            <button class="saveb btn btn-primary-success m-1 m-sm-2 button" type="submit" id="update">Update</button>
+                            <button class="btn btn-primary-success m-1 m-sm-2 button" type="submit" id="cancel">Cancel</button>
                     </div>
                 </div>
             </div>
@@ -82,16 +79,30 @@
           closeNav();
         });
         var id = <%- JSON.stringify(request.client._id) %>;
-        console.log(id);
-        $('#edit').click(function(){
-            window.location.replace("/EditClient/"+id);  
-        });
-        $('#back').click(function(){
+        var EditClient = {};
+          $('#contactName').change(function(){
+            EditClient.contactName = $('#contactName').val();
+          });
+          $('#companyName').change(function(){
+            EditClient.companyName = $('#companyName').val();
+          });
+ 
+          $('#update').click(function(){
+            $.ajax({
+              method:"PUT",
+              url:'/api/clients/edit/'+id, 
+              data: EditClient
+            }).done(function(response){
+              console.log(response);
+              window.location.replace('/ViewClient/'+response._id); 
+              return false;
+            }).fail(function(response){
+                console.log(response);
+            });
+          });
+        $('#cancel').click(function(){
             window.location.replace('/Clients'); 
-                
         });
-
-
     </script>
 
 </body>

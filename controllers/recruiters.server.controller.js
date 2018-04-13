@@ -76,53 +76,16 @@ exports.delete = function(req, res) {
 };
 
 
-module.exports.update = function(req, res) {
-  var resumee = req.resumee;
-
-  	resumee = _.extend(resumee, req.body);
-
-  	resumee.save(function(err) {
+module.exports.updateClient = function(req, res) {
+	 var client = req.client;
+  	client = _.extend(client, req.body);
+  	client.save(function(err) {
   		if (err) {
   			return res.status(400).send();
   		} else {
-  			res.json(resumee);
+  			res.json(client);
   		}
   	});
-};
-module.exports.singleView = function(req, res) {
-     
-    res.render('./../public/views/resumee/view.ejs', {
-		user: req.user || null, //meaning ?  
-		request: req
-	});
-};
-module.exports.showContent = function(req, res) {
-     
-    res.render('./../public/views/resumee/showContent.ejs', {
-		user: req.user || null, 
-		request: req
-	});
-};
-module.exports.createView = function(req, res) {
-     
-    res.render('./../public/views/resumee/new.ejs', {
-		user: req.user || null, 
-		request: req
-	});
-};
-module.exports.listView = function(req, res) {
-  Resumee.find(function(err, resumee) {
-        if (err) {
-          return res.status(400).send({
-    
-      				message: errorHandler.getErrorMessage(err)
-      			});
-        } else {
-          req.resumee = resumee;
-		   console.log(resumee);
-		  res.json(resumee);
-        }
-  });
 };
 
 module.exports.track = function(req, res) {

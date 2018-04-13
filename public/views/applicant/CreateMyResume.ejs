@@ -189,7 +189,7 @@
         });
         var newResume = {fname:"", lname:"", email:"", mobile:"", linkedIn:"", facebook:"", skype:"", twitter:"", city:"", country:"",
                          currentAddress:"",district:"",zipCode:"",institute:"",degree:"",fieldOfStudy:"",grade:"",startEdu:"",endEdu:"",
-                         title:"",company:"",location:"",des:"",startExp:"",endExp:"",skillSet:"",resumeAtt:"",photoAtt:"",othersAtt:"",resumeStatus2:""};
+                         title:"",company:"",location:"",des:"",startExp:"",endExp:"",skillSet:"",resumeAtt:"",photoAtt:"",othersAtt:""};
       
           $('#submit').click(function(){
             newResume.fname=$('#fname').val();
@@ -221,7 +221,6 @@
             newResume.resumeAtt=$('#resumeAtt').val();
             newResume.photoAtt=$('#photoAtt').val();
             newResume.othersAtt=$('#othersAtt').val();
-            newResume.resumeStatus2="Submitted";
            $.ajax({
                method:"POST",
                url: "/api/applicants",

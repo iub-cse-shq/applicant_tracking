@@ -147,10 +147,8 @@ module.exports.ApplicantCareerTips = function(req, res) {
 	});
 };
 module.exports.ViewMyResume = function(req, res) {
-	//console.log(req.user);
 	var ObjectId = require('mongoose').Types.ObjectId; // load the Mongoose ObjectId function 
 	 // Mongoose query find and return one object.
-	// Resumee.findOne({title: ObjectId(searchData)}).exec(function(err, resumee) {
 	Resumee.findOne({user: ObjectId(req.user._id)}).exec(function(err, resumee) {
 		if (err) console.error(err);
 		if (!resumee) return console.error(new Error('Failed to load resumee of user' + req.user._id));
@@ -178,7 +176,6 @@ module.exports.EditMyResume = function(req, res) {
 		if (err) console.error(err);
 		if (!resumee) return console.error(new Error('Failed to load resumee of user' + req.user._id));
 		req.resumee = resumee;
-		console.log(resumee);
 		
 		res.render('./../public/views/applicant/EditMyResume.ejs', {
 			user: req.user || null, 

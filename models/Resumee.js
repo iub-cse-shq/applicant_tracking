@@ -121,10 +121,6 @@ var ResumeeSchema = {
     type: String,
     trim: true
   },
-  resumeStatus2: {
-    type: String,
-    trim: true
-  },
   user: {
     type: Schema.ObjectId,
     ref: 'User'

@@ -39,28 +39,12 @@
               data: newUser
             }).done(function(response){
               console.log(response);
-              // callB();
               window.location.replace('/ApplicantDashboard');
             }).fail(function(response){
               console.log(response);
               $("#error").text("Something went wrong! Try again.");
             });
           });
-    
-    function callB(){
-      var newResume = {resumeStatus2:"NotSubmitted"};
-               $.ajax({
-               method:"POST",
-               url: "/api/applicants",
-               data: newResume
-               }).done(function(response){
-                   console.log(response);
-                   console.log("Resume Submitted Successfully!");
-               }).fail(function(response){
-                   console.log(response.responseText);
-                   console.log("Resume Not Submitted");
-               });
-            }
      </script>
   </body>
 </html>

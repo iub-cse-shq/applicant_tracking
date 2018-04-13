@@ -3,9 +3,9 @@ module.exports = function(app){
  var recruiters = require('./../controllers/recruiters.server.controller.js');
  var users = require('./../controllers/users.server.controller.js');
 
- app.route('/api/recruiters')
-    .get(recruiters.list)
-	.post(users.requiresLogin, recruiters.create);
+// app.route('/api/recruiters')
+//     .get(recruiters.list)
+// 	.post(users.requiresLogin, recruiters.create);
 
 app.route('/api/clients')
     .get(recruiters.Clientlist)
@@ -14,14 +14,17 @@ app.route('/api/clients')
 app.route('/api/track')
 	.post(users.requiresLogin, recruiters.track);
 
-  app.route('/api/recruiters/:recruiterId')
+app.route('/api/recruiters/:recruiterId')
 	.get(recruiters.read)
     .delete(users.requiresLogin, recruiters.delete);
 
-	app.route('/api/recruiters/edit/:recruiterId')
+app.route('/api/recruiters/edit/:recruiterId')
 	.get(recruiters.read)
-	.put(users.requiresLogin, recruiters.update);
-	
+// 	.put(users.requiresLogin, recruiters.update);
+
+app.route('/api/clients/edit/:clientId')
+	.get(recruiters.read)
+	.put(users.requiresLogin, recruiters.updateClient);	
 
 // app.route('/Dashboard').get(users.requiresLogin, recruiters.Dashboard);   
 app.route('/Dashboard').get(recruiters.Dashboard);   
