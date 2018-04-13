@@ -83,11 +83,38 @@
           $('#contactName').change(function(){
             EditClient.contactName = $('#contactName').val();
           });
+          $('#cEmail').change(function(){
+            EditClient.cEmail = $('#cEmail').val();
+          });
+          $('#cPhone').change(function(){
+            EditClient.cPhone = $('#cPhone').val();
+          });
+          $('#source').change(function(){
+            EditClient.source = $('#source').val();
+          });
           $('#companyName').change(function(){
             EditClient.companyName = $('#companyName').val();
           });
- 
-          $('#update').click(function(){
+          $('#industry').change(function(){
+            EditClient.industry = $('#industry').val();
+          });
+          $('#website').change(function(){
+            EditClient.website = $('#website').val();
+          });
+          $('#city').change(function(){
+            EditClient.city = $('#city').val();
+          });
+          $('#district').change(function(){
+            EditClient.district = $('#district').val();
+          });
+          $('#country').change(function(){
+            EditClient.country = $('#country').val();
+          });
+          $('#currentAddress').change(function(){
+            EditClient.currentAddress = $('#currentAddress').val();
+          });
+          
+        $('#update').click(function(){
             $.ajax({
               method:"PUT",
               url:'/api/clients/edit/'+id, 

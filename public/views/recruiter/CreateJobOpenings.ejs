@@ -12,38 +12,7 @@
 </head>
 
 <body>
-  <header>
-    <nav class="navbar navbar-expand-xs   navbar-dark bg-dark">
-           <span class="open-slide">
-                <span class="openbtn" onclick="openNav()">&#9776;</span>
-                <img class="logo" src="hr.png" onclick="location.href='dashboard.html';">
-            </span>
-          <ul class="a navitems nav ml-auto" >
-            <li> <a href="TrackApplicants.html">TrackApplicants</a> </li>
-          <li> <a href="Applicants.html">Applicants</a> </li>
-          <li> <a href="JobOpenings.html">JobOpenings</a> </li>
-          <li> <a href="Clients.html">Clients</a> </li>
-          <li> <a href="#"><span class="logoutb glyphicon glyphicon-log-out"> Logout</span></a> </li>
-        </ul>
-      </nav>
-      <div id="sidebar" class="sidenav">
-        <p href="#" class="closebtn" onclick="closeNav()">&times;</p>
-        <div class="CompanyName">
-          <a class="cName" href="#">ATS</a>
-        </div>
-        <div class="Sideitems">
-          <a href="dashboard.html">ActivityReport</a>
-          <a href="TrackApplicants.html">TrackApplicant</a>
-          <a href="JobOpenings.html">JobOpenings</a>
-          <a href="Applicants.html">Candidates</a>
-          <a href="Clients.html">Clients</a>
-          <a href="Emails.html">Emails</a>
-          <a href="Tests.html">Tests</a>
-          <a href="CareerTips.html">CareerTips</a>
-          <a href="UserAdministration.html">UserAdministration</a>
-      </div>
-    </div>
-  </header>
+<% include include/RecHeader %>
     <!-- /* CONTAINER START */ -->
     <div class="main" id="main">
         <div class="container" id="container">
@@ -58,30 +27,27 @@
                         <h2 class="sub title2 display-5">Job Opening Information</h2>
                     </div>
                     <div class="col-sm-6" >
-                        <input type="text" class="b form-control mt-2 textbox" placeholder="Posting Title">
-                        <input type="text" class="b form-control mt-2 textbox" placeholder="Contact Name">
-                        <input type="text" class="form-control mt-2 textbox" placeholder="Contact Email">
-                        <input type="text" class="form-control mt-2 textbox" placeholder="Contact Phone">
-                        <input type="text" class="b form-control mt-2 textbox" placeholder="Industry">
-                        <input type="number" class="b form-control mt-2 textbox" placeholder="Salary">
-                        <input type="number" class="form-control mt-2 textbox" placeholder="Work Experience">
+                        <input type="text" class="b form-control mt-2 textbox" placeholder="Posting Title" id="title">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Assigned Recruiter" id="assignedRec">
+                        <input type="text" class="b form-control mt-2 textbox" placeholder="Industry" id="industry">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Job Type" id="jobType">
+                        <input type="number" class="b form-control mt-2 textbox" placeholder="Salary" id="salary">
+                        <input type="number" class="form-control mt-2 textbox" placeholder="Work Experience" id="workExp">
                 </div>
                     <div class="col-sm-6 textbox">
-                        <input type="text" class="form-control mt-2 textbox" placeholder="Company Name">
-                        <input type="text" class="form-control mt-2 textbox" placeholder="Assigned Recruiter">
-                        <input type="text" class="form-control mt-2 textbox" placeholder="Job Type">
-                        <input type="text" class="b form-control mt-2 textbox" placeholder="City">
-                        <input type="text" class="b form-control mt-2 textbox" placeholder="Country">
-                        <input type="text" class="form-control mt-2 textbox" placeholder="District">
-                        <input type="number" class="form-control mt-2 textbox" placeholder="Number of Vacancy">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Company Name" id="companyName">
+                        <input type="text" class="b form-control mt-2 textbox" placeholder="City" id="city">
+                        <input type="text" class="b form-control mt-2 textbox" placeholder="Country" id="country">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="District" id="district">
+                        <input type="number" class="form-control mt-2 textbox" placeholder="Number of Vacancy" id="numOfVac">
                     </div>
                     <div class="col-sm-6 textbox">
                       <label class="labelduration">Date Opened: </label> <br>
-                      <input type="date" class="form-control mt-2 textbox" placeholder="Date Opened">
+                      <input type="date" class="form-control mt-2 textbox" placeholder="Date Opened" id="dateOpen">
                     </div>
                     <div class="col-sm-6 textbox">
                       <label class="labelduration">Target Date: </label>
-                      <input type="date" class="b form-control mt-2 textbox" placeholder="Target Date">
+                      <input type="date" class="b form-control mt-2 textbox" placeholder="Target Date" id="dateTarget">
                     </div>
                 </div>
                 <div class="form-row" id="">
@@ -89,23 +55,23 @@
                         <h2 class="title2 display-5 ">Job Description</h2>
                     </div>
                      <div class="col-sm-12 textbox">
-                      <textarea class="form-control mt-2" type="text" rows="2" cols="75" placeholder="Job Description"></textarea>
+                      <textarea class="form-control mt-2" type="text" rows="2" cols="75" placeholder="Job Description" id="jobDes"></textarea>
                     </div>
                 </div>
-                <div class="form-row" id="">
-                    <div class=" col-sm-12  mt-4">
-                        <h2 class="title2 display-5 ">Forecast Details</h2>
-                    </div>
-                    <div class="col-sm-6 ">
-                        <input type="number" class="form-control mt-2 textbox" placeholder="Number of Positions">
-                        <input type="number" class="form-control mt-2 textbox" placeholder="Expected Revenue">
-                        <input type="number" class="form-control mt-2 textbox" placeholder="Missed Revenue">
-                    </div>
-                    <div class=" col-sm-6">
-                      <input type="number" class="form-control mt-2 textbox" placeholder="Revenue Per Position">
-                      <input type="number" class="form-control mt-2 textbox" placeholder="Actual Revenue">
-                    </div>
-                </div>
+                <!--<div class="form-row" id="">-->
+                <!--    <div class=" col-sm-12  mt-4">-->
+                <!--        <h2 class="title2 display-5 ">Forecast Details</h2>-->
+                <!--    </div>-->
+                <!--    <div class="col-sm-6 ">-->
+                <!--        <input type="number" class="form-control mt-2 textbox" placeholder="Number of Positions">-->
+                <!--        <input type="number" class="form-control mt-2 textbox" placeholder="Expected Revenue">-->
+                <!--        <input type="number" class="form-control mt-2 textbox" placeholder="Missed Revenue">-->
+                <!--    </div>-->
+                <!--    <div class=" col-sm-6">-->
+                <!--      <input type="number" class="form-control mt-2 textbox" placeholder="Revenue Per Position">-->
+                <!--      <input type="number" class="form-control mt-2 textbox" placeholder="Actual Revenue">-->
+                <!--    </div>-->
+                <!--</div>-->
 
                 <div class="form-row" id="Attachment">
                     <div class=" col-sm-12 mt-4">
@@ -117,13 +83,13 @@
                           <label  class="lableAttachment">Job Description</label>
                       </div>
                       <div class="col-sm-12 col-md-8">
-                            <input type="file" class="form-control mt-2 textbox">
+                            <input type="file" class="form-control mt-2 textbox" id="JobDesAtt">
                       </div>
                       <div class="col-sm-12 col-md-4">
                           <label  class="lableAttachment">Others</label>
                       </div>
                       <div class="col-sm-12 col-md-8">
-                            <input type="file" class="form-control mt-2 textbox">
+                            <input type="file" class="form-control mt-2 textbox" id="othersAtt">
                       </div>
                   </div>
 
@@ -131,11 +97,9 @@
 
                 <div class="row mt-4">
                     <div class=" save col-sm-12 bg-secondary ">
-                        <form class="Savebtn form-inline my-2 my-lg-0 float-right ">
-                            <button class="saveb btn btn-primary-success m-1 m-sm-2 button" type="submit">Save</button>
-                            <button class="btn btn-primary-success m-1 m-sm-2 button" type="submit">Save and New</button>
-                            <button class="btn btn-primary-success m-1 m-sm-2 button" type="submit">Cancel</button>
-                        </form>
+                            <button class="saveb btn btn-primary-success m-1 m-sm-2 button" type="submit" id="save">Save</button>
+                            <button class="btn btn-primary-success m-1 m-sm-2 button" type="submit" id="saveNew">Save and New</button>
+                            <button class="cancelb btn btn-primary-success m-1 m-sm-2 button" type="submit" id="cancel">Cancel</button>
                     </div>
                 </div>
             </div>
@@ -163,7 +127,52 @@
         $(document.getElementById("main")).click( function() {
           closeNav();
         });
-
+        var newJob = {title:"", companyName:"", assignedRec:"", industry:"", jobType:"", salary:"", workExp:"", city:"",
+                      country:"", district:"", numOfVac:"", dateOpen:"", dateTarget:"", JobDes:"", JobDesAtt:"", othersAtt:""};
+      
+            newJob.title=$('#title').val();
+            newJob.companyName=$('#companyName').val();
+            newJob.assignedRec=$('#assignedRec').val();
+            newJob.industry=$('#industry').val();
+            newJob.jobType=$('#jobType').val();
+            newJob.salary=$('#salary').val();
+            newJob.workExp=$('#workExp').val();
+            newJob.twitter=$('#twitter').val();
+            newJob.city=$('#city').val();
+            newJob.country=$('#country').val();
+            newJob.district=$('#district').val();
+            newJob.numOfVac=$('#numOfVac').val();
+            newJob.dateOpen=$('#dateOpen').val();
+            newJob.dateTarget=$('#dateTarget').val();
+            newJob.JobDes=$('#JobDes').val();
+            newJob.JobDesAtt=$('#JobDesAtt').val();
+            newJob.othersAtt=$('#othersAtt').val();
+        $('#save').click(function(){
+             CallAJAX();
+          });
+        $('#saveNew').click(function(){
+             CallAJAX();   //not working 
+             window.location.replace('/CreateJobOpenings');
+          });
+        $('#cancel').click(function(){
+             window.location.replace('/JobOpenings');
+                
+        });
+        function CallAJAX(){
+               $.ajax({
+               method:"POST",
+               url: "/api/jobs",
+               data: newJob
+           }).done(function(response){
+               console.log(response);
+               alert("JobOpening Submitted Successfully!");
+               window.location.replace('/ViewJobOpening/'+response._id); 
+           }).fail(function(response){
+               console.log(response.responseText);
+               console.log("Not submitted");
+           });
+                 return false; 
+        }
 
     </script>
 

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/vendor/css/style.css">
+    <link rel="stylesheet" href="/vendor/css/glyphicons.css">
+    <link rel="stylesheet" href="/css/CreateJobOpenings.css" crossorigin="anonymous">
+    <title>Job Opening</title>
+</head>
+
+<body>
+<% include include/RecHeader %>
+    <!-- /* CONTAINER START */ -->
+    <div class="main" id="main">
+        <div class="container" id="container">
+
+            <div class="title jumbotron" id="jumbotron">
+                <!-- used title to reduce extra padding on top of  CREATE NEW CANDIDATE -->
+                <div class="title jumbotron p-2 bg-secondary">
+                    <h3 class="title display-5 py-2 text-white">View Job Opening</h3>
+                </div>
+                <div class="form-row" id="">
+                    <div class="sub col-sm-12  mt-4">
+                        <h2 class="sub title2 display-5">Job Opening Information</h2>
+                    </div>
+                    <div class="col-sm-6" >
+                        <input type="text" class="b form-control mt-2 textbox" placeholder="Posting Title" id="title" value=<%=request.jobOpening.title%>>
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Assigned Recruiter" id="assignedRec" value=<%=request.jobOpening.assignedRec%>>
+                        <input type="text" class="b form-control mt-2 textbox" placeholder="Industry" id="industry" value=<%=request.jobOpening.industry%>>
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Job Type" id="jobType" value=<%=request.jobOpening.jobType%>>
+                        <input type="number" class="b form-control mt-2 textbox" placeholder="Salary" id="salary" value=<%=request.jobOpening.salary%>>
+                        <input type="number" class="form-control mt-2 textbox" placeholder="Work Experience" id="workExp" value=<%=request.jobOpening.workExp%>>
+                </div>
+                    <div class="col-sm-6 textbox">
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Company Name" id="companyName" value=<%=request.jobOpening.companyName%>>
+                        <input type="text" class="b form-control mt-2 textbox" placeholder="City" id="city" value=<%=request.jobOpening.workcityExp%>>
+                        <input type="text" class="b form-control mt-2 textbox" placeholder="Country" id="country" value=<%=request.jobOpening.country%>>
+                        <input type="text" class="form-control mt-2 textbox" placeholder="District" id="district" value=<%=request.jobOpening.district%>>
+                        <input type="number" class="form-control mt-2 textbox" placeholder="Number of Vacancy" id="numOfVac" value=<%=request.jobOpening.numOfVac%>>
+                    </div>
+                    <div class="col-sm-6 textbox">
+                      <label class="labelduration">Date Opened: </label> <br>
+                      <input type="date" class="form-control mt-2 textbox" placeholder="Date Opened" id="dateOpen" value=<%=request.jobOpening.dateOpen%>>
+                    </div>
+                    <div class="col-sm-6 textbox">
+                      <label class="labelduration">Target Date: </label>
+                      <input type="date" class="b form-control mt-2 textbox" placeholder="Target Date" id="dateTarget" value=<%=request.jobOpening.dateTarget%>>
+                    </div>
+                </div>
+                <div class="form-row" id="">
+                    <div class=" col-sm-12  mt-4">
+                        <h2 class="title2 display-5 ">Job Description</h2>
+                    </div>
+                     <div class="col-sm-12 textbox">
+                      <textarea class="form-control mt-2" type="text" rows="2" cols="75" placeholder="Job Description" id="jobDes" value=<%=request.jobOpening.jobDes%>></textarea>
+                    </div>
+                </div>
+                <!--<div class="form-row" id="">-->
+                <!--    <div class=" col-sm-12  mt-4">-->
+                <!--        <h2 class="title2 display-5 ">Forecast Details</h2>-->
+                <!--    </div>-->
+                <!--    <div class="col-sm-6 ">-->
+                <!--        <input type="number" class="form-control mt-2 textbox" placeholder="Number of Positions">-->
+                <!--        <input type="number" class="form-control mt-2 textbox" placeholder="Expected Revenue">-->
+                <!--        <input type="number" class="form-control mt-2 textbox" placeholder="Missed Revenue">-->
+                <!--    </div>-->
+                <!--    <div class=" col-sm-6">-->
+                <!--      <input type="number" class="form-control mt-2 textbox" placeholder="Revenue Per Position">-->
+                <!--      <input type="number" class="form-control mt-2 textbox" placeholder="Actual Revenue">-->
+                <!--    </div>-->
+                <!--</div>-->
+                <div class="row mt-4">
+                    <div class=" save col-sm-12 bg-secondary ">
+                            <button class="saveb btn btn-primary-success m-1 m-sm-2 button" type="submit" id="edit">Edit</button>
+                            <button class="btn btn-primary-success m-1 m-sm-2 button" type="submit" id="print">Print</button>
+                            <button class="btn btn-primary-success m-1 m-sm-2 button" type="submit" id="back">Back</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+       <script src="/vendor/js/jquery-3.3.1.js"></script>
+    <script type="/vendor/text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script src="/vendor/js/script.js"></script>
+    <script src="/vendor/js/bootstrap.min.js"></script>
+    <script>
+        function openNav() {
+            document.getElementById("sidebar").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "0";
+            document.body.style.backgroundColor = "rgba(0,0,0,0.3)";
+            document.getElementById("container").style.backgroundColor = "#B2B2B2";
+        }
+        function closeNav() {
+            document.getElementById("sidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            document.body.style.backgroundColor = "#F0F1F6";
+            document.getElementById("container").style.backgroundColor = "#F0F1F6";
+        }
+        $(document.getElementById("main")).click( function() {
+          closeNav();
+        });
+        var id = <%- JSON.stringify(request.jobOpening._id) %>;
+        console.log(id);
+        $('#edit').click(function(){
+            window.location.replace("/EditJobOpening/"+id);  
+        });
+        $('#back').click(function(){
+            window.location.replace('/JobOpenings'); 
+                
+        });
+
+    </script>
+
+</body>
+
+</html>

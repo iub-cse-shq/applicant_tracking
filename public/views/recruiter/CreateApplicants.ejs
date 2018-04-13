@@ -144,10 +144,8 @@
 
                 <div class="row mt-4">
                     <div class=" save col-sm-12 bg-secondary ">
-                        <form class="Savebtn form-inline my-2 my-lg-0 float-right ">
                             <button class="saveb btn btn-primary-success m-1 m-sm-2 button" type="submit" id="submit">Submit</button>
                             <button class="cancelb btn btn-primary-success m-1 m-sm-2 button" type="submit" id="cancel">Cancel</button>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -176,7 +174,6 @@
         $(document.getElementById("main")).click( function() {
           closeNav();
         });
-
         $(document.getElementById("c")).click( function() {
               if ($('#c').is(':checked')) {
                 $('#endExp').attr('disabled', true);
@@ -190,7 +187,7 @@
         });
         var newResume = {fname:"", lname:"", email:"", mobile:"", linkedIn:"", facebook:"", skype:"", twitter:"", city:"", country:"",
                          currentAddress:"",district:"",zipCode:"",institute:"",degree:"",fieldOfStudy:"",grade:"",startEdu:"",endEdu:"",
-                         title:"",company:"",location:"",des:"",startExp:"",endExp:"",skillSet:"",resumeAtt:"",photoAtt:"",othersAtt:"",resumeStatus2:""};
+                         title:"",company:"",location:"",des:"",startExp:"",endExp:"",skillSet:"",resumeAtt:"",photoAtt:"",othersAtt:""};
       
           $('#submit').click(function(){
             newResume.fname=$('#fname').val();
@@ -222,7 +219,6 @@
             newResume.resumeAtt=$('#resumeAtt').val();
             newResume.photoAtt=$('#photoAtt').val();
             newResume.othersAtt=$('#othersAtt').val();
-            newResume.resumeStatus2="Submitted";
            $.ajax({
                method:"POST",
                url: "/api/applicants",

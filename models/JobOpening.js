@@ -5,39 +5,33 @@ var JobOpeningSchema = {
   title: {
     type: String,
     trim: true,
-    required: 'FName required'
+    required: 'title required'
   },
   companyName: {
     type: String,
     trim: true,
-    required: 'LName required'
-  },
-  contactName: {
-    type: String,
-    trim: true
+    required: 'companyName required'
   },
   assignedRec: {
     type: Number,
     trim: true
-    // required: 'Mobile required'
   },  
-  linkedIn: {
-    type: String,
-    trim: true
-  },
-  facebook: {
-    type: String,
-    trim: true
-  },
-  skype: {
-    type: String,
+  industry: {
+    type: Number,
     trim: true
   }, 
-  twitter: {
-    type: String,
+  jobType: {
+    type: Number,
     trim: true
-  },  
-
+  }, 
+  salary: {
+    type: Number,
+    trim: true
+  }, 
+  workExp: {
+    type: Number,
+    trim: true
+  },
   city: {
     type: String,
     trim: true
@@ -46,75 +40,27 @@ var JobOpeningSchema = {
     type: String,
     trim: true
   },
-  currentAddress: {
-    type: String,
-    trim: true
-  },
   district: {
     type: String,
     trim: true
-  },  
-  zipCode: {
-    type: Number,
-    trim: true
   },
-  institute: {
+  numOfVac: {
     type: String,
     trim: true
   },
-  degree: {
+  dateOpen: {
     type: String,
     trim: true
-  },  
-  fieldOfStudy: {
+  }, 
+  dateTarget: {
     type: String,
     trim: true
-  },  
-  grade: {
-    type: String,
-    trim: true
-  },  
-  startEdu: {
-    type: String,
-    trim: true
-  },  
-  endEdu: {
-    type: String,
-    trim: true
-  },  
-  title: {
-    type: String,
-    trim: true
-  },  
-  company: {
-    type: String,
-    trim: true
-  },  
-  location: {
+  }, 
+  JobDes: {
     type: String,
     trim: true
   },
-  des: {
-    type: String,
-    trim: true
-  },
-  startExp: {
-    type: String,
-    trim: true
-  },
-  endExp: {
-    type: String,
-    trim: true
-  },
-  skillSet: {
-    type: String,
-    trim: true
-  },
-  resumeAtt: {
-    type: String,
-    trim: true
-  },  
-  photoAtt: {
+  JobDesAtt: {
     type: String,
     trim: true
   },  
