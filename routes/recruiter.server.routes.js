@@ -32,12 +32,12 @@ app.route('/ViewApplicant/:resumeId').get(recruiters.ViewApplicant);
 app.route('/EditApplicant/:resumeId').get(recruiters.EditApplicant);
 app.route('/Clients').get(recruiters.Clients);
 app.route('/CreateClient').get(recruiters.CreateClients);
-app.route('/ViewClient').get(recruiters.CreateClients);
-app.route('/EditClient').get(recruiters.CreateClients);
-app.route('/JobOpenings').get(recruiters.JobOpenings);
-app.route('/CreateJobOpening').get(recruiters.CreateJobOpenings);
-app.route('/ViewJobOpening').get(recruiters.CreateJobOpenings);
-app.route('/EditJobOpening').get(recruiters.CreateJobOpenings);
+app.route('/ViewClient/:clientId').get(recruiters.ViewClient);
+app.route('/EditClient/:clientId').get(recruiters.EditClient);
+app.route('/JobOpenings').get(recruiters.CareerTips);
+app.route('/CreateJobOpening').get(recruiters.CareerTips);
+app.route('/ViewJobOpening').get(recruiters.CareerTips);
+app.route('/EditJobOpening').get(recruiters.CareerTips);
 app.route('/CareerTips').get(recruiters.CareerTips);
 app.route('/Emails').get(recruiters.Emails);
 app.route('/Tests').get(recruiters.Tests);
@@ -49,4 +49,4 @@ app.param('recruiterId', recruiters.recruiterByID);
 app.param('resumeId', recruiters.resumeByID);
 app.param('clientId', recruiters.clientByID);
 
-}
+};

@@ -5,12 +5,12 @@ var ClientSchema = {
   contactName: {
     type: String,
     trim: true,
-    required: 'FName required'
+    // required: 'FName required'
   },
   cEmail: {
     type: String,
     trim: true,
-    required: 'LName required'
+    // required: 'LName required'
   },
   cPhone: {
     type: Number,

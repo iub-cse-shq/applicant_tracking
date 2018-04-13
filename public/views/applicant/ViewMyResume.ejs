@@ -163,10 +163,10 @@
 
              <div class="row mt-4">
                  <div class=" save col-sm-12 bg-secondary ">
-                     <form class="Savebtn form-inline my-2 my-lg-0 float-right ">
-                         <button class="saveb btn btn-primary-success m-1 m-sm-2 button" type="submit" id="Edit">Edit</button>
+                     <!--<form class="Savebtn form-inline my-2 my-lg-0 float-right ">      // why no work with form tab O_O ? -->
+                         <button class="saveb btn btn-primary-success m-1 m-sm-2 button" type="submit" id="edit">Edit</button>
                          <button class="cancelb btn btn-primary-success m-1 m-sm-2 button" type="Print" id="cancel">Print</button>
-                     </form>
+                     <!--</form>-->
                  </div>
              </div>
          </div>
@@ -196,11 +196,14 @@
           closeNav();
         });
         $(document.getElementById("b")).click( function() {
-              console.log('asd');
               if (chk1==0) {
                 $('.endDu1').attr('disabled', true);
               }
               else $('.endDu1').attr('enabled', true);
+        });
+        $('#edit').click(function(){
+            window.location.replace("/EditMyResume"); 
+            
         });
         
          

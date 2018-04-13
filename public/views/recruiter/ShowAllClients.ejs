@@ -3,7 +3,7 @@
 <div class="container">
       <h3>Showing All Clients</h3>
      <% for(var i=0; i<client.length; i++) { %>
-      <div> <a href="/ViewApplicant/<%=client[i]._id%>"> <%= client[i].contactName %></a> <br>
+      <div> <a href="/ViewClient/<%=client[i]._id%>"> <%= client[i].contactName %></a> <br>
       <%= client[i].companyName %></div>
       <%}%>
 </div>

@@ -129,49 +129,23 @@
                  </div>
                  <label class="label1" for="c">I Currently Work Here</label>
              </div>
-             <div class="">
+             <div>
                <textarea class="form-control mt-2" type="text" rows="1" cols="75" placeholder="Skill Set (Ex: Microsoft Office Skills, C++)" id="skillSet"></textarea>
                <!-- <textarea class="form-control mt-2" type="text" rows="3" cols="75" placeholder="Summary"></textarea> -->
-
              </div>
-
-             <div class="form-row" id="Attachment">
-                 <div class=" col-sm-12 mt-4">
-                     <h2 class="title2 display-6">Attachment Information</h2>
+             
+             <div class="form-row" id="action">
+               <div class="row mt-4">
+                 <div class=" save col-sm-12 bg-secondary ">
+                         <button class="saveb btn btn-primary-success m-1 m-sm-2 button" type="submit" id="edit">Edit</button>
+                         <button class="cancelb btn btn-primary-success m-1 m-sm-2 button" type="submit" id="print">Print</button>
+                         <button class="btn btn-primary-success m-1 m-sm-2 button" type="submit" id="back">Back</button>
                  </div>
-
-               <div class="row">
-                 <div class="col-sm-12 col-md-4">
-                     <label  class="lableAttachment">Resume:</label>
-                 </div>
-                 <div class="col-sm-12 col-md-8">
-                       <input type="file" class="form-control mt-2 textbox" id="resumeAtt">
-                 </div>
-                 <div class="col-sm-12 col-md-4">
-                     <label  class="lableAttachment">Photo:</label>
-                 </div>
-                 <div class="col-sm-12 col-md-8">
-                       <input type="file" class="form-control mt-2 textbox" id="photoAtt">
-                 </div>
-                 <div class="col-sm-12 col-md-4">
-                     <label  class="lableAttachment">Others:</label>
-                 </div>
-                 <div class="col-sm-12 col-md-8">
-                       <input type="file" class="form-control mt-2 textbox" id="othersAtt">
                </div>
              </div>
-
-             <div class="row mt-4">
-                 <div class=" save col-sm-12 bg-secondary ">
-                     <form class="Savebtn form-inline my-2 my-lg-0 float-right ">
-                         <button class="saveb btn btn-primary-success m-1 m-sm-2 button" type="submit" id="Edit">Edit</button>
-                         <button class="cancelb btn btn-primary-success m-1 m-sm-2 button" type="submit" id="Print">Print</button>
-                     </form>
-                 </div>
              </div>
-         </div>
-
-     </div>
+             </div>
+             </div>
  </div>
 
     <script src="/vendor/js/jquery-3.3.1.js"></script>
@@ -203,8 +177,11 @@
         });
         var id = <%- JSON.stringify(request.resumee._id) %>;
         console.log(id);
-        $('#Edit').click(function(){
-            window.location.replace('/EditApplicant/'+id);  // not working 
+        $('#edit').click(function(){
+            window.location.replace("/EditApplicant/"+id);  // not working 
+        });
+         $('#back').click(function(){
+            window.location.replace("/Applicants");  
         });
          
 

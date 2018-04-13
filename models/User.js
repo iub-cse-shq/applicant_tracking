@@ -55,10 +55,7 @@ var UserSchema = new Schema({
         default: 'Applicant',
         enum: ['Applicant' , 'Recruiter']
     },
-     resumeStatus: {         
-        type: String,
-        trim: true,
-      },
+
     lastName: {
         type: String,
         trim: true,

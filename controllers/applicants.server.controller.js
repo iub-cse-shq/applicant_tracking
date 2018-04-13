@@ -178,8 +178,6 @@ module.exports.CreateMyResume = function(req, res) {
 };
 module.exports.EditMyResume = function(req, res) {
 	var ObjectId = require('mongoose').Types.ObjectId; // load the Mongoose ObjectId function 
-	 // Mongoose query find and return one object.
-	// Resumee.findOne({title: ObjectId(searchData)}).exec(function(err, resumee) {
 	Resumee.findOne({user: ObjectId(req.user._id)}).exec(function(err, resumee) {
 		if (err) console.error(err);
 		if (!resumee) return console.error(new Error('Failed to load resumee of user' + req.user._id));

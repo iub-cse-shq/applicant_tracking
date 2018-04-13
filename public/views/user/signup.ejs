@@ -25,11 +25,10 @@
     <button id="submit">Submit</button>
     <br/>
     <div id="error"></div>
-  </body>
   <script src="/lib/jquery/dist/jquery.min.js"></script>
   <script src="/vendor/ejs_production.js"></script>
   <script>
-      var newUser = {name:"", email:"", password:"", type:"Applicant", resumeStatus:"NotSubmitted"};
+      var newUser = {name:"", email:"", password:"", type:"Applicant"};
         $('#submit').click(function(){
             newUser.name=$('#name').val();
             newUser.email=$('#email').val();
@@ -62,5 +61,6 @@
                    console.log("Resume Not Submitted");
                });
             }
-  </script>
+     </script>
+  </body>
 </html>

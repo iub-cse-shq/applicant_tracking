@@ -157,7 +157,7 @@ module.exports.Applicants = function(req, res) {
 };
 module.exports.CreateApplicant = function(req, res) {
      
-    res.render('./../public/views/recruiter/CreateApplicant.ejs', {
+    res.render('./../public/views/recruiter/CreateApplicants.ejs', {
 		user: req.user || null, 
 		request: req
 	});
@@ -293,3 +293,11 @@ exports.clientByID = function(req, res, next, id) {
 		next();
 	});
 };
+// exports.clientByID = function(req, res, next, id) {
+// 	Client.findById(id).populate('user', 'email').exec(function(err, client) {
+// 		if (err) return next(err);
+// 		if (!client) return next(new Error('Failed to load client ' + id));
+// 		req.client = client;
+// 		next();
+// 	});
+// };
