@@ -43,8 +43,9 @@
 			method: 'GET',
 			url: '/auth/signout'
 		}).done(function(response){
-			alert('Signing Out!');
-			window.location.replace('/');
+		      if (confirm("Signing Out!")) {
+		        window.location.replace('/');
+        } 
 		}).fail(function(response){
 			console.log(response);
 			

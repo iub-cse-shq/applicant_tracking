@@ -1,0 +1,50 @@
+<!DOCTYPE html5>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Sign Up Form</title>
+    <!-- General META -->
+    <meta charset="utf-8">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  </head>
+  <body>
+    <h2>Sign Up Form</h2>
+    <label>Name</label>
+    <input id="name" type="text" placeholder="Name"/>
+    <label>Email</label>    
+    <input id="email" type="email" placeholder="email"/>
+    <!--<label>UserName</label>-->
+    <!--<input id="userName" type="text" placeholder="userName"/>-->
+    <label>Password</label>        
+    <input id="password" type="password"/>
+    <!--<label>Confirm Password</label>        -->
+    <!--<input id="cpassword" type="password"/>-->
+    <button id="submit">Submit</button>
+    <br/>
+    <div id="error"></div>
+  <script src="/lib/jquery/dist/jquery.min.js"></script>
+  <script src="/vendor/ejs_production.js"></script>
+  <script>
+      var newUser = {name:"", email:"", password:"", type:"Applicant"};
+        $('#submit').click(function(){
+            newUser.name=$('#name').val();
+            newUser.email=$('#email').val();
+            newUser.password=$('#password').val();
+            $.ajax({
+              method: 'POST',
+              url: "/auth/signup",
+              data: newUser
+            }).done(function(response){
+              console.log(response);
+              window.location.replace('/ApplicantDashboard');
+            }).fail(function(response){
+              console.log(response);
+              $("#error").text("Something went wrong! Try again.");
+            });
+          });
+     </script>
+  </body>
+</html>
