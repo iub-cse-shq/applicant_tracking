@@ -15,26 +15,17 @@ module.exports = function(app){
 	.get(applicants.read)
 	.put(users.requiresLogin, applicants.update);
 	
-	
-	
-	
-// app.route('/applicants/all').get(applicants.listView);  // show all applicant 
-// app.route('/applicants/new').get(applicants.createView);  // create and view only  
-// app.route('/applicant/:applicantId').get(applicants.singleView);  // single applicant
-// app.route('/applicant/:applicantId/content').get(applicants.showContent);  // show content of a single applicant
 
-// app.route('/ApplicantDashboard').get(applicants.ApplicantDashboard);   
+
 app.route('/ApplicantDashboard').get(users.requiresLogin, applicants.ApplicantDashboard);   
 app.route('/MyProfile').get(users.requiresLogin, applicants.MyProfile);
-app.route('/ApplicantEmail').get(applicants.ApplicantEmail);
-app.route('/ApplicantTest').get(applicants.ApplicantTest);
-app.route('/ApplicantCareerTips').get(applicants.ApplicantCareerTips);
-// app.route('/VieResume/:applicantId').get(applicants.ViewResume);
-app.route('/ViewMyResume').get(applicants.ViewMyResume);
-app.route('/CreateMyResume').get(applicants.CreateMyResume);
-app.route('/EditMyResume').get(applicants.EditMyResume);
+app.route('/ApplicantEmail').get(users.requiresLogin,applicants.ApplicantEmail);
+app.route('/ApplicantTest').get(users.requiresLogin,applicants.ApplicantTest);
+app.route('/ApplicantCareerTips').get(users.requiresLogin,applicants.ApplicantCareerTips);
+app.route('/ViewMyResume').get(users.requiresLogin,applicants.ViewMyResume);
+app.route('/CreateMyResume').get(users.requiresLogin,applicants.CreateMyResume);
+app.route('/EditMyResume').get(users.requiresLogin,applicants.EditMyResume);
 
 app.param('applicantId', applicants.applicantByID);
-// app.param('resumeId', applicants.resumeByID);
 
 }

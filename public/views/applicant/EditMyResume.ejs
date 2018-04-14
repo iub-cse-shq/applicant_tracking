@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/vendor/css/bootstrap.min.css">
     <link rel="stylesheet" href="/vendor/css/style.css">
     <link rel="stylesheet" href="/vendor/css/glyphicons.css">
-    <link rel="stylesheet" href="/css/EditMyResume.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/ViewMyResume.css" crossorigin="anonymous">
     <title>Edit My Resume</title>
 </head>
 
@@ -167,10 +167,8 @@
 
              <div class="row mt-4">
                  <div class=" save col-sm-12 bg-secondary ">
-                     <!--<form class="Savebtn form-inline my-2 my-lg-0 float-right ">-->
                          <button class="saveb btn btn-primary-success m-1 m-sm-2 button" type="submit" id="submit">Submit</button>
                          <button class="cancelb btn btn-primary-success m-1 m-sm-2 button" type="submit" id="cancel">Cancel</button>
-                     <!--</form>-->
                  </div>
              </div>
          </div>
@@ -199,12 +197,17 @@
         $(document.getElementById("main")).click( function() {
           closeNav();
         });
-        $(document.getElementById("b")).click( function() {
-              console.log('asd');
-              if (chk1==0) {
-                $('.endDu1').attr('disabled', true);
-              }
-              else $('.endDu1').attr('enabled', true);
+
+        $(document.getElementById("c")).click( function() {
+              if ($('#c').is(':checked')) {
+                $('#endExp').attr('disabled', true);
+                document.getElementById("to2").innerText="TO: PRESENT";
+            }
+            else {
+              $('#endExp').attr('disabled', false);
+              document.getElementById("to2").innerText="TO";
+
+            }
         });
           var applicantID = <%- JSON.stringify(request.resumee._id) %>;
           var resume = {};

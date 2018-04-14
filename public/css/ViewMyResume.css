@@ -140,6 +140,9 @@ body {
 .btn {
   font-size: 15px;
 }
+div button {
+    float: right;
+}
 /* .main {
     margin: 0;
     transition: margin-left .5s;

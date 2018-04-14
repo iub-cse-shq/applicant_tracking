@@ -22,22 +22,18 @@
                 <div class="title jumbotron p-2 bg-secondary">
                     <h3 class="title display-5 py-2 text-white">Add New Recruiter</h3>
                 </div>
-    <label>Name</label>
-    <input id="name" type="text" placeholder="Name"/> <br>
-    <label>Email</label>    
-    <input id="email" type="email" placeholder="email"/> <br>
-    
-    <label>Password</label>        
-    <input id="password" type="password"/> <br>
+                <input type="text" class="b form-control mt-2 textbox" placeholder="Name" id="name">
+                <input type="email" class="b form-control mt-2 textbox" placeholder="Email" id="email">
+                <input type="password" class="b form-control mt-2 textbox" placeholder="Password" id="password">
 
-    <button id="submit">Submit</button>
-    <br/>
-    <div id="error"></div>
-            </div>
-        </div>
-    </div>
+                <button id="submit">Submit</button>
+                <br/>
+                <div id="error"></div>
+                        </div>
+                    </div>
+                </div>
 
-   <script src="/vendor/js/jquery-3.3.1.js"></script>
+    <script src="/vendor/js/jquery-3.3.1.js"></script>
     <script type="/vendor/text/javascript" src="js/jquery-3.1.1.min.js"></script>
     <script src="/vendor/js/script.js"></script>
     <script src="/vendor/js/bootstrap.min.js"></script>
@@ -57,11 +53,8 @@
         $(document.getElementById("main")).click( function() {
           closeNav();
         });
-
-     
       var newUser = {name:"", email:"", password:"", type:"Recruiter"};
         $('#submit').click(function(){
-            
             newUser.name=$('#name').val();
             newUser.email=$('#email').val();
             newUser.password=$('#password').val();
@@ -71,6 +64,7 @@
         data: newUser
       }).done(function(response){
         console.log(response);
+        alert("New Recruiter Created!\nRecruiter Name:" + response.name + "\nEmail:" + response.email + "\nPassword:" + response.password);
         window.location.replace('/UserAdministration');
       }).fail(function(response){
         console.log(response);

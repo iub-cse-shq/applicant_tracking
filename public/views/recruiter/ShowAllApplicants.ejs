@@ -3,7 +3,10 @@
 <div class="container">
       <h3>Showing All Applicants</h3>
      <% for(var i=0; i<resumee.length; i++) { %>
-      <div> <a href="/ViewApplicant/<%=resumee[i]._id%>"> <%= resumee[i].fname %><%= resumee[i].lname %></a></div>
+      <div> <a href="/ViewApplicant/<%=resumee[i]._id%>"> <%= resumee[i].fname %> <%= resumee[i].lname %></a> <br>
+      Title: <%= resumee[i].title %> <br>
+      Company: <%= resumee[i].company %> <hr></p> 
+      </div>
       <%}%>
 </div>
 

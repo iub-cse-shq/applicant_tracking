@@ -101,11 +101,8 @@
   color: #EF3B3A;
 }
 body {
-  background: #76b852; /* fallback for old browsers */
-  background: -webkit-linear-gradient(right, #76b852, #8DC26F);
-  background: -moz-linear-gradient(right, #76b852, #8DC26F);
-  background: -o-linear-gradient(right, #76b852, #8DC26F);
-  background: linear-gradient(to left, #76b852, #8DC26F);
+  background: #f0f1f6; /* fallback for old browsers */
+  
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;      
@@ -132,14 +129,13 @@ body {
     $("#password").change(function(event){
       user.password=$("#password").val();
     });
-    var pass = document.getElementById("password");
+    var pass = document.getElementById("password");             // Click + Enter to Proceed
         pass.addEventListener("keyup", function(event) {
         event.preventDefault();
         if (event.keyCode === 13) {
           document.getElementById("submit").click();
     }
 });
-
     function callAJAX(){
          $.ajax({
         method: 'POST',
@@ -155,7 +151,7 @@ body {
           	}
       }).fail(function(response){
         console.log(response);
-        $("#error").text("Wrong Email/Passward");
+        alert("Wrong Email/Password.\n Please Enter Email, Password Again!");
       });
     }
   </script>

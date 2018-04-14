@@ -74,6 +74,7 @@ module.exports.createClient = function(req, res) {
     }
   });
 };
+
 module.exports.updateClient = function(req, res) {
 	 var client = req.client;
   	client = _.extend(client, req.body);
