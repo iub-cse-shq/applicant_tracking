@@ -12,9 +12,14 @@ Applicant Tracking System helps ease the workload of Recruiters and Hiring manag
 
 Features
 --------
+***For Applicant***
+
+*** 1. Submit Resume***
+    Applicants will be able to submit thier Resume by filling p this form. 
+![CreateMyResume](https://scontent-sin6-2.xx.fbcdn.net/v/t1.15752-9/30716247_10214153718491766_7318330097188995072_n.jpg?_nc_cat=0&_nc_eui2=v1%3AAeHX_W0_uq5aG_kYeADZdZDH7AY_WACJ1fD-1BwSbb_UOA6LFE7R6W9E_SGQQ0tIr-uUcBBGxgoamBAQna6zb6GgetjRyE6UG41ErAmluYcVnw&oh=a6a563737e1b0247d3d86fd92cf296a0&oe=5B6AD454)
 
 
-•	Posting New JobOpenings 
+•	Posting New JobOpenings   
 •	Storing Resumes 
 •	Storing Client Database 
 •	Managing Applicants
@@ -46,18 +51,6 @@ Features
     `node server.js`
 
     
-4. In the browser open http://localhost:3000/, and you should see the index page
 
-**Exposed APIs**:
 
-GET **/api/articles** (returns list of articles)
 
-POST **/api/articles** (create new article)
-
-GET **/api/articles/:articleId** (returns an article with matching id)
-
-DELETE **/api/articles/:articleId** (deletes the matching article)
-
-GET **/api/articles/edit/:articleId** (returns an article with matching id)
-
-PUT **/api/articles/edit/:articleId** (updates the matching article)

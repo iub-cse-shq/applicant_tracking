@@ -80,7 +80,7 @@ input:disabled {
                      <label class="labelLeft" for="degree">Degree</label>
                      <input type="text" class="form-control mt-2 textbox" placeholder="Degree" id="degree" value=<%=request.resumee.degree%> disabled>
                      <label class="labelLeft" for="fieldOfStudy">Field of Study</label>
-                     <input type="text" class="form-control mt-2 textbox" placeholder="Field of Study" id="fieldOfStudy" value=<%=request.resumee.fieldOfStsudy%> disabled >
+                     <input type="text" class="form-control mt-2 textbox" placeholder="Field of Study" id="fieldOfStudy" value=<%=request.resumee.fieldOfStudy%> disabled >
                      <label class="labelLeft" for="grade">Grade</label>
                      <input type="text" class="form-control mt-2 textbox" placeholder="Grade" id="grade" value=<%=request.resumee.grade%>  disabled>
 
@@ -134,7 +134,7 @@ input:disabled {
                  <!--<label class="label1" for="c">I Currently Work Here</label>-->
              </div>
              <div class="">
-               <textarea class="form-control mt-2" type="text" rows="1" cols="75" placeholder="Skill Set (Ex: Microsoft Office Skills, C++)" id="skillSet" disabled></textarea>
+               <textarea class="form-control mt-2" type="text" rows="1" cols="75" placeholder="Skill Set (Ex: Microsoft Office Skills, C++)" id="skillSet" value=<%=request.resumee.skillSet%> disabled></textarea>
                <!-- <textarea class="form-control mt-2" type="text" rows="3" cols="75" placeholder="Summary"></textarea> -->
 
              </div>

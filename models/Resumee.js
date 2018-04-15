@@ -5,12 +5,12 @@ var ResumeeSchema = {
   fname: {
     type: String,
     trim: true,
-    required: 'FName required'
+    required: 'First Name required'
   },
   lname: {
     type: String,
     trim: true,
-    required: 'LName required'
+    required: 'Last Name required'
   },
   email: {
     type: String,
@@ -18,16 +18,18 @@ var ResumeeSchema = {
   },
   mobile: {
     type: Number,
-    trim: true
-    // required: 'Mobile required'
+    trim: true,
+    required: 'Mobile required'
   },  
   linkedIn: {
     type: String,
-    trim: true
+    trim: true,
+    default: "-"
   },
   facebook: {
     type: String,
-    trim: true
+    trim: true,
+    default: "-"
   },
   skype: {
     type: String,
@@ -35,23 +37,28 @@ var ResumeeSchema = {
   }, 
   twitter: {
     type: String,
-    trim: true
+    trim: true,
+    default: "-"
   },  
   city: {
     type: String,
-    trim: true
+    trim: true,
+    default: "-"
   },
   country: {
     type: String,
-    trim: true
+    trim: true,
+    default: "-"
   },
   currentAddress: {
     type: String,
-    trim: true
+    trim: true,
+    default: "-"
   },
   district: {
     type: String,
-    trim: true
+    trim: true,
+    default: "-"
   },  
   zipCode: {
     type: Number,
@@ -67,7 +74,8 @@ var ResumeeSchema = {
   },  
   fieldOfStudy: {
     type: String,
-    trim: true
+    trim: true,
+    default: "-"
   },  
   grade: {
     type: String,

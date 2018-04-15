@@ -92,6 +92,7 @@
               window.location.replace('/ApplicantDashboard');
             }).fail(function(response){
               console.log(response);
+              alert("Please Enter Email/Password again!");
               $("#error").text("Something went wrong! Try again.");
             });
           });
