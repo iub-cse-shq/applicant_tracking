@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var Resumee = require('./../models/Resumee.js');
 var Client = require('./../models/Client.js');
+var Article = require('./../models/Article.js');
 var JobOpening = require('./../models/JobOpening.js');
 var errorHandler = require('./errors.server.controller');
 var _ = require('lodash');
@@ -12,7 +13,7 @@ module.exports.list = function(req, res) {
   		message: errorHandler.getErrorMessage(err)
   	   });
     } else {
-      console.log("api called"); 
+      console.log("api cakjhkjulled"); 
       res.status(200).send(data);  
     }
   });
@@ -54,7 +55,7 @@ module.exports.Clientlist = function(req, res) {
   		message: errorHandler.getErrorMessage(err)
   	   });
     } else {
-      console.log("api called"); 
+      console.log("api cakjhbjlled"); 
       res.status(200).send(data);  
     }
   });
@@ -86,6 +87,38 @@ module.exports.updateClient = function(req, res) {
   		}
   	});
 };
+
+
+//// BLOG API
+
+module.exports.createArticle = function(req, res) {
+  var article = new Article(req.body);
+  article.user = req.user;
+  article.save(function(err, data) {
+    if (err) {
+      return res.status(400).send({
+
+  				message: errorHandler.getErrorMessage(err)
+  			});
+    } else {
+      res.status(200).send(data);
+    }
+  });
+};
+
+module.exports.Articlelist = function(req, res) {
+   Article.find(function(err, data) {
+    if (err) {
+      return res.status(400).send({
+  		message: errorHandler.getErrorMessage(err)
+  	   });
+    } else {
+      console.log("api ckjhikhualled"); 
+      res.status(200).send(data);  
+    }
+  });
+};
+
 //// JOB API 
 module.exports.Joblist = function(req, res) {
    JobOpening.find(function(err, data) {
@@ -94,7 +127,7 @@ module.exports.Joblist = function(req, res) {
   		message: errorHandler.getErrorMessage(err)
   	   });
     } else {
-      console.log("api called"); 
+      console.log("api callekjbkjd"); 
       res.status(200).send(data);  
     }
   });
@@ -134,6 +167,7 @@ module.exports.track = function(req, res) {
 		res.json(resumee);
 	});
 };
+
 module.exports.Dashboard = function(req, res) {
      
     res.render('./../public/views/recruiter/Dashboard.ejs', {
@@ -141,6 +175,31 @@ module.exports.Dashboard = function(req, res) {
 		request: req
 	});
 };
+
+module.exports.CareerBlog = function(req, res) {
+     
+    res.render('./../public/views/recruiter/CareerBlog.ejs', {
+		user: req.user || null, 
+		request: req
+	});
+};
+
+module.exports.CreateArticle = function(req, res) {
+     
+    res.render('./../public/views/recruiter/CreateArticle.ejs', {
+		user: req.user || null, 
+		request: req
+	});
+};
+
+module.exports.ViewArticle = function(req, res) {
+     
+    res.render('./../public/views/recruiter/ViewArticle.ejs', {
+		user: req.user || null, 
+		request: req
+	});
+};
+
 module.exports.TrackApplicants = function(req, res) {
      
     res.render('./../public/views/recruiter/TrackApplicants.ejs', {

@@ -1,0 +1,11 @@
+
+  
+<div class="container">
+      <h3>Showing All Article</h3>
+     <% for(var i=0; i<article.length; i++) { %>
+      <div> <a href="/ViewArticle/<%=article[i]._id%>"> </a> <br>
+      <%= article[i].title %></div>
+      <%}%>
+</div>
+
+

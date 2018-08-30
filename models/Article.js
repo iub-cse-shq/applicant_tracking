@@ -9,6 +9,10 @@ var ArticleSchema = {
     required: 'Title required'
   },
 
+  articleName: {
+    type: String,
+    
+  },
   content: {
     type: String,
     default: '',
