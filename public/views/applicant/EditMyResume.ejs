@@ -42,7 +42,7 @@
                      <label class="labelLeft" for="lname">Last Name</label>
                      <input type="text" class="form-control mt-2 textbox" placeholder="Last name" id="lname" value=<%=request.resumee.lname%>>
                      <label class="labelLeft" for="mobile">Mobile</label>
-                     <input type="text" class="form-control mt-2 textbox" placeholder="Mobile" id="mobile" value=<%=request.resumee.mobile%>>
+                     <input type="number" class="form-control mt-2 textbox" placeholder="Mobile" id="mobile" value=<%=request.resumee.mobile%>>
                      <label class="labelLeft" for="skype">Skype ID/URL</label>
                      <input type="text" class="form-control mt-2 textbox" placeholder="Skype ID" id="skype" value=<%=request.resumee.skype%>>
                      <label class="labelLeft" for="twitter">Twitter ID/URL</label>
@@ -289,14 +289,16 @@
            $('#skillSet').change(function(){
             resume.skillSet = $('#skillSet').val();
           });
+          
       
           $('#submit').click(function(){
+              
             $.ajax({
               method:"PUT",
               url:'/api/applicants/edit/'+applicantID,
               data: resume
             }).done(function(response){
-              console.log(response);
+              //console.log(response);
               window.location.replace("/ViewMyResume");
             return false;
             }).fail(function(response){

@@ -1,0 +1,39 @@
+body{
+    font-family:arial;
+    font-size:15px;
+    background:#f4f4f4;
+}
+
+li{
+    list-style:none;
+}
+
+.comtainer{
+    width:70%;
+    margin:20px auto;
+    overflow:auto;
+}
+
+form{
+    margin-left:145px;
+    margin-bottom:30px;
+    
+}
+
+button{
+     margin-left:145px;
+    margin-bottom:30px;
+    color: #696969
+}
+
+table{
+    margin-left:160px;
+    margin-bottom:30px;
+}
+@media only screen and (max-width: 900px){
+    
+    .comtainer{
+    width:90%;
+    }
+}
+

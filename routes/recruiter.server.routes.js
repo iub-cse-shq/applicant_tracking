@@ -34,6 +34,7 @@ app.route('/TrackApplicants').get(users.requiresLogin,recruiters.TrackApplicants
 app.route('/Applicants').get(users.requiresLogin,recruiters.Applicants);
 app.route('/CreateApplicant').get(users.requiresLogin,recruiters.CreateApplicant);
 app.route('/ViewApplicant/:resumeId').get(users.requiresLogin,recruiters.ViewApplicant);
+app.route('/ApplicantProfile/:resumeId').get(users.requiresLogin,recruiters.ApplicantProfile);
 app.route('/EditApplicant/:resumeId').get(users.requiresLogin,recruiters.EditApplicant);
 app.route('/Clients').get(users.requiresLogin,recruiters.Clients);
 app.route('/CreateClient').get(users.requiresLogin,recruiters.CreateClients);
@@ -43,11 +44,13 @@ app.route('/JobOpenings').get(users.requiresLogin,recruiters.JobOpenings);
 app.route('/CreateJobOpenings').get(users.requiresLogin,recruiters.CreateJobOpenings);
 app.route('/ViewJobOpening/:jobId').get(users.requiresLogin,recruiters.ViewJobOpening);
 app.route('/EditJobOpening/:jobId').get(users.requiresLogin,recruiters.EditJobOpening);
+//app.route('/JobOpeningProfile').get(users.requiresLogin,recruiters.JobOpeningProfile);
 app.route('/CareerTips').get(users.requiresLogin,recruiters.CareerTips);
 app.route('/Emails').get(users.requiresLogin,recruiters.Emails);
 app.route('/Tests').get(users.requiresLogin,recruiters.Tests);
 app.route('/UserAdministration').get(users.requiresLogin,recruiters.UserAdministration);
 app.route('/AddNewRecruiter').get(users.requiresLogin,recruiters.AddNewRecruiter);
+
 
 
 app.param('recruiterId', recruiters.recruiterByID);

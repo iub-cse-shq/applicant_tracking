@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="/vendor/css/style.css">
     <link rel="stylesheet" href="/vendor/css/glyphicons.css">
     <link rel="stylesheet" href="/css/Applicants.css" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" crossorigin="anonymous">
+
   <title>Applicants</title>
 </head>
 
@@ -23,17 +25,74 @@
                     <h3 class="title display-5 py-2 text-white">Applicants</h3>
                 </div>
                     <button type="button" class="button1" id="CreateApplicant" onclick="location.href='/CreateApplicant';">Create New Applicant</button>
-                    <button type="button" class="button1" id="showAllApp" >show All App</button>
+                    <!--<button type="button" class="button1" id="showAllApp" >Show all Applicants</button>-->
+                    <hr class="alert-info">
                   <div id="list"></div>
             </div>
         </div>
     </div>
+    
+    <div class="modal fade" id="details_modal" tabindex="-1" role="dialog" aria-labelledby="extra-button" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+              <div class="text-center">
+                <img src="/images/employee.png" alt="EMPLOYEE default" class="img-circle" height="100" width="100">
+               <div class="alert alert-info">
+                    <div>
+                        <span> Name: </span>
+                        <span id="details_modal_name"> Test </span>
 
+                    </div>
+                    <div>
+                        <span> Email: </span>
+                        <span id="details_modal_email"> mail@mail.com </span>
+
+                    </div>
+                    <div>
+                        <span> Applicant id: </span>
+                        <span id="details_modal_id"> 0 </span>
+
+                    </div>
+                </div>
+
+              </div>
+              <br>
+                <a href="" class="btn btn-success btn-sm" id="details_modal_view_btn">
+                      <span class="glyphicon glyphicon-eye-open"></span> View profile
+                </a>
+                 <a href="" class="btn btn-info btn-sm" id="details_modal_edit_btn">
+                      <span class="glyphicon glyphicon-pencil"></span> Edit profile
+                </a>
+                 <button class="btn btn-danger btn-sm" id="details_modal_remove_btn">
+                      <span class="glyphicon glyphicon-remove-sign"></span> Remove profile
+                </button>
+                 <a href="#" class="btn btn-primary btn-sm">
+                      <span class="glyphicon glyphicon-print"></span> Print
+                </a>
+                <br> <br>
+                <a href="" class="btn btn-warning btn-sm" id="details_modal_authorize_btn">
+                      <span class="glyphicon glyphicon-book"></span> Authorize Test
+                </a>
+                <a href="#" class="btn btn-success btn-sm" id="details_modal_test_btn">
+                      <span class="glyphicon glyphicon-check"></span> Test Result
+                </a>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="/vendor/js/jquery-3.3.1.js"></script>
     <script type="/vendor/text/javascript" src="js/jquery-3.1.1.min.js"></script>
     <script src="/vendor/js/script.js"></script>
     <script src="/vendor/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
     <script>
+        
+        $(function(){
+            loadApplicants();
+        });
+        
         function openNav() {
             document.getElementById("sidebar").style.width = "250px";
             document.getElementById("main").style.marginLeft = "0";
@@ -49,12 +108,18 @@
         $(document.getElementById("main")).click( function() {
           closeNav();
         });
-              $("#showAllApp").click(function(){
-                $.get("/api/applicants", function(data, status){
+        
+        $("#showAllApp").click(function(){
+            loadApplicants();
+        });
+              
+        //for reuse using funcation
+        function loadApplicants(){
+             $.get("/api/applicants", function(data, status){
                   var html = new EJS({url: 'views/recruiter/ShowAllApplicants.ejs'}).render({resumee:data});
                   $("#list").html(html);
                 });
-              });
+        }      
 
     </script>
 

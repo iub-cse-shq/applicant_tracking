@@ -53,11 +53,11 @@ exports.delete = function(req, res) {
 
 module.exports.update = function(req, res) {
   var resumee = req.resumee;
-
+	// return resumee;
   	resumee = _.extend(resumee, req.body);
-
   	resumee.save(function(err) {
   		if (err) {
+  			//console.log(err);
   			return res.status(400).send();
   		} else {
   			res.json(resumee);
@@ -192,5 +192,19 @@ exports.applicantByID = function(req, res, next, id) {
 		if (!resumee) return next(new Error('Failed to load resumee ' + id));
 		req.resumee = resumee;
 		next();
+	});
+};
+module.exports.questions = function(req, res) {
+     
+    res.render('./../public/views/applicant/questions.ejs', {
+		user: req.user || null, 
+		request: req
+	});
+};
+module.exports.testCompleted = function(req, res) {
+     
+    res.render('./../public/views/applicant/testCompleted.ejs', {
+		user: req.user || null, 
+		request: req
 	});
 };

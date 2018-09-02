@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <link rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/vendor/css/style.css">
+    <link rel="stylesheet" href="/vendor/css/glyphicons.css">
+    <link rel="stylesheet" href="/vendor/css/tests.css">
+    <link rel="stylesheet" href="/css/ApplicantTest.css" crossorigin="anonymous">
+    <title>Test Question</title>
+</head>
+
+<body>
+      <% include include/header %>
+     
+    <!-- /* CONTAINER START */ -->
+    <div class="main" id="main">
+        <div class="container" id="container">
+
+            <div class="title jumbotron" id="jumbotron">
+                <!-- used title to reduce extra padding on top of  CREATE NEW CANDIDATE -->
+                <div class="title jumbotron p-2 bg-secondary">
+                    <h3 class="title display-5 py-2 text-white">Test</h3>
+                </div>
+                        <a href="#"></a>
+            </div>
+            
+        </div>
+    </div>
+    
+    <main class ="questions" id ="ques">
+     
+
+    
+<form class= "questionForm" id="q1" data-question"1">
+    <h4> 1. Which tag should be used to represent the "header" of a document?</h4>
+    <ul>
+        <li> <input type ="radio" name = "q1" value = "A"/>&lt;head&gt;</li>
+        <li> <input type ="radio" name = "q1" value = "B"/>&lt;header&gt;</li>
+        <li> <input type ="radio" name = "q1" value = "C"/>&lt;heading&gt;</li>
+        <li> <input type ="radio" name = "q1" value = "D"/>&lt;main&gt;</li>
+    </ul>
+   
+</form>
+
+<form class= "questionForm" id="q2" data-question"2">
+    <h4> 2. Which of the following is not a new feature of HTML5?</h4>
+    <ul>
+        <li> <input type ="radio" name = "q2" value = "A"/>New Media Elements</li>
+        <li> <input type ="radio" name = "q2" value = "B"/>Form Input Tyes</li>
+        <li> <input type ="radio" name = "q2" value = "C"/>Local Storage</li>
+        <li> <input type ="radio" name = "q2" value = "D"/>Cookies</li>
+    </ul>
+    
+</form>
+
+<form class= "questionForm" id="q3" data-question"3">
+    <h4> 3. Which element is the most appropriate to wrap around each blog ost on a page?</h4>
+    <ul>
+        <li> <input type ="radio" name = "q3" value = "A"/>&lt;section&gt;</li>
+        <li> <input type ="radio" name = "q3" value = "B"/>&lt;post&gt;</li>
+        <li> <input type ="radio" name = "q3" value = "C"/>&lt;article&gt;</li>
+        <li> <input type ="radio" name = "q3" value = "D"/>&lt;main&gt;</li>
+    </ul>
+   
+</form>
+
+<form class= "questionForm" id="q4" data-question"4">
+    <h4> 4. Which HTML5 tag is used for sidebar content?</h4>
+    <ul>
+        <li> <input type ="radio" name = "q4" value = "A"/>&lt;aside&gt;</li>
+        <li> <input type ="radio" name = "q4" value = "B"/>&lt;sidebar&gt;</li>
+        <li> <input type ="radio" name = "q4" value = "C"/>&lt;sub&gt;</li>
+        <li> <input type ="radio" name = "q4" value = "D"/>&lt;side&gt;</li>
+    </ul>
+  
+</form>
+
+<form class= "questionForm" id="q5" data-question"5">
+    <h4> 5. Using canvas, which is used to color in a rectangle?</h4>
+    <ul>
+        <li> <input type ="radio" name = "q5" value = "A"/>strokeStyle</li>
+        <li> <input type ="radio" name = "q5" value = "B"/>fillRect</li>
+        <li> <input type ="radio" name = "q5" value = "C"/>strokeFill</li>
+        <li> <input type ="radio" name = "q5" value = "D"/>rectFill</li>
+    </ul>
+   
+</form>
+
+  <button type="button" class="button1" id="submit">Submit</button>
+ 
+</main>
+
+   
+
+  <!--  <script src="js/jquery-3.3.1.js"></script>-->
+  <!--  <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>-->
+  <!--  <script src="js/script.js"></script>-->
+  <!--<script src="js/test.js"></script>-->
+  <!--<script src="js/test.js"></script>-->
+  <!--  <script src="js/bootstrap.min.js"></script>-->
+  
+    <script src="/vendor/js/jquery-3.3.1.js"></script>
+    <script type="/vendor/text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script src="/vendor/js/script.js"></script>
+    <script src="/vendor/js/bootstrap.min.js"></script>
+    
+    <script>
+    // var sidebar=0;
+    var score = -1;
+     var total = 25;
+      var point = 5;
+       var highest=total*point;
+       
+       
+        function openNav() {
+            // sidebar =1;
+            console.log('aaaaaaaaaaaa');
+            document.getElementById("sidebar").style.width = "210px";
+            document.getElementById("main").style.marginLeft = "0";
+            document.body.style.backgroundColor = "rgba(0,0,0,0.3)";
+            document.getElementById("container").style.backgroundColor = "#B2B2B2";
+        }
+        function closeNav() {
+          // sidebar =0;
+            document.getElementById("sidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            document.body.style.backgroundColor = "#F0F1F6";
+            document.getElementById("container").style.backgroundColor = "#F0F1F6";
+        }
+        $(document.getElementById("main")).click( function() {
+          closeNav();
+        });
+        
+  $('#submit').click(function(){
+            
+            // $('.questionForm').hide();
+            process('q1');
+            process('q2');
+            process('q3');
+            process('q4');
+            process('q5');
+         
+         alert("Test Result Has Been Successfuly Submitted!");
+         
+         var applicantID = <%- JSON.stringify(request.resumee._id) %>;
+         var resume = {};
+
+         resume.marks = score;
+         resume.testStatus = "Exam Completed";
+         resume.authorization = "No"; 
+         
+         $.ajax({
+              method:"PUT",
+              url:'/api/applicants/edit/'+applicantID,
+              data: resume
+            }).done(function(response){
+              console.log("Data Saved!!! ");
+              window.location.replace("/ApplicantDashboard");
+            return false;
+            }).fail(function(response){
+                console.log(response);
+            });
+         
+  }
+            
+        // });
+         
+
+        
+//          var radios0 = document.forms["questionForm"].elements["q1"];
+// for(var i = 0, max = radios.length; i < max; i++) {
+//     radios[i].onclick = function() {
+//         alert(this.value);
+//         process('q1');
+//         return false;
+//     }
+// }
+
+//  var radios1 = document.forms["questionForm"].elements["q2"];
+// for(var i = 0, max = radios.length; i < max; i++) {
+//     radios[i].onclick = function() {
+//         alert(this.value);
+//         process('q2');
+//         return false;
+//     }
+// }
+
+//  var radios2 = document.forms["questionForm"].elements["q3"];
+// for(var i = 0, max = radios.length; i < max; i++) {
+//     radios[i].onclick = function() {
+//         alert(this.value);
+//         process('q3');
+//         return false;
+//     }
+// }
+
+//  var radios3 = document.forms["questionForm"].elements["q4"];
+// for(var i = 0, max = radios.length; i < max; i++) {
+//     radios[i].onclick = function() {
+//         alert(this.value);
+//         process('q4');
+//         return false;
+//     }
+// }
+
+//  var radios4 = document.forms["questionForm"].elements["q5"];
+// for(var i = 0, max = radios.length; i < max; i++) {
+//     radios[i].onclick = function() {
+//         alert(this.value);
+//         process('q5');
+//         return false;
+//     }
+// }
+        
+        function process(q){
+            if(q=="q1"){
+                var submitted=$('input[name=q1]:checked').val();
+                if(submitted=='B'){
+                    score+=5;
+                }
+            }
+            if(q=="q2"){
+                var submitted=$('input[name=q2]:checked').val();
+                if(submitted=='D'){
+                    score+=5;
+                }
+            }
+            if(q=="q3"){
+                var submitted=$('input[name=q3]:checked').val();
+                if(submitted=='C'){
+                    score+=5;
+                }
+            }
+            if(q=="q4"){
+                var submitted=$('input[name=q4]:checked').val();
+                if(submitted=='A'){
+                    score+=5;
+                }
+            }
+            if(q=="q5"){
+                var submitted=$('input[name=q5]:checked').val();
+                if(submitted=='B'){
+                    score+=5;
+                }
+                console.log(score);
+                
+            }
+        
+        }
+            
+       
+     
+     
+       // window.addEventListener('load',init,false)
+
+        // $(document.getElementById("nav")).click( function() {
+        //       closeNav();
+        //   });
+        
+
+
+    </script>
+
+
+</body>
+</html>

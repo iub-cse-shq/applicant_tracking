@@ -267,6 +267,15 @@ module.exports.AddNewRecruiter = function(req, res) {
 		request: req
 	});
 };
+module.exports.ApplicantProfile = function(req, res) {
+     
+    res.render('./../public/views/recruiter/ApplicantProfile.ejs', {
+		user: req.user || null, 
+		request: req
+	});
+};
+
+
 
 exports.recruiterByID = function(req, res, next, id) {
 	Resumee.findById(id).populate('user', 'email').exec(function(err, resumee) {

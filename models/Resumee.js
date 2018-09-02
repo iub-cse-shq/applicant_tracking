@@ -136,8 +136,19 @@ var ResumeeSchema = {
   created: {
     type: Date,
     default: Date.now
+  },
+  testStatus: {
+    type: String,
+    trim: true
+  },
+   marks: {
+    type: Number,
+    trim: true
+  },
+   authorization: {
+    type: String,
+    trim: true
   }
-  
 };
 
 var Resumee = mongoose.model('Resumee', ResumeeSchema, 'resumees');

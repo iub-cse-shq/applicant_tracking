@@ -9,9 +9,19 @@
     <link rel="stylesheet" href="/vendor/css/glyphicons.css">
     <link rel="stylesheet" href="/css/MyProfile.css" crossorigin="anonymous">
     <title>My Profile</title>
+       <style>
+     p{
+         color: #228B22;
+         font-size: 20px;
+     }
+     .button1-delete{
+         background:red !important;
+     }
+ </style>
 </head>
 
 <body>
+  
       <% include include/header %>
     <!-- /* CONTAINER START */ -->
     <div class="main" id="main">
@@ -22,13 +32,20 @@
                 <div class="title jumbotron p-2 bg-secondary">
                     <h3 class="title display-5 py-2 text-white">My Profile</h3>
                 </div>
+                   <p> You are applicable for the Test</p>
                 <div class="button"> 
-                    <button type="button" class="button1" id="viewResume" onclick="location.href='/ViewMyResume';">View My Resume</button>
-                    <button type="button" class="button1" id="createResume" onclick="location.href='/CreateMyResume';">Create My Resume</button>
-                    <button type="button" class="button1" id="editResume" onclick="location.href='/EditMyResume';" >Edit My Resume</button>
+
+                    <button type="button" class="button1" id="viewResume" onclick="location.href='/ViewMyResume';"> <span class="glyphicon glyphicon-eye-open"></span> View My Resume</button>
+                    <button type="button" class="button1" id="createResume" onclick="location.href='/CreateMyResume';"> <span class="glyphicon glyphicon-save-file"></span> Create My Resume</button>
+                    <button type="button" class="button1" id="editResume" onclick="location.href='/EditMyResume';" ><span class="glyphicon glyphicon-pencil"></span> Edit My Resume</button>
+                    <button type="button" class="button1" id="print" ><span class="glyphicon glyphicon-print"></span> Print </button>
+                    <button type="button" class="button1" id="email"  ><span class="glyphicon glyphicon-send"></span> Email </button>
+                    
                 </div>
-
-
+                  
+          
+        
+      </div>
             </div>
         </div>
     </div>
@@ -57,6 +74,7 @@
         var status = <%- JSON.stringify(request.resumee) %>;
         // console.log(status);  
         
+       
         if(status=="null"){
             $('#viewResume').hide();
             $('#editResume').hide();
@@ -64,8 +82,7 @@
         if(status!="null") {
             $('#createResume').hide();
         }
-     
-        
+      
 
     </script>
 

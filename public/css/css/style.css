@@ -19,11 +19,6 @@ display: flex;
      -webkit-transform: translate(-100%, -100%); 
      -o-transform: translate(-100%, -100%); 
 }
-body{
-  font-family:"Arial", Serif;
-  background-color:#f4f4f4;
-  overflow-x:hidden;
-}
 
 .navbar{
   background-color:#3b5998;

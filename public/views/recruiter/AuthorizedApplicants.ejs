@@ -1,15 +1,13 @@
-
-
 <div class="container">
-      <h3>Showing all applicants</h3>
+      <h3>Showing authorized applicants</h3>
      
       <table class="table table-hover" id="applicants_table">
           <thead>
               <tr>
                   <td>Name</td>
                   <td> Image </td>
-                  <td>Title</td>
-                  <td>Company</td>
+                  <td>Test Status</td>
+                  <td>Marks</td>
                   <td> Action </td>
 
               </tr>
@@ -19,8 +17,8 @@
               <tr>
                   <td>  <%= resumee[i].fname %> <%= resumee[i].lname %> </td>
                   <td><img src="/images/employee.png" alt="EMPLOYEE default" height="42" width="42"></td>
-                  <td style="width:70px">  <%= resumee[i].title %> </td>
-                  <td>  <%= resumee[i].company %></td>
+                  <td style="width:70px">  <%= resumee[i].testStatus %> </td>
+                  <td>  <%= resumee[i].marks %></td>
                   <td> 
                             <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#details_modal" 
                                 onclick="load_details(' <%= resumee[i].fname %> <%= resumee[i].lname %>','<%= resumee[i].email %>','<%= resumee[i]._id %>')">

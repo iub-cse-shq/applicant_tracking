@@ -42,7 +42,7 @@
                      <label class="labelLeft" for="lname">Last Name</label>
                      <input type="text" class="form-control mt-2 textbox" placeholder="Last name" id="lname" value=<%=request.resumee.lname%>>
                      <label class="labelLeft" for="mobile">Mobile</label>
-                     <input type="text" class="form-control mt-2 textbox" placeholder="Mobile" id="mobile" value=<%=request.resumee.mobile%>>
+                     <input type="number" class="form-control mt-2 textbox" placeholder="Mobile" id="mobile" value=<%=request.resumee.mobile%>>
                      <label class="labelLeft" for="skype">Skype ID/URL</label>
                      <input type="text" class="form-control mt-2 textbox" placeholder="Skype ID" id="skype" value=<%=request.resumee.skype%>>
                      <label class="labelLeft" for="twitter">Twitter ID/URL</label>
@@ -203,20 +203,44 @@
               else $('.endDu1').attr('enabled', true);
         });
           var applicantID = <%- JSON.stringify(request.resumee._id) %>;
-          var resume = {};
-          $('#fname').change(function(){
-            resume.fname = $('#fname').val();
-          });
-          $('#lname').change(function(){
-            resume.lname = $('#lname').val();
-          });
-          $('#email').change(function(){
-            resume.email = $('#email').val();
-          });
-          $('#mobile').change(function(){
-            resume.mobile = $('#mobile').val();
-          });
+          
+         function getResumeData(){
+             return {
+                 
+              fname:$('#fname').val(),
+              lname:$('#lname').val(),
+              email:$('#email').val(),
+              mobile:$('#mobile').val(),
+              linkedIn:$('#linkedIn').val(),
+              facebook:$('#facebook').val(),
+              skype:$('#skype').val(),
+              twitter:$('#twitter').val(),
+              city:$('#city').val(),
+              country:$('#country').val(),
+              currentAddress:$('#currentAddress').val(),
+              district:$('#district').val(),
+              zipCode:$('#zipCode').val(),
+              institute:$('#institute').val(),
+              degree:$('#degree').val(),
+              grade:$('#grade').val(),
+              startEdu:$('#startEdu').val(),
+              endEdu:$('#endEdu').val(),
+              title:$('#title').val(),
+              company:$('#company').val(),
+              location:$('#location').val(),
+              des:$('#des').val(),
+              startExp:$('#startExp').val(),
+              endExp:$('#endExp').val(),
+              skillSet:$('#skillSet').val()
+                 
+             } 
+         }
+         
           $('#submit').click(function(){
+              let resume = getResumeData();
+              if(resume.mobile==""){
+                  alert("Mobile number can't be empty! ");
+              }
             $.ajax({
               method:"PUT",
               url:'/api/applicants/edit/'+applicantID,
