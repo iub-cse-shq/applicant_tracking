@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/vendor/css/style.css">
+    <link rel="stylesheet" href="/vendor/css/glyphicons.css">
+    <link rel="stylesheet" href="/css/Clients.css" crossorigin="anonymous">
+    <title>Clients</title>
+</head>
+ <div class="title jumbotron p-2 bg-secondary">
+                    <h1 class="title display-5 py-2 text-white">Clients Profile</h1>
+                </div>
+ <button type="button" class="button1" id="Edit" onclick="location.href='/EditClient';">Edit Client Info</button>
+                <button type="button" class="button2" id="ViewDetails" >View Details</button>
+                <button type="button" class="button3" id="JobRelatedPosts" >Job Related Posts</button>
+                <div id="list"></div>
+
+ <script src="/vendor/js/jquery-3.3.1.js"></script>
+    <script type="/vendor/text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script src="/vendor/js/script.js"></script>
+    <script src="/vendor/js/bootstrap.min.js"></script>
+    <script>
+    function ClientProfile(){
+         document.getElementById("Edit").style.width = "0";
+            document.getElementById("ViewDetails").style.marginLeft = "0";
+            document.body.style.backgroundColor = "#F0F1F6";
+            document.getElementById("JobRelatedPosts").style.backgroundColor = "#F0F1F6";
+    }
+    

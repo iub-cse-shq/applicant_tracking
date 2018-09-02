@@ -13,8 +13,8 @@ module.exports = function(app){
 
  app.route('/api/applicants/edit/:applicantId')
 	.get(applicants.read)
-	.put(users.requiresLogin, applicants.update);
-	
+	//.put(users.requiresLogin, applicants.update);
+	app.route('/users/:userId').put(users.update);
 
 
 app.route('/ApplicantDashboard').get(users.requiresLogin, applicants.ApplicantDashboard);   
@@ -25,6 +25,7 @@ app.route('/ApplicantCareerTips').get(users.requiresLogin,applicants.ApplicantCa
 app.route('/ViewMyResume').get(users.requiresLogin,applicants.ViewMyResume);
 app.route('/CreateMyResume').get(users.requiresLogin,applicants.CreateMyResume);
 app.route('/EditMyResume').get(users.requiresLogin,applicants.EditMyResume);
+app.route('/ApplicantSettings').get(users.requiresLogin,applicants.ApplicantSettings);
 
 app.param('applicantId', applicants.applicantByID);
 

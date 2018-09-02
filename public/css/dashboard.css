@@ -7,7 +7,7 @@ body {
     background-image: url(back1.jpg);
       background-repeat:no-repeat ;
     background-size:cover;
-    height:535px;
+    /*height:535px;*/
 }
 /*//////////////  NAVBAR /////////////*/
 .navbar{

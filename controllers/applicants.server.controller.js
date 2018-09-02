@@ -132,6 +132,15 @@ module.exports.ApplicantEmail = function(req, res) {
 		request: req
 	});
 };
+
+module.exports.ApplicantSettings = function(req, res) {
+     
+    res.render('./../public/views/applicant/ApplicantSettings.ejs', {
+		user: req.user || null, 
+		request: req
+	});
+};
+
 module.exports.ApplicantTest = function(req, res) {
      
     res.render('./../public/views/applicant/ApplicantTest.ejs', {

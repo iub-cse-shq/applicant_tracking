@@ -24,13 +24,49 @@
                 </div>
                 <br>
                 <div class="input-group w-100 ">
-                    <input type="text" class="searchtxt form-control" placeholder="Search Keyword" id="search" />
+                    <input type="text" class="searchtxt form-control" placeholder="Search Keyword" id="search1" />
+                    <select>
+  <option value="volvo">Search By</option>                        
+  <option value="volvo">Title</option>
+  <option value="saab">Location</option>
+  <option value="opel">Institution</option>
+  <option value="audi">Experience</option>
+  <option value="audi">Industry</option>
+</select>
                     <div class="input-group-append">
-                        <button type="button" class="btn btn-default btn-sm" style="background-color:#3DADC3;" id="submit">
-                        <span class="glyphicon glyphicon-search" ></span>
-                        </button>
+                      
+          </span>
+        </a>
+
+                        
                     </div>
                 </div>
+                
+                </br>
+                <div class="input-group w-100 ">
+                    <input type="text1" class="searchtxt form-control" placeholder="Search Keyword" id="search2" />
+                    <select>
+  <option value="volvo">Search By</option>                        
+  <option value="volvo">Title</option>
+  <option value="saab">Location</option>
+  <option value="opel">Institution</option>
+  <option value="audi">Experience</option>
+    <option value="audi">Industry</option>
+</select>
+                    <div class="input-group-append">
+                      
+          </span>
+        </a>
+
+                       
+                    </div>
+                    
+                </div></br>
+                <button type="button" class="btn btn-default btn-sm" style="background-color:#3DADC3;" id="submit">
+                        
+                        <p>SEARCH</p>
+                        </button>
+                        
                 <div id="show">  </div>
                             
             </div>
@@ -60,13 +96,14 @@
         });
           $('#submit').click(function(){
             
-             var newSearch = {title:"" };
-            newSearch.title=$('#search').val();
+             var newSearch1 = {title:"",location:"" };
+            newSearch1.title=$('#search1').val();
+            newSearch1.location=$('#search2').val();
                 // console.log(newSearch.search);
            $.ajax({
                method:"POST",
                url: "/api/track",
-               data: newSearch
+               data: newSearch1
            }).done(function(response){
                console.log(response);
                if(response<1){
@@ -82,6 +119,34 @@
            });
                  return false; 
           });
+          
+          
+          /////SEARCH BY LOCATION
+        //   $('#submit').click(function(){
+            
+        //      var newSearch2 = {location:"" };
+        //     newSearch2.location=$('#search2').val();
+        //     // newSearch.title=$('#search2').val();
+        //         // console.log(newSearch.search);
+        //   $.ajax({
+        //       method:"POST",
+        //       url: "/api/track",
+        //       data: newSearch2
+        //   }).done(function(response){
+        //       console.log(response);
+        //       if(response<1){
+        //             $('#show').text("No Match found!");   
+        //       }
+        //       else if(response){
+        //           var html = new EJS({url: 'views/recruiter/ListOfTrackedApp.ejs'}).render({resumee:response});
+        //           $("#show").html(html);
+        //       }
+        //   }).fail(function(response){
+               
+        //       console.log(response.responseText);
+        //   });
+        //          return false; 
+        //   });
           
 
     </script>

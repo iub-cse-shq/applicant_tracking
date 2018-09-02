@@ -125,8 +125,8 @@ module.exports.updateJob = function(req, res) {
   	});
 };
 /// TRACK APPLICANT 
-module.exports.track = function(req, res) {
-	Resumee.find({title: req.body.title}).exec(function(err, resumee) {
+module.exports.track1 = function(req, res) {
+	Resumee.find({title: req.body.title,location: req.body.location}).exec(function(err, resumee) {
 		if (err) console.error(err);
 		if (!resumee) {resumee=null;}
 		req.resumee = resumee;
@@ -134,6 +134,16 @@ module.exports.track = function(req, res) {
 		res.json(resumee);
 	});
 };
+
+//module.exports.track2 = function(req, res) {
+//	Resumee.find({title: req.body.title}).exec(function(err, resumee) {
+	//	if (err) console.error(err);
+	//	if (!resumee) {resumee=null;}
+	//	req.resumee = resumee;
+		// console.log(resumee);
+	//	res.json(resumee);
+//	});
+//};
 module.exports.Dashboard = function(req, res) {
      
     res.render('./../public/views/recruiter/Dashboard.ejs', {

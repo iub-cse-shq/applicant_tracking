@@ -93,6 +93,10 @@ var ResumeeSchema = {
     type: String,
     trim: true
   },  
+  yearsofexp: {
+    type: String,
+    trim: true
+  },
   company: {
     type: String,
     trim: true
