@@ -29,12 +29,13 @@ app.route('/api/recruiters/edit/:recruiterId')
 
 
 
-	app.route('/Dashboard')
-	.get(users.requiresLogin,recruiters.Dashboard);   
 
+	app.route('/Dashboard').get(users.requiresLogin,recruiters.Dashboard);   
 	app.route('/CareerBlog').get(users.requiresLogin,recruiters.CareerBlog);
 	app.route('/CreateArticle').get(users.requiresLogin,recruiters.CreateArticle);
 	app.route('/ViewArticle/:articleId').get(users.requiresLogin,recruiters.ViewArticle);
+	app.route('/EditArticle/:articleId').get(users.requiresLogin,recruiters.EditArticle);
+	app.route('/DeleteArticle/:articleId').get(users.requiresLogin,recruiters.DeleteArticle);
 	app.route('/TrackApplicants').get(users.requiresLogin,recruiters.TrackApplicants);
 	app.route('/Applicants').get(users.requiresLogin,recruiters.Applicants);
 	app.route('/CreateApplicant').get(users.requiresLogin,recruiters.CreateApplicant);
@@ -50,8 +51,10 @@ app.route('/api/recruiters/edit/:recruiterId')
 	app.route('/EditJobOpening/:jobId').get(users.requiresLogin,recruiters.EditJobOpening);
 	app.route('/CareerTips').get(users.requiresLogin,recruiters.CareerTips);
 	app.route('/Emails').get(users.requiresLogin,recruiters.Emails);
+	app.route('/CreateEmail').get(users.requiresLogin,recruiters.CreateEmail);
 	app.route('/Tests').get(users.requiresLogin,recruiters.Tests);
 	app.route('/UserAdministration').get(users.requiresLogin,recruiters.UserAdministration);
+	app.route('/aboutUs').get(users.requiresLogin,recruiters.UserAdministration);
 	app.route('/AddNewRecruiter').get(users.requiresLogin,recruiters.AddNewRecruiter);
 
 	
@@ -60,5 +63,6 @@ app.route('/api/recruiters/edit/:recruiterId')
 	app.param('resumeId', recruiters.resumeByID);
 	app.param('clientId', recruiters.clientByID);
 	app.param('jobId', recruiters.jobByID);
+	app.param('articleId', recruiters.articleByID);
 
 };

@@ -1,0 +1,12 @@
+
+  
+<div class="container"><br>
+      <h3>All JobOpenigs</h3>
+      <% for(var i=0; i<job.length; i++) { %>
+      <div> <p>Job Title:<a href="/ViewJobOpening/<%=job[i]._id%>"> <%= job[i].title %></a> <br>
+        Company: <%= job[i].companyName %></p> 
+      </div>
+      <%}%>
+</div>
+
+

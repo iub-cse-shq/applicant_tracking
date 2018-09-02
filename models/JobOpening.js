@@ -4,8 +4,8 @@ var JobOpeningSchema = {
 
   title: {
     type: String,
-    trim: true,
-    required: 'title required'
+    trim: true
+    // required: 'title required'
   },
   companyName: {
     type: String,

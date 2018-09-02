@@ -20,7 +20,7 @@
             <div class="title jumbotron" id="jumbotron">
                 <!-- used title to reduce extra padding on top of  CREATE NEW CANDIDATE -->
                 <div class="title jumbotron p-2 bg-secondary">
-                    <!--<h3 class="title display-5 py-2 text-white">View <%=request.client.contactName%> </h3>-->
+                    <h3 class="title display-5 py-2 text-white">View <%=request.article.articleName%> </h3>
                 </div>
                 
                  <div class="form-row" id="">
@@ -28,11 +28,13 @@
                         <h2 class="sub title2 display-5">Article Information</h2>
                     </div>
                     <div class="col-sm-8" >
-                        <input type="text" class="b form-control mt-2 textbox" placeholder="Article Name" id="articleName" value=<%=request.article.articleName%>>
-                        <input type="text" class="form-control mt-2 textbox" placeholder="Title" id="title" value=<%=request.article.title%>>
-                        <input type="text" class="form-control mt-2 textbox" placeholder="Content" id="content" value=<%=request.article.content%>>
-                        <!--<input type="text" class="b form-control mt-2 textbox" placeholder="Source" id="source" value=<%=request.client.source%>>-->
-                </div>
+                         <label class="labelLeft" for="fname">Article Name</label>
+                        <input type="text" class="b form-control mt-2 textbox"  id="articleName" value=<%=request.article.articleName%>>
+                         <label class="labelLeft" for="fname">Title</label>
+                        <input type="text" class="form-control mt-2 textbox"  id="title" value=<%=request.article.title%>>
+                         <label class="labelLeft" for="fname">Content</label>
+                        <input type="text" class="form-control mt-2 textbox"  id="content" value=<%=request.article.content%>>
+                        </div>
                 </div>
                 
 
@@ -43,14 +45,14 @@
                     <div class="col-sm-8" >
                         
                          <label for="comment"></label>
-                      <textarea class="form-control" rows="5" placeholder="Article" id="article" value=<%=request.article.article%>></textarea>
+                      <textarea class="form-control" rows="5" placeholder="Article" id="articlen" value=<%=request.article.articlen%>></textarea>
                       </div>
                         </div>
                 <div class="row mt-4">
                     <div class=" save col-sm-12 bg-secondary ">
                         <!--<form class="Savebtn form-inline my-2 my-lg-0 float-right ">-->
                             <button class="saveb btn btn-primary-success m-1 m-sm-2 button" type="submit" id="edit">Edit</button>
-                            <button class="btn btn-primary-success m-1 m-sm-2 button" type="submit" id="print">Print</button>
+                            <button class="saveb btn btn-warning-warning m-1 m-sm-2 button" type="delete" id="delete">Delete</button>
                             <button class="btn btn-primary-success m-1 m-sm-2 button" type="submit" id="back">Back</button>
                         <!--</form>-->
                     </div>
@@ -65,6 +67,7 @@
     <script src="/vendor/js/script.js"></script>
     <script src="/vendor/js/bootstrap.min.js"></script>
     <script>
+  
         function openNav() {
             document.getElementById("sidebar").style.width = "250px";
             document.getElementById("main").style.marginLeft = "0";
@@ -83,11 +86,14 @@
         var id = <%- JSON.stringify(request.article._id) %>;
         console.log(id);
         $('#edit').click(function(){
-            window.location.replace("/EditClient/"+id);  
+            window.location.replace("/EditArticle/"+article._id);
         });
+        /*$('#'delete).click(function(){
+            window.location.replace("/DeleteArticle/"+id);  
+        });*/
         $('#back').click(function(){
-            window.location.replace('/Clients'); 
-                
+            window.location.replace('/CareerBlog'); 
+
         });
 
 

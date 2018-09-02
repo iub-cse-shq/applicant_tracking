@@ -119,6 +119,30 @@ module.exports.Articlelist = function(req, res) {
   });
 };
 
+module.exports.updateArticle = function(req, res) {
+	 var article = req.article;
+  	article = _.extend(article, req.body);
+  	article.save(function(err) {
+  		if (err) {
+  			return res.status(400).send();
+  		} else {
+  			res.json(article);
+  		}
+  	});
+};
+
+
+exports.delete = function(req, res) {
+	var article = req.article;
+	article.remove(function(err) {
+		if (err) {
+			return res.status(400).send();
+		} else {
+			res.json(article);
+		}
+	});
+};
+
 //// JOB API 
 module.exports.Joblist = function(req, res) {
    JobOpening.find(function(err, data) {
@@ -199,6 +223,38 @@ module.exports.ViewArticle = function(req, res) {
 		request: req
 	});
 };
+
+module.exports.EditArticle = function(req, res) {
+     
+    res.render('./../public/views/recruiter/EditArticle.ejs', {
+		user: req.user || null, 
+		request: req
+	});
+};
+
+// module.exports.DeleteArticle = function(req, res) {
+     
+//     res.render('./../public/views/recruiter/ViewArticle.ejs', {
+// 		user: req.user || null, 
+// 		request: req
+// 	});
+// };
+
+module.exports.createEmail = function(req, res) {
+  var email = new email (req.body);
+  email.user = req.user;
+ email.save(function(err, data) {
+    if (err) {
+      return res.status(400).send({
+
+  				message: errorHandler.getErrorMessage(err)
+  			});
+    } else {
+      res.status(200).send(data);
+    }
+  });
+};
+
 
 module.exports.TrackApplicants = function(req, res) {
      
@@ -319,6 +375,13 @@ module.exports.UserAdministration = function(req, res) {
 		request: req
 	});
 };
+module.exports.aboutUs = function(req, res) {
+     
+    res.render('./../public/views/recruiter/aboutUs.ejs', {
+		user: req.user || null, 
+		request: req
+	});
+};
 module.exports.AddNewRecruiter = function(req, res) {
      
     res.render('./../public/views/recruiter/AddNewRecruiter.ejs', {
@@ -357,6 +420,15 @@ exports.jobByID = function(req, res, next, id) {
 		if (err) return next(err);
 		if (!jobOpening) return next(new Error('Failed to load jobOpening ' + id));
 		req.jobOpening = jobOpening;
+		next();
+	});
+};
+
+exports.articleByID = function(req, res, next, id) {
+	Article.findById(id).populate('user', 'email').exec(function(err, article) {
+		if (err) return next(err);
+		if (!article) return next(new Error('Failed to load article ' + id));
+		req.article = article;
 		next();
 	});
 };

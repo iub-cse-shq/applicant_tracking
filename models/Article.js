@@ -5,19 +5,29 @@ var ArticleSchema = {
   title: {
     type: String,
     default: '',
-    trim: true,
-    required: 'Title required'
+    trim: true
+    // required: 'Title required'
   },
 
   articleName: {
     type: String,
+    default: '',
+    trim: true
     
   },
   content: {
     type: String,
     default: '',
-    trim: true,
-    required: 'Content required'
+    trim: true
+    // required: 'Content required'
+
+  },
+  
+  articlen: {
+    type: String,
+    default: '',
+    trim: true
+    // required: 'Content required'
 
   },
 

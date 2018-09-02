@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/vendor/css/style.css">
+    <link rel="stylesheet" href="/vendor/css/glyphicons.css">
+    <link rel="stylesheet" href="/css/ViewArticle.css" crossorigin="anonymous">
+    <title>Edit Article</title>
+</head>
+
+<body>
+     <% include include/RecHeader %>
+  <!-- /* CONTAINER START */ -->
+ <div class="main" id="main">
+     <div class="container" id="container">
+         <div class="title jumbotron" id="jumbotron">
+             <div class="title jumbotron p-2 bg-secondary">
+                 <h3 class="title display-5 py-2 text-white">Edit Article</h3>
+             </div>
+             <div class="form-row" id="basicinfo">
+                 <div class="sub col-sm-12  mt-4">
+                     <h2 class="sub title2 display-5">Article Info</h2>
+                 </div>
+                 <div class="col-sm-6">
+                     <label class="labelLeft" for="fname">Article Name</label>
+                     <input type="text" class="b form-control mt-2 textbox" placeholder="Article Name" id="articleName" value=<%=request.article.articleName%>>
+                     <label class="labelLeft" for="fname">Title</label>
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Title" id="title" value=<%=request.article.title%>>
+                        <label class="labelLeft" for="fname">Content</label>
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Content" id="content" value=<%=request.article.content%>>
+                    </div>
+                
+             </div>
+            
+             
+             <div class="row mt-4">
+                 <div class=" save col-sm-12 bg-secondary ">
+                         <button class="saveb btn btn-primary-success m-1 m-sm-2 button" type="submit" id="submit">Submit</button>
+                         <button class="cancelb btn btn-primary-success m-1 m-sm-2 button" type="submit" id="cancel">Cancel</button>
+                 </div>
+             </div>
+         </div>
+
+     </div>
+ </div>
+
+    <script src="/vendor/js/jquery-3.3.1.js"></script>
+    <script type="/vendor/text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script src="/vendor/js/script.js"></script>
+    <script src="/vendor/js/bootstrap.min.js"></script>
+    <script>
+    var chk1=0;
+        function openNav() {
+            document.getElementById("sidebar").style.width = "210px";
+            document.getElementById("main").style.marginLeft = "0";
+            document.body.style.backgroundColor = "rgba(0,0,0,0.3)";
+            document.getElementById("container").style.backgroundColor = "#B2B2B2";
+        }
+        function closeNav() {
+            document.getElementById("sidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            document.body.style.backgroundColor = "#F0F1F6";
+            document.getElementById("container").style.backgroundColor = "#F0F1F6";
+        }
+        $(document.getElementById("main")).click( function() {
+          closeNav();
+        });
+        
+          var articleID = <%- JSON.stringify(request.article._id) %>;
+          var article = {};
+          $('#articleName').change(function(){
+            article.articleName= $('#articleName').val();
+          });
+          $('#title').change(function(){
+            article.title= $('#title').val();
+          });
+          $('#content').change(function(){
+            article.content= $('#content').val();
+          });
+          $('#articlen').change(function(){
+            article.articlen= $('#articlen').val();
+          });
+          $('#submit').click(function(){
+            $.ajax({
+              method:"PUT",
+              url:'/api/article/edit/'+articleID,
+              data: article
+            }).done(function(response){
+              console.log(response);
+              window.location.replace('/ViewArticle/'+response._id); 
+            return false;
+            }).fail(function(response){
+                console.log(response);
+            });
+          });
+         
+
+    </script>
+
+</body>
+
+</html>

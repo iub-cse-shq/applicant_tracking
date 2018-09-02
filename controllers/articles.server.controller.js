@@ -103,6 +103,21 @@ module.exports.listView = function(req, res) {
   
   	
 };
+// module.exports.ViewArticle = function(req, res) {
+     
+//     res.render('./../public/views/recruiter/ViewArticle.ejs', {
+// 		user: req.user || null, 
+// 		request: req
+// 	});
+// };
+
+// module.exports.EditArticle = function(req, res) {
+     
+//     res.render('./../public/views/recruiter/EditArticle.ejs', {
+// 		user: req.user || null, 
+// 		request: req
+// 	});
+// };
 
 
 exports.articleByID = function(req, res, next, id) {

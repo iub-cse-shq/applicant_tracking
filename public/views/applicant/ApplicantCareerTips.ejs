@@ -14,51 +14,21 @@
 <body>
        <% include include/header %>
     <!-- /* CONTAINER START */ -->
-    <div class="main" id="main">
-        <div class="container" id="container">
-
-            <div class="title jumbotron" id="jumbotron">
-                <div class="title jumbotron p-2 bg-secondary">
-                    <h3 class="title display-5 py-2 text-white">Career Tips</h3>
-                </div>
+<div class="main" id="main">
+    <div class="container" id="container">
+        <div class="row">
+            <div class="col-md-12">
                 <div class="title jumbotron" id="jumbotron">
-                   <div class="container-fluid">
-                      <div class="row">
-                        <div class="col-sm-4" style="background-color:lavender;">
-                    
-                          <div class="container">
-                            <h3>Interview tips: 10 tips to improve interview performance</h3>
-                            <p>Do you know how to make your case to an interviewer? Follow these 10 interview tips to boost your chances of landing the job.</p>
-                            <button type="button" class="btn btn-default" id="read1">Read More</button>
-                          </div>
-                        </div>
-                        <div class="col-sm-4" style="background-color:lavenderblush;">
-                    
-                          <div class="container">
-                            <h3>The Trick to Working With a First-Time Manager</h3>
-                            <p>When first-time managers are flailing, doing some of the work for them makes everyone’s life easier especially yours.</p>
-                            <button type="button" class="btn btn-default" id="read2">Read More</button>
-                          </div>
-                        </div>
-                        <div class="col-sm-4" style="background-color:lavender;">
-                    
-                          <div class="container">
-                            <h3>This Simple Exercise Will Help You Make Better First Impressions</h3>
-                            <p>Try this exercise out for yourself and use it as a jumping off point to decide in what situations you shine, and in which situations you might not.</p>
-                            <button type="button" class="btn btn-default" id="read3">Read More</button>
-                          </div>
-                        </div>
-                        
-            
-                    </div>
-                
-                  </div>
+                    <div class="title jumbotron p-2 bg-secondary">
+                        <h3 class="title display-5 py-2 text-white">Career Tips</h3>
+                        </div><br>
+                        <!--<button type="button" class="button1" id="tips">show All Tips</button>-->
+                    <div id="list"></div>
                 </div>
-
             </div>
         </div>
     </div>
-
+</div>
     <script src="/vendor/js/jquery-3.3.1.js"></script>
     <script type="/vendor/text/javascript" src="js/jquery-3.1.1.min.js"></script>
     <script src="/vendor/js/script.js"></script>
@@ -80,6 +50,50 @@
         $(document.getElementById("main")).click( function() {
           closeNav();
         });
+        
+        $('#submit').click(function(){
+            
+             var newSearch = {title:"" };
+            newSearch.title=$('#search').val();
+                // console.log(newSearch.search);
+           $.ajax({
+               method:"POST",
+               url: "/api/track",
+               data: newSearch
+           }).done(function(response){
+               console.log(response);
+               if(response<1){
+                    $('#show').text("No Match found!");   
+               }
+               else if(response){
+                  var html = new EJS({url: 'views/recruiter/ListOfTrackedApp.ejs'}).render({resumee:response});
+                  $("#show").html(html);
+               }
+           }).fail(function(response){
+               
+               console.log(response.responseText);
+           });
+                 return false; 
+          });
+        
+        // $("#tips").click(function(){
+        //         $.get("/api/articles", function(data, status){
+        //           var html = new EJS({url: 'views/applicant/Article.ejs'}).render({article:data});
+        //           $("#list").html(html);
+        //         });
+        //       });
+              
+        loadBlogs();
+        function loadBlogs(){
+             $.get("/api/articles", function(data, status){
+                  var html = new EJS({url: 'views/applicant/Article.ejs'}).render({article:data});
+                  $("#list").html(html);
+                });
+        } 
+              
+              
+              
+              
     </script>
  </body>
 </html>

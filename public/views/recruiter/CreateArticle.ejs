@@ -30,7 +30,7 @@
                         <input type="text" class="b form-control mt-2 textbox" placeholder="Article Name" id="articleName">
                         <input type="text" class="form-control mt-2 textbox" placeholder="Title" id="title">
                         <input type="text" class="form-control mt-2 textbox" placeholder="Content" id="content">
-                        <input type="text" class="b form-control mt-2 textbox" placeholder="Source" id="source">
+                       <!-- <input type="text" class="b form-control mt-2 textbox" placeholder="Source" id="source">-->
                 </div>
                 </div>
                 <div class="form-row" id="">
@@ -40,7 +40,7 @@
                     <div class="col-sm-8" >
                       
                       <label for="comment"></label>
-                      <textarea class="form-control" rows="5" placeholder="Article" id="article"></textarea>
+                      <textarea class="form-control" rows="5" placeholder="Article" id="articlen"></textarea>
                       
                     </div>
                 </div>
@@ -81,18 +81,20 @@
         {
             articleName:"", 
             title:"",
-            content:""
-            
+            content:"",
+            articlen:""
         };
         
           $('#save').click(function(){
-            newArticle.articleName= 'Juned';
-            newArticle.title= 'Juned';
-            newArticle.content= 'Juned';
-            
+            newArticle.articleName= $('#articleName').val();
+            newArticle.title= $('#title').val();
+            newArticle.content= $('#content').val();
+            newArticle.articlen= $('#articlen').val();
+                
+                console.log(newArticle.articlen);
            $.ajax({
                method:"POST",
-               url: "/api/clients",
+               url: "/api/articles",
                data: newArticle
            }).done(function(response){
                console.log(response);
@@ -106,7 +108,7 @@
           });
           
         $('#cancel').click(function(){
-            window.location.replace('/Clients');
+            window.location.replace('/CareerBlog');
                 
         });
 

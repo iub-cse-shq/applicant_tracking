@@ -27,8 +27,26 @@
                         <h2 class="sub title2 display-5">Job Opening Information</h2>
                     </div>
                     <div class="col-sm-6" >
-                        <input type="text" class="b form-control mt-2 textbox" placeholder="Posting Title" id="title" value=<%=request.jobOpening.title%>>
-                        <input type="text" class="form-control mt-2 textbox" placeholder="Assigned Recruiter" id="assignedRec" value=<%=request.jobOpening.assignedRec%>>
+                            <div> <p>Job Title: <%=request.jobOpening.title%><br>
+                            Company: <%=request.jobOpening.companyName%><br>
+                            Assigned Recruiter: <%=request.jobOpening.assignedRec%><br>
+                            Industry: <%=request.jobOpening.industry%><br>
+                            Job Type: <%=request.jobOpening.jobType%><br>
+                            Salary: <%=request.jobOpening.salary%><br>
+                            Work Experience: <%=request.jobOpening.workExp%><br>
+                            Company Name: <%=request.jobOpening.companyName%><br>
+                            City: <%=request.jobOpening.workcityExp%><br>
+                            Country: <%=request.jobOpening.country%><br>
+                            District: <%=request.jobOpening.district%><br>
+                            Number of Vacancy: <%=request.jobOpening.numOfVac%><br>
+                            Date Opened: <%=request.jobOpening.dateOpen%><br>
+                            Target Date: <%=request.jobOpening.dateTarget%><br>
+                            Job Description: <%=request.jobOpening.jobDes%><br>
+                            </p> 
+                            </div>
+                            
+                        
+                       <!-- <input type="text" class="form-control mt-2 textbox" placeholder="Assigned Recruiter" id="assignedRec" value=<%=request.jobOpening.assignedRec%>>
                         <input type="text" class="b form-control mt-2 textbox" placeholder="Industry" id="industry" value=<%=request.jobOpening.industry%>>
                         <input type="text" class="form-control mt-2 textbox" placeholder="Job Type" id="jobType" value=<%=request.jobOpening.jobType%>>
                         <input type="number" class="b form-control mt-2 textbox" placeholder="Salary" id="salary" value=<%=request.jobOpening.salary%>>
@@ -57,7 +75,7 @@
                      <div class="col-sm-12 textbox">
                       <textarea class="form-control mt-2" type="text" rows="2" cols="75" placeholder="Job Description" id="jobDes" value=<%=request.jobOpening.jobDes%>></textarea>
                     </div>
-                </div>
+                </div>-->
                 <!--<div class="form-row" id="">-->
                 <!--    <div class=" col-sm-12  mt-4">-->
                 <!--        <h2 class="title2 display-5 ">Forecast Details</h2>-->
@@ -72,13 +90,13 @@
                 <!--      <input type="number" class="form-control mt-2 textbox" placeholder="Actual Revenue">-->
                 <!--    </div>-->
                 <!--</div>-->
-                <div class="row mt-4">
+<!--                <div class="row mt-4">
                     <div class=" save col-sm-12 bg-secondary ">
                             <button class="saveb btn btn-primary-success m-1 m-sm-2 button" type="submit" id="edit">Edit</button>
                             <button class="btn btn-primary-success m-1 m-sm-2 button" type="submit" id="print">Print</button>
                             <button class="btn btn-primary-success m-1 m-sm-2 button" type="submit" id="back">Back</button>
                     </div>
-                </div>
+                </div>-->
             </div>
 
         </div>

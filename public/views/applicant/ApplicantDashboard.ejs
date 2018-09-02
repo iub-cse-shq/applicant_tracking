@@ -21,8 +21,10 @@
                 <!-- used title to reduce extra padding on top of  CREATE NEW CANDIDATE -->
                 <div class="title jumbotron p-2 bg-secondary">
                     <h3 class="title display-5 py-2 text-white">Applicant Home Page</h3>
+                    
                 </div>
-                        <a href="#"></a>
+                <!--<button type="button" class="button1" id="showAllJo" >show All JobOpening</button>-->
+                <div id="list"></div>
             </div>
         </div>
     </div>
@@ -48,6 +50,15 @@
         $(document.getElementById("main")).click( function() {
           closeNav();
         });
+        loadBlogs();
+        function loadBlogs(){
+        // $("#showAllJo").click(function(){
+                $.get("/api/jobs", function(data, status){
+                  var html = new EJS({url: 'views/applicant/ShowAllJobs.ejs'}).render({job:data});
+                  $("#list").html(html);
+             });
+    
+        }
     </script>
 
   </body>
