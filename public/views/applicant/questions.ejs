@@ -88,20 +88,11 @@
     </ul>
    
 </form>
-
+            
   <button type="button" class="button1" id="submit">Submit</button>
  
 </main>
 
-   
-
-  <!--  <script src="js/jquery-3.3.1.js"></script>-->
-  <!--  <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>-->
-  <!--  <script src="js/script.js"></script>-->
-  <!--<script src="js/test.js"></script>-->
-  <!--<script src="js/test.js"></script>-->
-  <!--  <script src="js/bootstrap.min.js"></script>-->
-  
     <script src="/vendor/js/jquery-3.3.1.js"></script>
     <script type="/vendor/text/javascript" src="js/jquery-3.1.1.min.js"></script>
     <script src="/vendor/js/script.js"></script>
@@ -109,7 +100,7 @@
     
     <script>
     // var sidebar=0;
-    var score = -1;
+    var score = 0;
      var total = 25;
       var point = 5;
        var highest=total*point;
@@ -134,87 +125,24 @@
           closeNav();
         });
         
-  $('#submit').click(function(){
-            
-            // $('.questionForm').hide();
+        $('#submit').click(function(){
             process('q1');
             process('q2');
             process('q3');
             process('q4');
             process('q5');
-         
-         alert("Test Result Has Been Successfuly Submitted!");
-         
-         var applicantID = <%- JSON.stringify(request.resumee._id) %>;
-         var resume = {};
-
-         resume.marks = score;
-         resume.testStatus = "Exam Completed";
-         resume.authorization = "No"; 
-         
-         $.ajax({
-              method:"PUT",
-              url:'/api/applicants/edit/'+applicantID,
-              data: resume
-            }).done(function(response){
-              console.log("Data Saved!!! ");
-              window.location.replace("/ApplicantDashboard");
-            return false;
-            }).fail(function(response){
-                console.log(response);
-            });
-         
-  }
+         console.log(score);
+           UpdateData();
+          alert("Test Result Has Been Successfuly Submitted!");
+        
+        });
             
-        // });
+            // $('.questionForm').hide();
+           
          
-
         
-//          var radios0 = document.forms["questionForm"].elements["q1"];
-// for(var i = 0, max = radios.length; i < max; i++) {
-//     radios[i].onclick = function() {
-//         alert(this.value);
-//         process('q1');
-//         return false;
-//     }
-// }
-
-//  var radios1 = document.forms["questionForm"].elements["q2"];
-// for(var i = 0, max = radios.length; i < max; i++) {
-//     radios[i].onclick = function() {
-//         alert(this.value);
-//         process('q2');
-//         return false;
-//     }
-// }
-
-//  var radios2 = document.forms["questionForm"].elements["q3"];
-// for(var i = 0, max = radios.length; i < max; i++) {
-//     radios[i].onclick = function() {
-//         alert(this.value);
-//         process('q3');
-//         return false;
-//     }
-// }
-
-//  var radios3 = document.forms["questionForm"].elements["q4"];
-// for(var i = 0, max = radios.length; i < max; i++) {
-//     radios[i].onclick = function() {
-//         alert(this.value);
-//         process('q4');
-//         return false;
-//     }
-// }
-
-//  var radios4 = document.forms["questionForm"].elements["q5"];
-// for(var i = 0, max = radios.length; i < max; i++) {
-//     radios[i].onclick = function() {
-//         alert(this.value);
-//         process('q5');
-//         return false;
-//     }
-// }
         
+   
         function process(q){
             if(q=="q1"){
                 var submitted=$('input[name=q1]:checked').val();
@@ -248,21 +176,37 @@
                 console.log(score);
                 
             }
-        
+        }
+           
+        function UpdateData(){
+               
+         var applicantID = <%- JSON.stringify(request.resumee._id) %>;
+         console.log(applicantID);
+         var resumee = {};
+            console.log("aa");
+            console.log(applicantID);
+            
+            
+         resumee.marks = score;
+         resumee.testStatus = "Exam Completed";
+         resumee.authorization = "No"; 
+         
+         
+         $.ajax({
+              method:"PUT",
+              url:'/api/applicants/edit/'+applicantID,
+              data: resumee
+            }).done(function(response){
+              //console.log(response);
+              window.location.replace("/ApplicantDashboard");
+            return false;
+            }).fail(function(response){
+                console.log(response);
+            });
         }
             
        
-     
-     
-       // window.addEventListener('load',init,false)
-
-        // $(document.getElementById("nav")).click( function() {
-        //       closeNav();
-        //   });
-        
-
-
-    </script>
+     </script>
 
 
 </body>

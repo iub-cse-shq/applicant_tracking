@@ -14,7 +14,7 @@ app.route('/api/jobs')
     .get(recruiters.Joblist)
 	.post(users.requiresLogin, recruiters.createJob);	
 app.route('/api/jobs/edit/:jobId')
-	.get(recruiters.read)
+	.get(recruiters.read) 
 	.put(users.requiresLogin, recruiters.updateJob);	
 app.route('/api/track')
 	.post(users.requiresLogin, recruiters.track);
