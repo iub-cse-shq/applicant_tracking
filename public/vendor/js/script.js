@@ -14,4 +14,4 @@ $(document).on('click', '#rb', function(){
 $(document).on('click', '#rb', function(){
     $('#profession' + counter).remove();
 });
-   
+

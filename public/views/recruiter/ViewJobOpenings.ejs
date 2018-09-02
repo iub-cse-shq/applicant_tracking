@@ -19,9 +19,25 @@
 
             <div class="title jumbotron" id="jumbotron">
                 <!-- used title to reduce extra padding on top of  CREATE NEW CANDIDATE -->
+               <div class="title jumbotron p-2 bg-secondary">
+                 <!--   <h3 class="title display-5 py-2 text-white">View Job Opening</h3> -->
+                    
+                      <div class="title jumbotron" id="jumbotron">
+                <!-- used title to reduce extra padding on top of  CREATE NEW CANDIDATE -->
                 <div class="title jumbotron p-2 bg-secondary">
-                    <h3 class="title display-5 py-2 text-white">View Job Opening</h3>
+                    <h3 class="title display-5 py-2 text-white">Job Opening Profile</h3>
                 </div>
+                   <button type="button" class="button1" id="ViewDetails" >View Details</button>
+                   <button type="button" class="button1" id="Edit" >Edit Job Opening</button>
+                   <button type="button" class="button1" id="Delete" >Delete Job Opening</button>
+                   <br> <br> <button type="button" class="button1" id="AppliedApplicants" >Applied Applicants</button> <br>
+                   <br> <button type="button" class="button1" id="InitiallySelectedApplicants" >Initially Selected Applicants</button> <br>
+                   <br> <button type="button" class="button1" id="FinallySelectedApplicants" >Finally Selected Applicants</button> <br>
+                   <div id="list"></div>
+                </div>
+            </div>
+        </div>
+                  <!-- /*  </div>
                 <div class="form-row" id="">
                     <div class="sub col-sm-12  mt-4">
                         <h2 class="sub title2 display-5">Job Opening Information</h2>
@@ -57,7 +73,7 @@
                      <div class="col-sm-12 textbox">
                       <textarea class="form-control mt-2" type="text" rows="2" cols="75" placeholder="Job Description" id="jobDes" value=<%=request.jobOpening.jobDes%>></textarea>
                     </div>
-                </div>
+                </div>  */ --> 
                 <!--<div class="form-row" id="">-->
                 <!--    <div class=" col-sm-12  mt-4">-->
                 <!--        <h2 class="title2 display-5 ">Forecast Details</h2>-->
@@ -74,7 +90,7 @@
                 <!--</div>-->
                 <div class="row mt-4">
                     <div class=" save col-sm-12 bg-secondary ">
-                            <button class="saveb btn btn-primary-success m-1 m-sm-2 button" type="submit" id="edit">Edit</button>
+                          <!--  <button class="saveb btn btn-primary-success m-1 m-sm-2 button" type="submit" id="edit">Edit</button> -->
                             <button class="btn btn-primary-success m-1 m-sm-2 button" type="submit" id="print">Print</button>
                             <button class="btn btn-primary-success m-1 m-sm-2 button" type="submit" id="back">Back</button>
                     </div>
@@ -106,9 +122,10 @@
         });
         var id = <%- JSON.stringify(request.jobOpening._id) %>;
         console.log(id);
-        $('#edit').click(function(){
+       <!-- /* $('#edit').click(function(){
             window.location.replace("/EditJobOpening/"+id);  
-        });
+        });*/ --> 
+       
         $('#back').click(function(){
             window.location.replace('/JobOpenings'); 
                 

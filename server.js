@@ -28,3 +28,28 @@ app.listen(app.get('port'), function(){
 })
 
 module.exports = app;
+
+//Zishan
+/*
+var app = require('express')();
+var http = require('http').Server(app);
+var app = require('express')();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+
+io.on('connection', function(socket){
+  socket.broadcast.emit('hi');
+  socket.on('chat message', function(msg){
+       io.emit('chat message', msg);
+    console.log('message: ' + msg);
+  });
+});
+
+io.emit('some event', { for: 'everyone' });
+
+
+http.listen(process.env.PORT, function(){
+  console.log('listening on *:process.env.PORT');
+});
+*/
+//Zishan

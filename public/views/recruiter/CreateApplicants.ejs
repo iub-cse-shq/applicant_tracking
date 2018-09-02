@@ -115,7 +115,7 @@
                   <!-- <textarea class="form-control mt-2" type="text" rows="3" cols="75" placeholder="Summary"></textarea> -->
 
                 </div>
-
+                
                 <div class="form-row" id="Attachment">
                     <div class=" col-sm-12 mt-4">
                         <h2 class="title2 display-6">Attachment Information</h2>
@@ -141,7 +141,7 @@
                           <input type="file" class="form-control mt-2 textbox" id="othersAtt">
                   </div>
                 </div>
-
+                
                 <div class="row mt-4">
                     <div class=" save col-sm-12 bg-secondary ">
                             <button class="saveb btn btn-primary-success m-1 m-sm-2 button" type="submit" id="submit">Submit</button>
@@ -187,9 +187,10 @@
         });
         var newResume = {fname:"", lname:"", email:"", mobile:"", linkedIn:"", facebook:"", skype:"", twitter:"", city:"", country:"",
                          currentAddress:"",district:"",zipCode:"",institute:"",degree:"",fieldOfStudy:"",grade:"",startEdu:"",endEdu:"",
-                         title:"",company:"",location:"",des:"",startExp:"",endExp:"",skillSet:"",resumeAtt:"",photoAtt:"",othersAtt:""};
+                         title:"",company:"",location:"",des:"",startExp:"",endExp:"",skillSet:"",resumeAtt:"",photoAtt:"",othersAtt:"", 
+                         testStatus:"Test pending",authorizarion:"Not authorized",marks:"00"};
       
-          $('#submit').click(function(){
+        $('#submit').click(function(){
             newResume.fname=$('#fname').val();
             newResume.lname=$('#lname').val();
             newResume.email=$('#email').val();

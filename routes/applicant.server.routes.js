@@ -25,6 +25,9 @@ app.route('/ApplicantCareerTips').get(users.requiresLogin,applicants.ApplicantCa
 app.route('/ViewMyResume').get(users.requiresLogin,applicants.ViewMyResume);
 app.route('/CreateMyResume').get(users.requiresLogin,applicants.CreateMyResume);
 app.route('/EditMyResume').get(users.requiresLogin,applicants.EditMyResume);
+app.route('/questions').get(users.requiresLogin,applicants.questions);
+app.route('/testCompleted').get(users.requiresLogin,applicants.testCompleted);
+
 
 app.param('applicantId', applicants.applicantByID);
 
