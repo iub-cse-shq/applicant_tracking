@@ -53,7 +53,7 @@ var UserSchema = new Schema({
     roles: {
         type: String,
         default: 'Applicant',
-        enum: ['Applicant' , 'Recruiter']
+        enum: ['Applicant' , 'Recruiter' , 'Admin']
     },
 
     lastName: {
@@ -110,6 +110,7 @@ var UserSchema = new Schema({
     //     }],
     //     default: ['applicant']     // fix this  
     // },
+    
 
     updated: {
         type: Date

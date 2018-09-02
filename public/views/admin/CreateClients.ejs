@@ -101,11 +101,9 @@
         $(document.getElementById("main")).click( function() {
           closeNav();
         });
-        
         var newClient = {contactName:"", cEmail:"",cPhone:"",source:"",
                          companyName:"",industry:"",website:"",city:"",district:"",
                          country:"",currentAddress:"",agreementsAtt:"",othersAtt:""};
-          
           $('#save').click(function(){
             newClient.contactName=$('#contactName').val();
             newClient.cEmail=$('#cEmail').val();
@@ -137,7 +135,7 @@
           });
           
         $('#cancel').click(function(){
-            window.location.replace('/JobOpenings');
+            window.location.replace('/Clients');
                 
         });
 

@@ -1,0 +1,30 @@
+
+ 
+<div class="container">
+      <h3>Showing All Applicants</h3>
+     <% for(var i=0; i<resumee.length; i++) { %>
+      <div> <a href="/ViewApplicant/<%=resumee[i]._id%>"> <%= resumee[i].fname %> <%= resumee[i].lname %></a> <br>
+             Title: <%= resumee[i].title %> <br>
+              Company: <%= resumee[i].company %><br> 
+              <button onclick="deleteArticle(<%= i %>) ">Delete Applicant</button>
+              <hr></p> 
+      </div>
+      <%}    %>
+</div>
+      <script src="/lib/jquery/dist/jquery.min.js"></script>
+<script>
+     function deleteArticle(index){
+         var resumee = <%- JSON.stringify(resumee) %>;
+         var resumee_id = resumee[index]._id;
+         $.ajax({
+                method:"DELETE",
+                url:'/api/resumee/'+article_id
+           }).done(function(response){
+                window.location.replace("/articles/all");
+           }).fail(function(response){
+                alert("Oops! Article not deleted.");
+         });
+     }
+</script> 
+
+

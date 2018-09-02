@@ -97,9 +97,9 @@
 
                 <div class="row mt-4">
                     <div class=" save col-sm-12 bg-secondary ">
- <button class="saveb btn btn-primary-success m-1 m-sm-2 button" type="submit" id="save">Save</button>
-    <button class="btn btn-primary-success m-1 m-sm-2 button" type="submit" id="saveNew">Save and New</button>
-        <button class="cancelb btn btn-primary-success m-1 m-sm-2 button" type="submit" id="cancel">Cancel</button>
+                            <button class="saveb btn btn-primary-success m-1 m-sm-2 button" type="submit" id="save">Save</button>
+                            <button class="btn btn-primary-success m-1 m-sm-2 button" type="submit" id="saveNew">Save and New</button>
+                            <button class="cancelb btn btn-primary-success m-1 m-sm-2 button" type="submit" id="cancel">Cancel</button>
                     </div>
                 </div>
             </div>
@@ -127,55 +127,39 @@
         $(document.getElementById("main")).click( function() {
           closeNav();
         });
-        var newJobOpening = {title:"", companyName:"", assignedRec:"", industry:"", jobType:"", salary:"", workExp:"", city:"",
+        var newJob = {title:"", companyName:"", assignedRec:"", industry:"", jobType:"", salary:"", workExp:"", city:"",
                       country:"", district:"", numOfVac:"", dateOpen:"", dateTarget:"", JobDes:"", JobDesAtt:"", othersAtt:""};
       
-            
+            newJob.title=$('#title').val();
+            newJob.companyName=$('#companyName').val();
+            newJob.assignedRec=$('#assignedRec').val();
+            newJob.industry=$('#industry').val();
+            newJob.jobType=$('#jobType').val();
+            newJob.salary=$('#salary').val();
+            newJob.workExp=$('#workExp').val();
+            newJob.twitter=$('#twitter').val();
+            newJob.city=$('#city').val();
+            newJob.country=$('#country').val();
+            newJob.district=$('#district').val();
+            newJob.numOfVac=$('#numOfVac').val();
+            newJob.dateOpen=$('#dateOpen').val();
+            newJob.dateTarget=$('#dateTarget').val();
+            newJob.JobDes=$('#JobDes').val();
+            newJob.JobDesAtt=$('#JobDesAtt').val();
+            newJob.othersAtt=$('#othersAtt').val();
         $('#save').click(function(){
-            newJobOpening.title=$('#title').val();
-            Opening.companyName=$('#companyName').val();
-            newJobOpening.assignedRec=$('#assignedRec').val();
-            newJobOpening.industry=$('#industry').val();
-            newJobOpening.jobType=$('#jobType').val();
-            newJobOpening.salary=$('#salary').val();
-            newJobOpening.workExp=$('#workExp').val();
-      //      newJob.twitter=$('#twitter').val();
-            newJobOpening.city=$('#city').val();
-            newJobOpening.country=$('#country').val();
-            newJobOpening.district=$('#district').val();
-            newJobOpening.numOfVac=$('#numOfVac').val();
-            newJobOpening.dateOpen=$('#dateOpen').val();
-            newJobOpening.dateTarget=$('#dateTarget').val();
-            newJobOpening.JobDes=$('#JobDes').val();
-            newJobOpening.JobDesAtt=$('#JobDesAtt').val();
-            newJobOpening.othersAtt=$('#othersAtt').val();
-                 $.ajax({
-                   method:"POST",
-                   url: "/api/jobs",
-                   data: newJobOpening
-               }).done(function(response){
-                   console.log(response);
-                   alert("JobOpening Submitted Successfully!");
-                   window.location.replace('/ViewJobOpening/'+response._id); 
-               }).fail(function(response){
-                   console.log(response.responseText);
-                   console.log("Not submitted");
-               });
-                 return false; 
-        });
+             CallAJAX();
+          });
+        $('#saveNew').click(function(){
+             CallAJAX();   //not working 
+             window.location.replace('/CreateJobOpenings');
+          });
         $('#cancel').click(function(){
              window.location.replace('/JobOpenings');
                 
         });
-             
-          
-       // $('#saveNew').click(function(){
-         //    CallAJAX();   //not working 
-           //  window.location.replace('/CreateJobOpenings');
-          //});
-        
-        //function CallAJAX(){
-              /* $.ajax({
+        function CallAJAX(){
+               $.ajax({
                method:"POST",
                url: "/api/jobs",
                data: newJob
@@ -188,7 +172,7 @@
                console.log("Not submitted");
            });
                  return false; 
-        });*/
+        }
 
     </script>
 

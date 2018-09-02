@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/vendor/css/style.css">
+    <link rel="stylesheet" href="/vendor/css/glyphicons.css">
+    <link rel="stylesheet" href="/css/CreateClients.css" crossorigin="anonymous">
+    <title>Client</title>
+</head>
+
+<body>
+   <% include include/RecHeader %>
+    <div class="main" id="main">
+        <div class="container" id="container">
+            <div class="title jumbotron" id="jumbotron">
+                <div class="title jumbotron p-2 bg-secondary">
+                    <h3 class="title display-5 py-2 text-white">View <%=request.client.contactName%> </h3>
+                </div>
+                <div class="form-row" id="">
+                    <div class="sub col-sm-12  mt-4">
+                        <h2 class="sub title2 display-5"><button>Contact Information</h2></button>
+                    </div>
+                    <div class="col-sm-8" >
+                        <h5> Name: <%=request.client.contactName%></h5>
+                        <h5>Email: <%= request.client.cEmail %></h5>
+                        <h5> Phone: <%= request.client.cPhone %></h5>
+                        <h5> Name: <%= request.client.source %></h5>
+  
+            </div>
+                </div>
+                <div class="form-row" id="">
+                    <div class="sub col-sm-12  mt-4">
+                        <h2 class="sub title2 display-5"><button > Company Information</button></h2>
+                    </div>
+                    <div class="col-sm-8" >
+                        <h5>Company Name: <%= request.client.companyName %></h5>
+                         <h5>Industry : <%= request.client.industry %></h5>
+                          <h5>Website: <%= request.client.website %></h5>
+                           <h5>City: <%= request.client.city %></h5>
+                            <h5>District: <%= request.client.district %></h5>
+                             <h5>Country: <%= request.client.country %></h5>
+                              <h5>currentAddress: <%= request.client.currentAddress %></h5>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class=" save col-sm-12 bg-secondary ">
+
+<button class="saveb btn btn-primary-success m-1 m-sm-2 button" type="submit" id="edit">Edit</button>
+<button class="saveb btn btn-primary-success m-1 m-sm-2 button" type="submit"id="delete">  Delete </button>
+ <button class="btn btn-primary-success m-1 m-sm-2 button" type="submit" id="print">Print</button>
+<button class="btn btn-primary-success m-1 m-sm-2 button" type="submit" id="back">Back</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+      <script src="/vendor/js/jquery-3.3.1.js"></script>
+    <script type="/vendor/text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script src="/vendor/js/script.js"></script>
+    <script src="/vendor/js/bootstrap.min.js"></script>
+    <script>
+        function openNav() {
+            document.getElementById("sidebar").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "0";
+            document.body.style.backgroundColor = "rgba(0,0,0,0.3)";
+            document.getElementById("container").style.backgroundColor = "#B2B2B2";
+        }
+        function closeNav() {
+            document.getElementById("sidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            document.body.style.backgroundColor = "#F0F1F6";
+            document.getElementById("container").style.backgroundColor = "#F0F1F6";
+        }
+        $(document.getElementById("main")).click( function() {
+          closeNav();
+        });
+        var id = <%- JSON.stringify(request.client._id) %>;
+        console.log(id);
+        $('#edit').click(function(){
+            window.location.replace("/EditClient/"+id);  
+        });
+        
+        $('#edit').click(function(){
+            window.location.replace("/EditClient/"+id2);  
+        });
+        
+        /*           
+         $('#delete').click(function(){
+                             $.ajax({
+                                 method:"DELETE",
+                                         url:'/api/clients/'+ id2
+                                         //'/api/clients/'+id2, 
+                                 }).done(function(response){
+                                      window.location.replace("/Clients");
+                                 }).fail(function(response){
+                                      alert("Oops! Article not deleted."+response);
+                                      console.log
+                                 });
+        });
+       */
+            
+           
+              
+        $('#back').click(function(){
+            window.location.replace('/Clients'); 
+                
+        });
+
+
+    </script>
+
+</body>
+
+</html>

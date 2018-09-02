@@ -152,6 +152,9 @@ body {
           	if(response.type == "Recruiter"){
                   	window.location.replace('/Dashboard');
           	}
+          	if(response.type == "Admin"){
+                  	window.location.replace('/UserAdministration');
+            }
       }).fail(function(response){
         console.log(response);
         alert("Wrong Email/Password.\n Please Enter Email, Password Again!");

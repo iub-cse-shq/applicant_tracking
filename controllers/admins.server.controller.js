@@ -1,32 +1,12 @@
 var mongoose = require('mongoose');
+
 var Resumee = require('./../models/Resumee.js');
-var User = require('./../models/User.js');
 var Client = require('./../models/Client.js');
+var User = require('./../models/User.js');
 var JobOpening = require('./../models/JobOpening.js');
 
 var errorHandler = require('./errors.server.controller');
 var _ = require('lodash');
-
-//all recruiter
-
-module.exports.all = function(req, res) {
-    User.find(function(err, data) {
-      if (err) {
-        return res.status(400).send({
-          message: errorHandler.getErrorMessage(err)
-        });
-      }
-      else {
-		        res.render('./../public/views/recruiter/allRecruiter.ejs', {
-		          user: req.user || null,
-		          request: req,
-		          articles: data
-		        });
-      }
-    });
-};
-
-
 
 module.exports.list = function(req, res) {
   Resumee.find(function(err, data) {
@@ -59,18 +39,6 @@ module.exports.read = function(req, res) {
   res.json(req.resumee);
 };
 
-//delete rec
-exports.delete = function(req, res) {
-	var user = req.user;
-	user.remove(function(err) {
-		if (err) {
-			return res.status(400).send();
-		} else {
-			res.json(user);
-		}
-	});
-};
-
 exports.delete = function(req, res) {
 	var resumee = req.resumee;
 	resumee.remove(function(err) {
@@ -81,7 +49,14 @@ exports.delete = function(req, res) {
 		}
 	});
 };
-//// CLIENT API 
+//// CLIENT Methods [list,createclient,update][clientnew,clintlist,createClient,updateClient]
+
+module.exports.Clientnew = function(req, res){
+  res.render('./../public/views/admin/CreateClient.ejs', {
+          user: req.user || null,
+          request: req
+        });
+};
 module.exports.Clientlist = function(req, res) {
    Client.find(function(err, data) {
     if (err) {
@@ -94,8 +69,19 @@ module.exports.Clientlist = function(req, res) {
     }
   });
 };
+module.exports.Recruiterlist = function(req, res) {
+   User.find(function(err, data) {
+    if (err) {
+      return res.status(400).send({
+  		message: errorHandler.getErrorMessage(err)
+  	   });
+    } else {
+      console.log("api called"); 
+      res.status(200).send(data);  
+    }
+  });
+};
 
-/*
 module.exports.createClient = function(req, res) {
   var client = new Client(req.body);
   client.user = req.user;
@@ -110,7 +96,8 @@ module.exports.createClient = function(req, res) {
     }
   });
 };
-*/
+
+
 module.exports.updateClient = function(req, res) {
 	 var client = req.client;
   	client = _.extend(client, req.body);
@@ -122,7 +109,19 @@ module.exports.updateClient = function(req, res) {
   		}
   	});
 };
-//// JOB API 
+exports.delete = function(req, res) {
+	var client = req.client;
+	client.remove(function(err) {
+		if (err) {
+			return res.status(400).send();
+		} else {
+			res.json(client);
+		}
+	});
+};
+//client methods ends
+
+//// JOB Methods [list,createclient,update]
 module.exports.Joblist = function(req, res) {
    JobOpening.find(function(err, data) {
     if (err) {
@@ -135,6 +134,7 @@ module.exports.Joblist = function(req, res) {
     }
   });
 };
+
 module.exports.createJob = function(req, res) {
   var jobOpening = new JobOpening(req.body);
   jobOpening.user = req.user;
@@ -149,6 +149,9 @@ module.exports.createJob = function(req, res) {
     }
   });
 };
+
+
+
 module.exports.updateJob = function(req, res) {
 	 var jobOpening = req.jobOpening;
   	jobOpening = _.extend(jobOpening, req.body);
@@ -160,6 +163,7 @@ module.exports.updateJob = function(req, res) {
   		}
   	});
 };
+
 /// TRACK APPLICANT 
 module.exports.track = function(req, res) {
 	Resumee.find({title: req.body.title}).exec(function(err, resumee) {
@@ -173,128 +177,127 @@ module.exports.track = function(req, res) {
 
 module.exports.Dashboard = function(req, res) {
      
-    res.render('./../public/views/recruiter/Dashboard.ejs', {
+    res.render('./../public/views/admin/Dashboard.ejs', {
 		user: req.user || null, 
 		request: req
 	});
 };
 module.exports.TrackApplicants = function(req, res) {
      
-    res.render('./../public/views/recruiter/TrackApplicants.ejs', {
+    res.render('./../public/views/admin/TrackApplicants.ejs', {
 		user: req.user || null, 
 		request: req
 	});
 };
 module.exports.Applicants = function(req, res) {
      
-    res.render('./../public/views/recruiter/Applicants.ejs', {
+    res.render('./../public/views/admin/Applicants.ejs', {
 		user: req.user || null, 
 		request: req
 	});
 };
 module.exports.CreateApplicant = function(req, res) {
      
-    res.render('./../public/views/recruiter/CreateApplicants.ejs', {
+    res.render('./../public/views/admin/CreateApplicants.ejs', {
 		user: req.user || null, 
 		request: req
 	});
 };
 module.exports.ViewApplicant = function(req, res) {
      
-    res.render('./../public/views/recruiter/ViewApplicant.ejs', {
+    res.render('./../public/views/admin/ViewApplicant.ejs', {
 		user: req.user || null, 
 		request: req
 	});
 };
 module.exports.EditApplicant = function(req, res) {
      
-    res.render('./../public/views/recruiter/EditApplicant.ejs', {
+    res.render('./../public/views/admin/EditApplicant.ejs', {
 		user: req.user || null, 
 		request: req
 	});
 };
 module.exports.Clients = function(req, res) {
      
-    res.render('./../public/views/recruiter/Clients.ejs', {
+    res.render('./../public/views/admin/Clients.ejs', {
 		user: req.user || null, 
 		request: req
 	});
 };
 module.exports.CreateClients = function(req, res) {
      
-    res.render('./../public/views/recruiter/CreateClients.ejs', {
+    res.render('./../public/views/admin/CreateClients.ejs', {
 		user: req.user || null, 
 		request: req
 	});
 };
 module.exports.ViewClient = function(req, res) {
      
-    res.render('./../public/views/recruiter/ViewClient.ejs', {
+    res.render('./../public/views/admin/ViewClient.ejs', {
 		user: req.user || null, 
 		request: req
 	});
 };
 module.exports.EditClient = function(req, res) {
      
-    res.render('./../public/views/recruiter/EditClient.ejs', {
+    res.render('./../public/views/admin/EditClient.ejs', {
 		user: req.user || null, 
 		request: req
 	});
 };
 module.exports.JobOpenings = function(req, res) {
      
-    res.render('./../public/views/recruiter/JobOpenings.ejs', {
+    res.render('./../public/views/admin/JobOpenings.ejs', {
 		user: req.user || null, 
 		request: req
 	});
 };
 module.exports.CreateJobOpenings = function(req, res) {
      
-    res.render('./../public/views/recruiter/CreateJobOpenings.ejs', {
+    res.render('./../public/views/admin/CreateJobOpenings.ejs', {
 		user: req.user || null, 
 		request: req
 	});
 };
 module.exports.ViewJobOpening = function(req, res) {
      
-    res.render('./../public/views/recruiter/ViewJobOpenings.ejs', {
+    res.render('./../public/views/admin/ViewJobOpenings.ejs', {
 		user: req.user || null, 
 		request: req
 	});
 };
 module.exports.EditJobOpening = function(req, res) {
      
-    res.render('./../public/views/recruiter/EditJobOpenings.ejs', {
+    res.render('./../public/views/admin/EditJobOpenings.ejs', {
 		user: req.user || null, 
 		request: req
 	});
 };
 module.exports.CareerTips = function(req, res) {
      
-    res.render('./../public/views/recruiter/CareerTips.ejs', {
+    res.render('./../public/views/admin/CareerTips.ejs', {
 		user: req.user || null, 
 		request: req
 	});
 };
 module.exports.Emails = function(req, res) {
      
-    res.render('./../public/views/recruiter/Emails.ejs', {
+    res.render('./../public/views/admin/Emails.ejs', {
 		user: req.user || null, 
 		request: req
 	});
 };
 module.exports.Tests = function(req, res) {
      
-    res.render('./../public/views/recruiter/Tests.ejs', {
+    res.render('./../public/views/admin/Tests.ejs', {
 		user: req.user || null, 
 		request: req
 	});
 };
 
-/*
 module.exports.UserAdministration = function(req, res) {
      
-    res.render('./../public/views/recruiter/UserAdministration.ejs', {
+    res.render('./../public/views/admin/UserAdministration.ejs', {
 		user: req.user || null, 
 		request: req
 	});
@@ -304,12 +307,12 @@ module.exports.UserAdministration = function(req, res) {
 
 module.exports.AddNewRecruiter = function(req, res) {
      
-    res.render('./../public/views/recruiter/AddNewRecruiter.ejs', {
+    res.render('./../public/views/admin/AddNewRecruiter.ejs', {
 		user: req.user || null, 
 		request: req
 	});
 };
-*/
+
 exports.recruiterByID = function(req, res, next, id) {
 	Resumee.findById(id).populate('user', 'email').exec(function(err, resumee) {
 		if (err) return next(err);

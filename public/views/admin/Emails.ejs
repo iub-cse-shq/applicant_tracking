@@ -2,17 +2,17 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/vendor/css/bootstrap.min.css">
     <link rel="stylesheet" href="/vendor/css/style.css">
     <link rel="stylesheet" href="/vendor/css/glyphicons.css">
-    <link rel="stylesheet" href="/css/Applicants.css" crossorigin="anonymous">
-  <title>Applicants</title>
+    <link rel="stylesheet" href="/css/Emails.css" crossorigin="anonymous">
+    <title>Email</title>
 </head>
 
 <body>
-   <% include include/RecHeader %>
+  <% include include/RecHeader %>
     <!-- /* CONTAINER START */ -->
     <div class="main" id="main">
         <div class="container" id="container">
@@ -20,16 +20,14 @@
             <div class="title jumbotron" id="jumbotron">
                 <!-- used title to reduce extra padding on top of  CREATE NEW CANDIDATE -->
                 <div class="title jumbotron p-2 bg-secondary">
-                    <h3 class="title display-5 py-2 text-white">Applicants</h3>
+                    <h3 class="title display-5 py-2 text-white">Email</h3>
                 </div>
-                    <button type="button" class="button1" id="CreateApplicant" onclick="location.href='/CreateApplicant';">Create New Applicant</button>
-                    <button type="button" class="button1" id="showAllApp" >show All Applicants</button>
-                  <div id="list"></div>
+                        <a href="#"></a>
             </div>
         </div>
     </div>
 
-    <script src="/vendor/js/jquery-3.3.1.js"></script>
+      <script src="/vendor/js/jquery-3.3.1.js"></script>
     <script type="/vendor/text/javascript" src="js/jquery-3.1.1.min.js"></script>
     <script src="/vendor/js/script.js"></script>
     <script src="/vendor/js/bootstrap.min.js"></script>
@@ -49,12 +47,7 @@
         $(document.getElementById("main")).click( function() {
           closeNav();
         });
-              $("#showAllApp").click(function(){
-                $.get("/api/applicants", function(data, status){
-                  var html = new EJS({url: 'views/recruiter/ShowAllApplicants.ejs'}).render({resumee:data});
-                  $("#list").html(html);
-                });
-              });
+
 
     </script>
 

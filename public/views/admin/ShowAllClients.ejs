@@ -1,0 +1,16 @@
+
+<div class="container">
+      <h3>Showing All Clients</h3>
+     <% for(var i=0; i<client.length; i++) { %>
+      <div> <a href="/ViewClient/<%=client[i]._id %>"> 
+               Name: <%= client[i].contactName %></a> <br>
+                Company:<%= client[i].companyName %></div>
+                <hr>
+
+                
+                
+                
+      <%}%>
+</div>
+
+

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <link rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/vendor/css/style.css">
+    <link rel="stylesheet" href="/vendor/css/glyphicons.css">
+    <link rel="stylesheet" href="/css/ApplicantCareerTips.css" crossorigin="anonymous">
+    <title>Career Tips</title>
+</head>
+
+<body>
+       <% include include/RecHeader %>
+    <!-- /* CONTAINER START */ -->
+    <div class="main" id="main">
+        <div class="container" id="container">
+
+            <div class="title jumbotron" id="jumbotron">
+                <div class="title jumbotron p-2 bg-secondary">
+                    <h3 class="title display-5 py-2 text-white">Career Tips</h3>
+                </div>
+                <div class="title jumbotron" id="jumbotron">
+                   <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-sm-4" style="background-color:lavender;">
+                    
+                          <div class="container">
+                            <h3>Interview tips: 10 tips to improve interview performance</h3>
+                            <p>Do you know how to make your case to an interviewer? Follow these 10 interview tips to boost your chances of landing the job.</p>
+                            <button type="button" class="btn btn-default" id="read1">Read More</button>
+                          </div>
+                        </div>
+                        <div class="col-sm-4" style="background-color:lavenderblush;">
+                    
+                          <div class="container">
+                            <h3>The Trick to Working With a First-Time Manager</h3>
+                            <p>When first-time managers are flailing, doing some of the work for them makes everyone’s life easier especially yours.</p>
+                            <button type="button" class="btn btn-default" id="read2">Read More</button>
+                          </div>
+                        </div>
+                        <div class="col-sm-4" style="background-color:lavender;">
+                    
+                          <div class="container">
+                            <h3>This Simple Exercise Will Help You Make Better First Impressions</h3>
+                            <p>Try this exercise out for yourself and use it as a jumping off point to decide in what situations you shine, and in which situations you might not.</p>
+                            <button type="button" class="btn btn-default" id="read3">Read More</button>
+                          </div>
+                        </div>
+                        
+            
+                    </div>
+                
+                  </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        function openNav() {
+            console.log('aaaaaaaaaaaa');
+            document.getElementById("sidebar").style.width = "210px";
+            document.getElementById("main").style.marginLeft = "0";
+            document.body.style.backgroundColor = "rgba(0,0,0,0.3)";
+            document.getElementById("container").style.backgroundColor = "#B2B2B2";
+        }
+        function closeNav() {
+            document.getElementById("sidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            document.body.style.backgroundColor = "#F0F1F6";
+            document.getElementById("container").style.backgroundColor = "#F0F1F6";
+        }
+        $(document.getElementById("main")).click( function() {
+          closeNav();
+        });
+    </script>
+ </body>
+</html>

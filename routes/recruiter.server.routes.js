@@ -4,18 +4,22 @@ module.exports = function(app){
  var users = require('./../controllers/users.server.controller.js');
 
 
-app.route('/api/clients')
-    .get(recruiters.Clientlist)
-	.post(users.requiresLogin, recruiters.createClient);
+//app.route('/api/clients')
+  //  .get(recruiters.Clientlist)
+//	.post(users.requiresLogin, recruiters.createClient);
+	
 app.route('/api/clients/edit/:clientId')
 	.get(recruiters.read)
 	.put(users.requiresLogin, recruiters.updateClient);	
+	
 app.route('/api/jobs')
     .get(recruiters.Joblist)
-	.post(users.requiresLogin, recruiters.createJob);	
+	.post(users.requiresLogin, recruiters.createJob);
+	
 app.route('/api/jobs/edit/:jobId')
 	.get(recruiters.read)
 	.put(users.requiresLogin, recruiters.updateJob);	
+	
 app.route('/api/track')
 	.post(users.requiresLogin, recruiters.track);
 
@@ -32,7 +36,7 @@ app.route('/api/track')
 app.route('/Dashboard').get(users.requiresLogin,recruiters.Dashboard);   
 app.route('/TrackApplicants').get(users.requiresLogin,recruiters.TrackApplicants);
 app.route('/Applicants').get(users.requiresLogin,recruiters.Applicants);
-app.route('/CreateApplicant').get(users.requiresLogin,recruiters.CreateApplicant);
+//app.route('/CreateApplicant').get(users.requiresLogin,recruiters.CreateApplicant);
 app.route('/ViewApplicant/:resumeId').get(users.requiresLogin,recruiters.ViewApplicant);
 app.route('/EditApplicant/:resumeId').get(users.requiresLogin,recruiters.EditApplicant);
 app.route('/Clients').get(users.requiresLogin,recruiters.Clients);
@@ -46,8 +50,7 @@ app.route('/EditJobOpening/:jobId').get(users.requiresLogin,recruiters.EditJobOp
 app.route('/CareerTips').get(users.requiresLogin,recruiters.CareerTips);
 app.route('/Emails').get(users.requiresLogin,recruiters.Emails);
 app.route('/Tests').get(users.requiresLogin,recruiters.Tests);
-app.route('/UserAdministration').get(users.requiresLogin,recruiters.UserAdministration);
-app.route('/AddNewRecruiter').get(users.requiresLogin,recruiters.AddNewRecruiter);
+
 
 
 app.param('recruiterId', recruiters.recruiterByID);

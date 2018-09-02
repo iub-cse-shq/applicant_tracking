@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/vendor/css/style.css">
+    <link rel="stylesheet" href="/vendor/css/glyphicons.css">
+    <link rel="stylesheet" href="/css/CreateClients.css" crossorigin="anonymous">
+    <title>Edit Client</title>
+</head>
+
+<body>
+   <% include include/RecHeader %>
+    <!-- /* CONTAINER START */ -->
+    <div class="main" id="main">
+        <div class="container" id="container">
+
+            <div class="title jumbotron" id="jumbotron">
+                <!-- used title to reduce extra padding on top of  CREATE NEW CANDIDATE -->
+                <div class="title jumbotron p-2 bg-secondary">
+                    <h3 class="title display-5 py-2 text-white">Edit <%=request.client.contactName%> </h3>
+                </div>
+                <div class="form-row" id="">
+                    <div class="sub col-sm-12  mt-4">
+                        <h2 class="sub title2 display-5">Contact Information</h2>
+                    </div>
+                    <div class="col-sm-8" >
+                        <input type="text" class="b form-control mt-2 textbox" placeholder="Contact Name" id="contactName" value=<%=request.client.contactName%>>
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Contact Email" id="cEmail" value=<%=request.client.cEmail%>>
+                        <input type="text" class="form-control mt-2 textbox" placeholder="Contact Phone" id="cPhone" value=<%=request.client.cPhone%>>
+                        <input type="text" class="b form-control mt-2 textbox" placeholder="Source" id="source" value=<%=request.client.source%>>
+                </div>
+                </div>
+                <div class="form-row" id="">
+                    <div class="sub col-sm-12  mt-4">
+                        <h2 class="sub title2 display-5">Company Information</h2>
+                    </div>
+                    <div class="col-sm-8" >
+                      <input type="text" class="form-control mt-2 textbox" placeholder="Company Name" id="companyName" value=<%=request.client.companyName%>>
+                      <input type="text" class="b form-control mt-2 textbox" placeholder="Industry" id="industry" value=<%=request.client.industry%>>
+                      <input type="text" class="form-control mt-2 textbox" placeholder="Website" id="website" value=<%=request.client.website%>>
+                      <input type="text" class="form-control mt-2 textbox" placeholder="City" id="city" value=<%=request.client.city%>>
+                      <input type="text" class="b form-control mt-2 textbox" placeholder="District" id="district" value=<%=request.client.district%>>
+                      <input type="text" class="b form-control mt-2 textbox" placeholder="Country" id="country" value=<%=request.client.country%>>
+                      <textarea class="form-control mt-2" type="text" rows="1" cols="75" placeholder="Current Address" id="currentAddress value=<%=request.client.currentAddress%>"></textarea>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class=" save col-sm-12 bg-secondary ">
+                            <button class="saveb btn btn-primary-success m-1 m-sm-2 button" type="submit" id="update">Update</button>
+                            <button class="btn btn-primary-success m-1 m-sm-2 button" type="submit" id="cancel">Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+      <script src="/vendor/js/jquery-3.3.1.js"></script>
+    <script type="/vendor/text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script src="/vendor/js/script.js"></script>
+    <script src="/vendor/js/bootstrap.min.js"></script>
+    <script>
+        function openNav() {
+            document.getElementById("sidebar").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "0";
+            document.body.style.backgroundColor = "rgba(0,0,0,0.3)";
+            document.getElementById("container").style.backgroundColor = "#B2B2B2";
+        }
+        function closeNav() {
+            document.getElementById("sidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            document.body.style.backgroundColor = "#F0F1F6";
+            document.getElementById("container").style.backgroundColor = "#F0F1F6";
+        }
+        $(document.getElementById("main")).click( function() {
+          closeNav();
+        });
+        var id = <%- JSON.stringify(request.client._id) %>;
+        var EditClient = {};
+          $('#contactName').change(function(){
+            EditClient.contactName = $('#contactName').val();
+          });
+          $('#cEmail').change(function(){
+            EditClient.cEmail = $('#cEmail').val();
+          });
+          $('#cPhone').change(function(){
+            EditClient.cPhone = $('#cPhone').val();
+          });
+          $('#source').change(function(){
+            EditClient.source = $('#source').val();
+          });
+          $('#companyName').change(function(){
+            EditClient.companyName = $('#companyName').val();
+          });
+          $('#industry').change(function(){
+            EditClient.industry = $('#industry').val();
+          });
+          $('#website').change(function(){
+            EditClient.website = $('#website').val();
+          });
+          $('#city').change(function(){
+            EditClient.city = $('#city').val();
+          });
+          $('#district').change(function(){
+            EditClient.district = $('#district').val();
+          });
+          $('#country').change(function(){
+            EditClient.country = $('#country').val();
+          });
+          $('#currentAddress').change(function(){
+            EditClient.currentAddress = $('#currentAddress').val();
+          });
+          
+        $('#update').click(function(){
+            $.ajax({
+              method:"PUT",
+              url:'/api/clients/edit/'+id, 
+              data: EditClient
+            }).done(function(response){
+              console.log(response);
+              window.location.replace('/ViewClient/'+response._id); 
+              return false;
+            }).fail(function(response){
+                console.log(response);
+            });
+          });
+        $('#cancel').click(function(){
+            window.location.replace('/Clients'); 
+        });
+    </script>
+
+</body>
+
+</html>

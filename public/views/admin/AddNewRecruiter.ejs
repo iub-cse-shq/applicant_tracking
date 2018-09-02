@@ -20,6 +20,11 @@
             <div class="title jumbotron" id="jumbotron">
                 <!-- used title to reduce extra padding on top of  CREATE NEW CANDIDATE -->
                 <div class="title jumbotron p-2 bg-secondary">
+                    
+        <!--  <a href="/recruiters/all" >Show all articles</a>-->
+        <!--<button onclick="location.href='/CreateApplicant';"></button>-->
+    <
+        
                     <h3 class="title display-5 py-2 text-white">Add New Recruiter</h3>
                 </div>
                 <input type="text" class="b form-control mt-2 textbox" placeholder="Name" id="name">
@@ -28,10 +33,10 @@
 
                 <button id="submit">Submit</button>
                 <br/>
-                <button type="button" class="button1" onclick="location.href='/recruiter/AllRecruiter';" >show All Recruiters</button>
                 <div id="error"></div>
                         </div>
                     </div>
+                   
                 </div>
 
     <script src="/vendor/js/jquery-3.3.1.js"></script>
@@ -54,24 +59,26 @@
         $(document.getElementById("main")).click( function() {
           closeNav();
         });
+       
       var newUser = {name:"", email:"", password:"", type:"Recruiter"};
         $('#submit').click(function(){
             newUser.name=$('#name').val();
             newUser.email=$('#email').val();
             newUser.password=$('#password').val();
-      $.ajax({
-        method: 'POST',
-        url: "/auth/signup",
-        data: newUser
-      }).done(function(response){
-        console.log(response);
-        alert("New Recruiter Created!\nRecruiter Name:" + response.name + "\nEmail:" + response.email + "\nPassword:" + response.password);
-        window.location.replace('/UserAdministration');
-      }).fail(function(response){
-        console.log(response);
-        $("#error").text("Something went wrong! Try again.");
-      });
-    });
+              $.ajax({
+                method: 'POST',
+                url: "/auth/signup",
+                data: newUser
+              }).done(function(response){
+                console.log(response);
+                alert("New Recruiter Created!\nRecruiter Name:" + response.name + "\nEmail:" + response.email + "\nPassword:" + response.password);
+                window.location.replace('/UserAdministration');
+              }).fail(function(response){
+                console.log(response);
+                $("#error").text("Something went wrong! Try again.");
+              });
+            });
+        
 
     </script>
 
