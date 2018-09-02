@@ -134,9 +134,17 @@ module.exports.ApplicantEmail = function(req, res) {
 };
 module.exports.ApplicantTest = function(req, res) {
      
-    res.render('./../public/views/applicant/ApplicantTest.ejs', {
-		user: req.user || null, 
-		request: req
+    	var ObjectId = require('mongoose').Types.ObjectId; 
+	Resumee.findOne({user: ObjectId(req.user._id)}).exec(function(err, resumee) {
+		if (err) console.error(err);
+		if (!resumee) return console.error(new Error('Failed to load resumee of user' + req.user._id));
+		req.resumee = resumee;
+		console.log(resumee);
+		
+		res.render('./../public/views/applicant/ApplicantTest.ejs', {
+			user: req.user || null, 
+			request: req
+		});
 	});
 };
 module.exports.ApplicantCareerTips = function(req, res) {
@@ -171,6 +179,7 @@ module.exports.CreateMyResume = function(req, res) {
 	});
 };
 module.exports.EditMyResume = function(req, res) {
+	
 	var ObjectId = require('mongoose').Types.ObjectId; // load the Mongoose ObjectId function 
 	Resumee.findOne({user: ObjectId(req.user._id)}).exec(function(err, resumee) {
 		if (err) console.error(err);
@@ -184,7 +193,31 @@ module.exports.EditMyResume = function(req, res) {
 	});
 	
 };
-    
+module.exports.questions = function(req, res) {
+     
+	var ObjectId = require('mongoose').Types.ObjectId; 
+	Resumee.findOne({user: ObjectId(req.user._id)}).exec(function(err, resumee) {
+		if (err) console.error(err);
+		if (!resumee) return console.error(new Error('Failed to load resumee of user' + req.user._id));
+		req.resumee = resumee;
+		console.log(resumee);
+		
+		res.render('./../public/views/applicant/questions.ejs', {
+			user: req.user || null, 
+			request: req
+		});
+	});
+	
+};
+module.exports.testCompleted = function(req, res) {
+     
+    res.render('./../public/views/applicant/testCompleted.ejs', {
+		user: req.user || null, 
+		request: req
+	});
+};
+
+
 
 exports.applicantByID = function(req, res, next, id) {
 	Resumee.findById(id).populate('user', 'email').exec(function(err, resumee) {
@@ -192,19 +225,5 @@ exports.applicantByID = function(req, res, next, id) {
 		if (!resumee) return next(new Error('Failed to load resumee ' + id));
 		req.resumee = resumee;
 		next();
-	});
-};
-module.exports.questions = function(req, res) {
-     
-    res.render('./../public/views/applicant/questions.ejs', {
-		user: req.user || null, 
-		request: req
-	});
-};
-module.exports.testCompleted = function(req, res) {
-     
-    res.render('./../public/views/applicant/testCompleted.ejs', {
-		user: req.user || null, 
-		request: req
 	});
 };
