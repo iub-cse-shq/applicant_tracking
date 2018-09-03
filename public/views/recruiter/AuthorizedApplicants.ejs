@@ -8,6 +8,7 @@
                   <td> Image </td>
                   <td>Test Status</td>
                   <td>Marks</td>
+                  <td>Authorization</td>
                   <td> Action </td>
 
               </tr>
@@ -19,9 +20,10 @@
                   <td><img src="/images/employee.png" alt="EMPLOYEE default" height="42" width="42"></td>
                   <td style="width:70px">  <%= resumee[i].testStatus %> </td>
                   <td>  <%= resumee[i].marks %></td>
+                  <td>  <%= resumee[i].authorization %></td>
                   <td> 
                             <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#details_modal" 
-                                onclick="load_details(' <%= resumee[i].fname %> <%= resumee[i].lname %>','<%= resumee[i].email %>','<%= resumee[i]._id %>')">
+                                 onclick="load_details(' <%= resumee[i].fname %> <%= resumee[i].lname %>','<%= resumee[i].email %>','<%= resumee[i]._id %>','<%= resumee[i].marks %>','<%= resumee[i].authorization %>','<%= resumee[i].testStatus %>')">
                               <span class="glyphicon glyphicon-eye-open"></span> View
                             </button>
                   </td>
@@ -41,38 +43,45 @@
              });
         });
         
-        function load_details(name,email,id){
+       function load_details(name,email,id,marks,authorization,testStatus){
             ///loading data 
             $("#details_modal_name").text(name);
             $("#details_modal_email").text(email);
             $("#details_modal_id").text(id);
+            $("#details_modal_marks").text(marks);
+            $("#details_modal_auth").text(authorization);
+            $("#details_modal_testSt").text(testStatus);
             
             //now configuring button => settting href attr to <a> tag
             $("#details_modal_view_btn").attr('href',"/ViewApplicant/"+id);
             $("#details_modal_edit_btn").attr('href',"/EditApplicant/"+id);
             // $("#details_modal_remove_btn").attr('href',"/RemoveApplicant/"+id);
             
-            $("#details_modal_authorize_btn").attr('href'," ");
-            $("#details_modal_test_btn").attr('href'," ");
+           
             
-            $("#details_modal_remove_btn").click(function(){
-                let resume ={
-                    _id: id
-                }
-                $.ajax({
-                  method:"DELETE",
-                  url:'/api/applicants/'+id,
-                  data: resume
-                }).done(function(response){
-                  //console.log(response);
-                  window.location.replace('/Applicants'); 
-                return false;
-                }).fail(function(response){
-                    console.log(response);
-                });
+         
+            
+            $("#details_modal_authorize_btn").click(function(){
+                     var resumee = {};
+        
+                     resumee.testStatus = "Pending";
+                     resumee.authorization = "Yes"; 
+                     
+                     
+                     $.ajax({
+                          method:"PUT",
+                          url:'/api/applicants/edit/'+id,
+                          data: resumee
+                        }).done(function(response){
+                          //console.log(response);
+                          window.location.replace("/Applicants");
+                        return false;
+                        }).fail(function(response){
+                            console.log(response);
+                        });
+           
+                
             });
-
-            
             
         }
     </script>

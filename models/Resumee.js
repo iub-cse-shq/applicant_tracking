@@ -149,6 +149,7 @@ var ResumeeSchema = {
     type: String,
     trim: true
   }
+  
 };
 
 var Resumee = mongoose.model('Resumee', ResumeeSchema, 'resumees');

@@ -106,11 +106,26 @@ module.exports.listView = function(req, res) {
 
 module.exports.ApplicantDashboard = function(req, res) {
      
-    res.render('./../public/views/applicant/ApplicantDashboard.ejs', {
-    // res.render('./../public/views/recruiter/dashboard.ejs', {
-		user: req.user || null, 
-		request: req
+        	var ObjectId = require('mongoose').Types.ObjectId; 
+	Resumee.findOne({user: ObjectId(req.user._id)}).exec(function(err, resumee) {
+		if (err) console.error(err);
+		if (!resumee) return console.error(new Error('Failed to load resumee of user' + req.user._id));
+		req.resumee = resumee;
+		console.log(resumee);
+		
+		res.render('./../public/views/applicant/ApplicantDashboard.ejs', {
+			user: req.user || null, 
+			request: req
+		});
 	});
+    
+    
+    
+ //   res.render('./../public/views/applicant/ApplicantDashboard.ejs', {
+ //   // res.render('./../public/views/recruiter/dashboard.ejs', {
+	// 	user: req.user || null, 
+	// 	request: req
+	// });
 };
 module.exports.MyProfile = function(req, res) {
 	var ObjectId = require('mongoose').Types.ObjectId; // load the Mongoose ObjectId function 
