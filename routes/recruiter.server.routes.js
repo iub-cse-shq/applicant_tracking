@@ -54,7 +54,7 @@ app.route('/api/recruiters/edit/:recruiterId')
 	app.route('/CreateEmail').get(users.requiresLogin,recruiters.CreateEmail);
 	app.route('/Tests').get(users.requiresLogin,recruiters.Tests);
 	app.route('/UserAdministration').get(users.requiresLogin,recruiters.UserAdministration);
-	app.route('/aboutUs').get(users.requiresLogin,recruiters.UserAdministration);
+	app.route('/aboutUs').get(users.requiresLogin,recruiters.aboutUs);
 	app.route('/AddNewRecruiter').get(users.requiresLogin,recruiters.AddNewRecruiter);
 
 	
