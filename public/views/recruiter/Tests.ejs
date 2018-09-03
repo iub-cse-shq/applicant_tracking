@@ -64,19 +64,10 @@
                  <a href="" class="btn btn-info btn-sm" id="details_modal_edit_btn">
                       <span class="glyphicon glyphicon-pencil"></span> Edit profile
                 </a>
-                 <button class="btn btn-danger btn-sm" id="details_modal_remove_btn">
-                      <span class="glyphicon glyphicon-remove-sign"></span> Remove profile
-                </button>
-                 <a href="#" class="btn btn-primary btn-sm">
-                      <span class="glyphicon glyphicon-print"></span> Print
-                </a>
-                <br> <br>
                 <a href="" class="btn btn-warning btn-sm" id="details_modal_authorize_btn">
                       <span class="glyphicon glyphicon-book"></span> Authorize Test
                 </a>
-                <a href="#" class="btn btn-success btn-sm" id="details_modal_test_btn">
-                      <span class="glyphicon glyphicon-check"></span> Test Result
-                </a>
+                
           </div>
         </div>
       </div>
@@ -108,11 +99,9 @@
           closeNav();
         });
         
-        $('#details_modal_authorize_btn').click(function(){
-           $('# authorization').change(function(){
-              resume.authorization="yes";
-         }); 
-        });
+        // $('#details_modal_authorize_btn').click(function(){
+        //       resumee.authorization="yes";
+        // });
  
         $("#showAllApp").click(function(){
             loadApplicants();
