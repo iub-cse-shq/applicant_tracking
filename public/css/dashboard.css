@@ -3,6 +3,12 @@ body {
     background: #F0F1F6;
     transition: background-color .9s;
 }
+.main {
+    background-image: url(back1.jpg);
+      background-repeat:no-repeat ;
+    background-size:cover;
+    height:535px;
+}
 /*//////////////  NAVBAR /////////////*/
 .navbar{
   height: 70px;
